@@ -1,0 +1,19 @@
+﻿roe_slave = {
+    alias = { roe_slaves }
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
+
+roe_african_slave = {
+    alias = { roe_african_slaves }
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
+
+roe_slavic_slave = {
+    alias = { roe_slavic_slaves }
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
+
+roe_turkic_slave = {
+    alias = { roe_turkic_slaves }
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
