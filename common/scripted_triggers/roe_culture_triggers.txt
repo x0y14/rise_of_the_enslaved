@@ -30,7 +30,7 @@ roe_culture_is_slave_heritage_turkic = {
     }
 }
 
-roe_culture_is_slave_heritage_other = {
+roe_culture_is_slave_heritage_various = {
     NOR = {
         roe_culture_is_slave_heritage_african = yes
         roe_culture_is_slave_heritage_slavic = yes

@@ -17,3 +17,8 @@ roe_turkic_slave = {
     alias = { roe_turkic_slaves }
     texture = "gfx/interface/icons/event_types/type_prison.dds"
 }
+
+roe_various_slave = {
+    alias = { roe_various_slaves }
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
