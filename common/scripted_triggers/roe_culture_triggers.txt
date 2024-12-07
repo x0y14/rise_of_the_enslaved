@@ -21,7 +21,7 @@ roe_culture_is_slave_heritage_slavic = {
     }
 }
 
-roe_culture_is_slave_heritage_turk = {
+roe_culture_is_slave_heritage_turkic = {
     OR = {
         has_cultural_pillar = heritage_magyar
         has_cultural_pillar = heritage_mongolic
