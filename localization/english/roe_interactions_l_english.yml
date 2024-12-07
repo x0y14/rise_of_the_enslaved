@@ -1,9 +1,11 @@
 ﻿l_english:
-  roe_test_give_slave_token: "Give Slave Token"
-  roe_test_give_slave_token_desc: "DESC"
-  roe_test_give_slave_token_actor_tt: "slave token -1"
-  roe_test_give_slave_token_recipient_tt: "slave token +1"
+  # roe_test_give_slave_token: "Give Slave Token"
+  # roe_test_give_slave_token_desc: "DESC"
+  # roe_test_give_slave_token_actor_tt: "slave token -1"
+  # roe_test_give_slave_token_recipient_tt: "slave token +1"
 
   roe_test_create_trade_task_contract_interaction: "Create Trade Task Contract"
   roe_test_create_trade_task_contract_interaction_desc: "DESC"
   roe_test_create_trade_task_contract_interaction_no_slave_market_err_tt: "bukhara, samarra and cairo has not slave market"
+  roe_test_create_trade_task_contract_interaction_total_slave_token_in_market_is_zero_err_tt: "bukhara, samarra and cairo has more than or equal 1 slave token"
+  # roe_artifact_create_cargo_manifest_and_load_cargo_tt: "Create Cargo manifest & load cargos"

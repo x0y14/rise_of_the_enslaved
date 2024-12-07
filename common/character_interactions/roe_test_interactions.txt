@@ -1,116 +1,4 @@
-﻿roe_test_give_slave_token = {
-	category = interaction_debug_main
-	use_diplomatic_range = no
-	ignores_pending_interaction_block = yes
-	icon = debug_good
-
-	is_shown = {
-		debug_only = yes
-		NOT = { scope:recipient = scope:actor }
-	}
-
-    is_valid_showing_failures_only = {
-        scope:actor = {
-            is_independent_ruler = yes
-            OR = {
-                this = title:c_bukhara.holder.top_liege
-                this = title:c_samarra.holder.top_liege
-                this = title:c_cairo.holder.top_liege
-            }
-        }
-        scope:recipient = {
-            is_independent_ruler = yes
-            OR = {
-                this = title:c_bukhara.holder.top_liege
-                this = title:c_samarra.holder.top_liege
-                this = title:c_cairo.holder.top_liege
-            }
-        }
-    }
-
-    auto_accept = yes
-    on_accept = {
-        custom_tooltip = {
-            text = roe_test_give_slave_token_actor_tt
-            scope:actor = {
-                if = {
-                    limit = {
-                        this = title:c_bukhara.holder.top_liege
-                    }
-                    title:c_bukhara = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = -1
-                        }
-                    }
-                }
-                else_if = {
-                    limit = {
-                        this = title:c_samarra.holder.top_liege
-                    }
-                    title:c_samarra = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = -1
-                        }
-                    }
-                }
-                else_if = {
-                    limit = {
-                        this = title:c_cairo.holder.top_liege
-                    }
-                    title:c_cairo = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = -1
-                        }
-                    }
-                }
-            }
-        }
-
-        custom_tooltip = {
-            text = roe_test_give_slave_token_recipient_tt
-            scope:recipient = {
-                if = {
-                    limit = {
-                        this = title:c_bukhara.holder.top_liege
-                    }
-                    title:c_bukhara = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = 1
-                        }
-                    }
-                }
-                else_if = {
-                    limit = {
-                        this = title:c_samarra.holder.top_liege
-                    }
-                    title:c_samarra = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = 1
-                        }
-                    }
-                }
-                else_if = {
-                    limit = {
-                        this = title:c_cairo.holder.top_liege
-                    }
-                    title:c_cairo = {
-                        change_variable = {
-                            name = roe_slave_token
-                            add = 1
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-roe_test_create_trade_task_contract_interaction = {
+﻿roe_test_create_trade_task_contract_interaction = {
     category = interaction_debug_admin
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
@@ -145,54 +33,53 @@ roe_test_create_trade_task_contract_interaction = {
             }
             custom_tooltip = {
                 text = roe_test_create_trade_task_contract_interaction_no_slave_market_err_tt
-                title:c_bukhara = { has_county_modifier = roe_slave_market_bukhara }
-                title:c_samarra = { has_county_modifier = roe_slave_market_samarra }
-                title:c_cairo = { has_county_modifier = roe_slave_market_cairo }
+                title:c_bukhara = { roe_county_has_valid_slave_market_trigger = yes }
+                title:c_samarra = { roe_county_has_valid_slave_market_trigger = yes }
+                title:c_cairo = { roe_county_has_valid_slave_market_trigger = yes }
+            }
+            custom_tooltip = {
+                text = roe_test_create_trade_task_contract_interaction_total_slave_token_in_market_is_zero_err_tt
+                title:c_bukhara = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
+                title:c_samarra = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
+                title:c_cairo = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
             }
         }
     }
 
     auto_accept = yes
     on_accept = {
-        title:c_bukhara = { add_to_list = trade_center_counties }
-        title:c_samarra = { add_to_list = trade_center_counties }
-        title:c_cairo = { add_to_list = trade_center_counties }
+        title:c_bukhara = { add_to_list = slave_market_counties }
+        title:c_samarra = { add_to_list = slave_market_counties }
+        title:c_cairo = { add_to_list = slave_market_counties }
         # 出発地点のトレードセンターを選ぶ
         random_in_list = {
-            list = trade_center_counties
+            list = slave_market_counties
             limit = { scope:recipient = this.holder.top_liege }
             save_scope_as = caravan_origin_county
         }
         # キャラバンの行き先を決める
         random_in_list = {
-            list = trade_center_counties
+            list = slave_market_counties
             limit = { NOT = { scope:recipient = this.holder.top_liege } }
             save_scope_as = caravan_dest_county
         }
 
         # 積載リストを作成する
         scope:recipient = {
-            create_artifact = {
-                name = roe_cargo_manifest
-                description = placeholder
-                type = miscellaneous
-                visuals = book
-                modifier = roe_artifact_cargo_manifest_modifier
-                save_scope_as = newly_created_artifact
+            # create artifact
+            roe_create_cargo_manifest_artifact_effect = yes
+            # 取り出す
+            scope:caravan_origin_county = {
+                roe_county_takeout_slave_token_effect = yes
             }
-            # 積載
-            scope:newly_created_artifact = {
-                set_variable = {
-                    name = roe_slave_token
-                    value = scope:caravan_origin_county.var:roe_slave_token
+            # 積み込む
+            scope:newly_created_artifact ?= { # ?=でないとtooltip表示のときにエラー出る
+                roe_artifact_cargo_manifest_load_cargo_and_update_desciption_effect = {
+                    AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                    SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                    TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                    VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
                 }
-                set_artifact_description = roe_cargo_manifest_description
-            }
-        }
-        scope:caravan_origin_county = {
-            change_variable = {
-                name = roe_slave_token
-                subtract = var:roe_slave_token
             }
         }
 
