@@ -22,3 +22,7 @@ roe_various_slave = {
     alias = { roe_various_slaves }
     texture = "gfx/interface/icons/event_types/type_prison.dds"
 }
+
+roe_slave_market = {
+    texture = "gfx/interface/icons/event_types/type_prison.dds"
+}
