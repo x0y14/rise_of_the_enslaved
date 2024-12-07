@@ -1,4 +1,4 @@
-﻿roe_culture_is_slave_heritage_african = {
+﻿roe_culture_is_slave_heritage_african_trigger = {
     OR = {
         has_cultural_pillar = heritage_akan
         has_cultural_pillar = heritage_bantu
@@ -12,7 +12,7 @@
     }
 }
 
-roe_culture_is_slave_heritage_slavic = {
+roe_culture_is_slave_heritage_slavic_trigger = {
     OR = {
         has_cultural_pillar = heritage_east_slavic
         has_cultural_pillar = heritage_south_slavic
@@ -21,7 +21,7 @@ roe_culture_is_slave_heritage_slavic = {
     }
 }
 
-roe_culture_is_slave_heritage_turkic = {
+roe_culture_is_slave_heritage_turkic_trigger = {
     OR = {
         has_cultural_pillar = heritage_magyar
         has_cultural_pillar = heritage_mongolic
@@ -30,10 +30,10 @@ roe_culture_is_slave_heritage_turkic = {
     }
 }
 
-roe_culture_is_slave_heritage_various = {
+roe_culture_is_slave_heritage_various_trigger = {
     NOR = {
-        roe_culture_is_slave_heritage_african = yes
-        roe_culture_is_slave_heritage_slavic = yes
-        roe_culture_is_slave_heritage_turk = yes
+        roe_culture_is_slave_heritage_african_trigger = yes
+        roe_culture_is_slave_heritage_slavic_trigger = yes
+        roe_culture_is_slave_heritage_turkic_trigger = yes
     }
 }
