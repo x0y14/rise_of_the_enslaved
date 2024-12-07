@@ -13,15 +13,15 @@ roe_cargomanifest_changed_owner = {
             OR = {
                 AND = {
                     this = title:c_bukhara.holder.top_liege
-                    title:c_bukhara = { has_county_modifier = roe_slave_market_bukhara }
+                    title:c_bukhara = { has_county_modifier = roe_slave_market_bukhara_county_modifier }
                 }
                 AND = {
                     this = title:c_samarra.holder.top_liege
-                    title:c_samarra = { has_county_modifier = roe_slave_market_samarra }
+                    title:c_samarra = { has_county_modifier = roe_slave_market_samarra_county_modifier }
                 }
                 AND = {
                     this = title:c_cairo.holder.top_liege
-                    title:c_cairo = { has_county_modifier = roe_slave_market_cairo }
+                    title:c_cairo = { has_county_modifier = roe_slave_market_cairo_county_modifier }
                 }
             }
         }

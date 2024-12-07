@@ -1,7 +1,7 @@
 ﻿l_english:
-  roe_slave_market_bukhara: "Slave Market"
-  roe_slave_market_bukhara_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_slave_token').GetValue]"
-  roe_slave_market_samarra: "Slave Market"
-  roe_slave_market_samarra_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_samarra').MakeScope.Var('roe_slave_token').GetValue]"
-  roe_slave_market_cairo: "Slave Market"
-  roe_slave_market_cairo_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_cairo').MakeScope.Var('roe_slave_token').GetValue]"
+  roe_slave_market_bukhara_county_modifier: "Slave Market"
+  roe_slave_market_bukhara_county_modifier_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_slave_token').GetValue]"
+  roe_slave_market_samarra_county_modifier: "Slave Market"
+  roe_slave_market_samarra_county_modifier_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_samarra').MakeScope.Var('roe_slave_token').GetValue]"
+  roe_slave_market_cairo_county_modifier: "Slave Market"
+  roe_slave_market_cairo_county_modifier_desc: "The slave trade is taking place in this county: [GetTitleByKey('c_cairo').MakeScope.Var('roe_slave_token').GetValue]"
