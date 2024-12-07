@@ -1,9 +1,9 @@
 ﻿l_english:
-  roe_test_setup_slave_trade_center_decision: "Setup Slave Trade Center"
-  roe_test_setup_slave_trade_center_decision_desc: "DESC"
-  roe_test_setup_slave_trade_center_decision_tooltip: "TOOLTIP"
-  roe_test_setup_slave_trade_center_decision_confirm: "confirm"
-  roe_setup_slave_trade_center_effect_tt: "setup slave trade ceonter modifier to c_bukhara, c_samarra, c_cairo"
+  roe_test_setup_slave_market_decision: "Setup Slave Market"
+  roe_test_setup_slave_market_decision_desc: "DESC"
+  roe_test_setup_slave_market_decision_tooltip: "TOOLTIP"
+  roe_test_setup_slave_market_decision_confirm: "confirm"
+  roe_setup_slave_market_effect_tt: "setup slave market modifier to c_bukhara, c_samarra, c_cairo"
 
   roe_test_create_trade_task_contract_decision: "Create Trade Task Contract"
   roe_test_create_trade_task_contract_decision_desc: ""

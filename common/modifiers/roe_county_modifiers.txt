@@ -1,12 +1,12 @@
-﻿roe_slave_trade_center_bukhara = {
+﻿roe_slave_market_bukhara = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
-roe_slave_trade_center_samarra = {
+roe_slave_market_samarra = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
-roe_slave_trade_center_cairo = {
+roe_slave_market_cairo = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }

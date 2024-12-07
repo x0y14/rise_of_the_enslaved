@@ -144,10 +144,10 @@ roe_test_create_trade_task_contract_interaction = {
                 this = title:c_cairo.holder.top_liege
             }
             custom_tooltip = {
-                text = roe_test_create_trade_task_contract_interaction_no_slave_trade_center_err_tt
-                title:c_bukhara = { has_county_modifier = roe_slave_trade_center_bukhara }
-                title:c_samarra = { has_county_modifier = roe_slave_trade_center_samarra }
-                title:c_cairo = { has_county_modifier = roe_slave_trade_center_cairo }
+                text = roe_test_create_trade_task_contract_interaction_no_slave_market_err_tt
+                title:c_bukhara = { has_county_modifier = roe_slave_market_bukhara }
+                title:c_samarra = { has_county_modifier = roe_slave_market_samarra }
+                title:c_cairo = { has_county_modifier = roe_slave_market_cairo }
             }
         }
     }

@@ -6,4 +6,4 @@
 
   roe_test_create_trade_task_contract_interaction: "Create Trade Task Contract"
   roe_test_create_trade_task_contract_interaction_desc: "DESC"
-  roe_test_create_trade_task_contract_interaction_no_slave_trade_center_err_tt: "bukhara, samarra and cairo has not slave trade center"
+  roe_test_create_trade_task_contract_interaction_no_slave_market_err_tt: "bukhara, samarra and cairo has not slave market"

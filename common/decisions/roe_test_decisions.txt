@@ -1,4 +1,4 @@
-﻿roe_test_setup_slave_trade_center_decision = {
+﻿roe_test_setup_slave_market_decision = {
     decision_group_type = debug
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
@@ -11,7 +11,7 @@
 
     effect = {
         custom_tooltip = {
-            text = roe_setup_slave_trade_center_effect_tt
+            text = roe_setup_slave_market_effect_tt
             # Bukhara
             title:c_bukhara = {
                 if = {
@@ -26,9 +26,9 @@
                     add = 1
                 }
                 if = {
-                    limit = { NOT = { has_county_modifier = roe_slave_trade_center_bukhara } }
+                    limit = { NOT = { has_county_modifier = roe_slave_market_bukhara } }
                     add_county_modifier = {
-                        modifier = roe_slave_trade_center_bukhara
+                        modifier = roe_slave_market_bukhara
                     }
                 }
             }
@@ -46,9 +46,9 @@
                     add = 1
                 }
                 if = {
-                    limit = { NOT = { has_county_modifier = roe_slave_trade_center_samarra } }
+                    limit = { NOT = { has_county_modifier = roe_slave_market_samarra } }
                     add_county_modifier = {
-                        modifier = roe_slave_trade_center_samarra
+                        modifier = roe_slave_market_samarra
                     }
                 }
             }
@@ -66,9 +66,9 @@
                     add = 1
                 }
                 if = {
-                    limit = { NOT = { has_county_modifier = roe_slave_trade_center_cairo } }
+                    limit = { NOT = { has_county_modifier = roe_slave_market_cairo } }
                     add_county_modifier = {
-                        modifier = roe_slave_trade_center_cairo
+                        modifier = roe_slave_market_cairo
                     }
                 }
             }

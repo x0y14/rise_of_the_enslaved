@@ -28,9 +28,9 @@ roe_load_cargo_and_update_description_effect = {
             $TRADE_CENTER_COUNTY$ = {
                 # TRADE_CENTER_COUNTYにTrade Centerがあること
                 OR = {
-                    has_county_modifier = roe_slave_trade_center_bukhara
-                    has_county_modifier = roe_slave_trade_center_samarra
-                    has_county_modifier = roe_slave_trade_center_cairo
+                    has_county_modifier = roe_slave_market_bukhara
+                    has_county_modifier = roe_slave_market_samarra
+                    has_county_modifier = roe_slave_market_cairo
                 }
                 # tokenを持っていること
                 has_variable = roe_slave_token
