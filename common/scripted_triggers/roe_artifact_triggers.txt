@@ -1,0 +1,7 @@
+﻿roe_artifact_is_cargo_manifest_trigger = {
+    has_variable = roe_is_cargo_manifest
+    has_variable = roe_african_slave_token
+    has_variable = roe_slavic_slave_token
+    has_variable = roe_turkic_slave_token
+    has_variable = roe_various_slave_token
+}
