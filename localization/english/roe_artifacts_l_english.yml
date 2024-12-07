@@ -1,0 +1,4 @@
+﻿l_english:
+  roe_cargo_manifest: "Cargo Manifest"
+  roe_cargo_manifest_description_placeholder: "Trader's Cargo Manifest"
+  roe_cargo_manifest_description: "Cargo Manifest of Caravan\n    Slaves: [newly_created_artifact.MakeScope.Var('roe_slave_token').GetValue]"

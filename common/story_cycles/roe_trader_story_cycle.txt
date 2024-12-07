@@ -1,0 +1,60 @@
+﻿roe_trader_story = {
+    on_setup = {
+        story_owner = {
+            if = {
+                limit = { NOT = { has_trait = roe_trader } }
+                add_trait = roe_trader
+            }
+        }
+    }
+
+    on_end = {
+    }
+
+    on_owner_death = {
+        end_story = yes
+    }
+
+    # check trade center
+    effect_group = {
+        days = { 30 90 }
+        triggered_effect = {
+            
+        }
+    }
+
+    # Story続けられる?
+    effect_group = {
+        days = 1
+        first_valid = {
+            # AIじゃなくなったら終わるよ
+            triggered_effect = {
+                trigger = {
+                    story_owner = { is_ai = no }
+                }
+                effect = {
+                    end_story = yes
+                }
+            }
+            # 土地なし冒険者じゃなくなったらもとに戻すよ
+            triggered_effect = {
+                trigger = {
+                    story_owner = { is_landless_adventurer = no }
+                }
+                effect = {
+                    story_owner = { save_scope_as = story_owner }
+                    scope:story_owner = {
+                        if = {
+                            limit = { is_ruler = yes }
+                            depose = yes
+                        }
+                        create_landless_adventurer_title_effect = {
+                            REASON = flag:voluntary
+                            FLAVOR_CHAR = scope:story_owner
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

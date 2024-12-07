@@ -1,0 +1,35 @@
+﻿roe_trader = {
+    category = fame
+    icon = "traveler.dds"
+    shown_in_ruler_designer = no
+
+    name = trait_roe_trader
+    desc = trait_roe_trader_desc
+
+    health = 0.5
+
+    general_opinion = 30
+    diplomacy = 30
+    stewardship = 30
+    travel_companion_opinion = 30
+
+    monthly_wanderer_lifestyle_xp_gain_mult = 0.5
+
+    character_travel_speed = 30
+    character_travel_safety = 30
+
+    jungle_travel_danger = -30
+    desert_travel_danger = -30
+    drylands_travel_danger = -30
+    desert_mountains_travel_danger = -30
+    wetlands_travel_danger = -30
+    steppe_travel_danger = -30
+    floodplains_travel_danger = -30
+    hills_travel_danger = -30
+    mountains_travel_danger = -30
+    forest_travel_danger = -30
+    taiga_travel_danger = -30
+
+    # AI
+    ai_sociability = 100
+}

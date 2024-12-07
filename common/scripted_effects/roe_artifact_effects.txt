@@ -1,0 +1,53 @@
+﻿# ROOT: None
+roe_create_cargo_manifest_effect = {
+    create_artifact = {
+        name = roe_cargo_manifest
+        description = roe_cargo_manifest_description_placeholder
+        type = miscellaneous
+        visuals = book
+        modifier = roe_artifact_cargo_manifest_placeholder_modifier
+        save_scope_as = newly_created_artifact
+    }
+    scope:newly_created_artifact = {
+        set_variable = {
+            name = roe_is_cargo_manifest
+            value = yes
+        }
+    }
+}
+
+# ROOT: Artifact
+# $TRADE_CENTER_COUNTY$: landed_title(tier_county)
+# $MAX_CARGO_SIZE$ : int
+roe_load_cargo_and_update_description_effect = {
+    if = {
+        limit = {
+            # このartifactが積載目録であること
+            has_variable = roe_is_cargo_manifest
+
+            $TRADE_CENTER_COUNTY$ = {
+                # TRADE_CENTER_COUNTYにTrade Centerがあること
+                OR = {
+                    has_county_modifier = roe_slave_trade_center_bukhara
+                    has_county_modifier = roe_slave_trade_center_samarra
+                    has_county_modifier = roe_slave_trade_center_cairo
+                }
+                # tokenを持っていること
+                has_variable = roe_slave_token
+                # 0より多くのtokenを持っていること
+                trigger_if = {
+                    limit = { has_variable = roe_slave_token }
+                    var:roe_slave_token > 0
+                }
+            }
+            # ゼロを積むことはできない...
+            $MAX_CARGO_SIZE$ > 0
+        }
+        # 積載
+        if = {
+            limit = {
+                NOT = { has_variable = roe_slave_token }
+            }
+        }
+    }
+}

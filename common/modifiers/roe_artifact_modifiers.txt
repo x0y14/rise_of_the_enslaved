@@ -1,0 +1,7 @@
+﻿roe_artifact_cargo_manifest_placeholder_modifier = {
+    character_travel_speed = -10
+}
+
+roe_artifact_cargo_manifest_modifier = {
+    character_travel_speed = -10
+}
