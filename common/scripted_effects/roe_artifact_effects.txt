@@ -1,5 +1,5 @@
 ﻿# ROOT: None
-roe_create_cargo_manifest_effect = {
+roe_create_cargo_manifest_artifact_effect = {
     create_artifact = {
         name = roe_cargo_manifest
         description = roe_cargo_manifest_description_placeholder
@@ -13,41 +13,126 @@ roe_create_cargo_manifest_effect = {
             name = roe_is_cargo_manifest
             value = yes
         }
+        set_variable = {
+            name = roe_african_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_slavic_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_turkic_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_various_slave_token
+            value = 0
+        }
+    }
+}
+
+
+# ROOT: Artifact
+# PARAMS:
+#   AFRICAN_SLAVE_TOKEN: int
+#   SLAVIC_SLAVE_TOKEN: int
+#   TURKIC_SLAVE_TOKEN: int
+#   VARIOUS_SLAVE_TOKEN: int
+roe_artifact_cargo_manifest_load_cargo_and_update_desciption_effect = {
+    if = {
+        limit = {
+            # roe_artifact_cargo_manifest_is_valid_trigger = yes
+            has_variable = roe_is_cargo_manifest
+            # roe_artifact_cargo_manifest_has_slave_token_variables_trigger = yes
+            has_variable = roe_african_slave_token
+            has_variable = roe_slavic_slave_token
+            has_variable = roe_turkic_slave_token
+            has_variable = roe_various_slave_token
+            0 <= {
+                value = 0
+                add = var:roe_african_slave_token
+                add = var:roe_slavic_slave_token
+                add = var:roe_turkic_slave_token
+                add = var:roe_various_slave_token
+            }
+        }
+        save_scope_as = artifact_cargo_manifest
+        # load cargo
+        change_variable = {
+            name = roe_african_slave_token
+            add = $AFRICAN_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            add = $SLAVIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            add = $TURKIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            add = $VARIOUS_SLAVE_TOKEN$
+        }
+        # update desc
+        set_artifact_description = roe_cargo_manifest_description
     }
 }
 
 # ROOT: Artifact
-# $TRADE_CENTER_COUNTY$: landed_title(tier_county)
-# $MAX_CARGO_SIZE$ : int
-roe_load_cargo_and_update_description_effect = {
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_artifact_cargo_manifest_unload_cargo_and_update_description_effect = {
     if = {
         limit = {
-            # このartifactが積載目録であること
-            has_variable = roe_is_cargo_manifest
-
-            $TRADE_CENTER_COUNTY$ = {
-                # TRADE_CENTER_COUNTYにTrade Centerがあること
-                OR = {
-                    has_county_modifier = roe_slave_market_bukhara
-                    has_county_modifier = roe_slave_market_samarra
-                    has_county_modifier = roe_slave_market_cairo
-                }
-                # tokenを持っていること
-                has_variable = roe_slave_token
-                # 0より多くのtokenを持っていること
-                trigger_if = {
-                    limit = { has_variable = roe_slave_token }
-                    var:roe_slave_token > 0
-                }
-            }
-            # ゼロを積むことはできない...
-            $MAX_CARGO_SIZE$ > 0
+            # valid?
+            roe_artifact_cargo_manifest_is_valid_trigger = yes
+            # total_token >= 1?
+            roe_artifact_cargo_manifest_has_more_than_or_equal_1_slave_token_trigger = yes
         }
-        # 積載
-        if = {
-            limit = {
-                NOT = { has_variable = roe_slave_token }
-            }
+        save_scope_as = artifact_cargo_manifest
+        # unload cargo
+        ## african
+        save_scope_value_as = {
+            name = RETURN_AFRICAN_SLAVE_TOKEN
+            value = var:roe_african_slave_token
         }
+        change_variable = {
+            name = roe_african_slave_token
+            subtract = scope:RETURN_AFRICAN_SLAVE_TOKEN
+        }
+        ## slavic
+        save_scope_value_as = {
+            name = RETURN_SLAVIC_SLAVE_TOKEN
+            value = var:roe_slavic_slave_token
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            subtract = scope:RETURN_SLAVIC_SLAVE_TOKEN
+        }
+        ## turkic
+        save_scope_value_as = {
+            name = RETURN_TURKIC_SLAVE_TOKEN
+            value = var:roe_turkic_slave_token
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            subtract = scope:RETURN_TURKIC_SLAVE_TOKEN
+        }
+        ## various
+        save_scope_value_as = {
+            name = RETURN_VARIOUS_SLAVE_TOKEN
+            value = var:roe_various_slave_token
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+        # update desc
+        set_artifact_description = roe_cargo_manifest_description
     }
 }
