@@ -7,11 +7,45 @@
     }
 }
 
-roe_county_has_slave_market_modifier_trigger = {
-    roe_county_is_in_slave_market_county_list_trigger = yes
+roe_county_has_slave_market_county_modifier_trigger = {
     OR = {
         has_county_modifier = roe_slave_market_bukhara_county_modifier
         has_county_modifier = roe_slave_market_samarra_county_modifier
         has_county_modifier = roe_slave_market_cairo_county_modifier
+    }
+}
+
+roe_county_has_slave_token_variables_trigger = {
+    has_variable = roe_african_slave_token
+    has_variable = roe_slavic_slave_token
+    has_variable = roe_turkic_slave_token
+    has_variable = roe_various_slave_token
+}
+
+roe_county_has_valid_slave_market_trigger = {
+    # county is in market county list?
+    roe_county_is_in_slave_market_county_list_trigger = yes
+    # has modifier?
+    roe_county_has_slave_market_county_modifier_trigger = yes
+    # has variables?
+    roe_county_has_slave_token_variables_trigger = yes
+    # total token >= 0
+    0 <= {
+        value = 0
+        add = var:roe_african_slave_token
+        add = var:roe_slavic_slave_token
+        add = var:roe_turkic_slave_token
+        add = var:roe_various_slave_token
+    }
+}
+
+roe_county_has_more_than_or_equal_1_slave_token_trigger = {
+    roe_county_has_valid_slave_market_trigger = yes
+    1 <= {
+        value = 0
+        add = var:roe_african_slave_token
+        add = var:roe_slavic_slave_token
+        add = var:roe_turkic_slave_token
+        add = var:roe_various_slave_token
     }
 }
