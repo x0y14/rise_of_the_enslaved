@@ -1,57 +1,62 @@
 ﻿on_artifact_changed_owner = {
     on_actions = {
-        roe_cargomanifest_changed_owner
+        roe_artifact_cargo_manifest_changed_owner_on_action
     }
 }
 
-roe_cargomanifest_changed_owner = {
+roe_artifact_cargo_manifest_changed_owner_on_action = {
     trigger = {
         # This is Cargo Manifest
-        has_variable = roe_slave_token
+        roe_artifact_cargo_manifest_is_valid_trigger = yes
+        # Cargo has more than or equal 1 tokens
+        roe_artifact_cargo_manifest_has_more_than_or_equal_1_slave_token_trigger = yes
         # New Owner has Trade Center
         scope:owner = {
             OR = {
                 AND = {
                     this = title:c_bukhara.holder.top_liege
-                    title:c_bukhara = { has_county_modifier = roe_slave_market_bukhara_county_modifier }
+                    title:c_bukhara = { roe_county_has_valid_slave_market_trigger = yes }
                 }
                 AND = {
                     this = title:c_samarra.holder.top_liege
-                    title:c_samarra = { has_county_modifier = roe_slave_market_samarra_county_modifier }
+                    title:c_samarra = { roe_county_has_valid_slave_market_trigger = yes }
                 }
                 AND = {
                     this = title:c_cairo.holder.top_liege
-                    title:c_cairo = { has_county_modifier = roe_slave_market_cairo_county_modifier }
+                    title:c_cairo = { roe_county_has_valid_slave_market_trigger = yes }
                 }
             }
         }
     }
     effect = {
-        save_scope_as = artifact_cargo_manifest
-
-        # 荷下ろし先を決める
-        title:c_bukhara = { add_to_list = trade_center_counties }
-        title:c_samarra = { add_to_list = trade_center_counties }
-        title:c_cairo = { add_to_list = trade_center_counties }
+        save_scope_as = roe_artifact_cargo_manifest
+        # 荷下ろし先
+        title:c_bukhara = { add_to_list = slave_market_counties }
+        title:c_samarra = { add_to_list = slave_market_counties }
+        title:c_cairo = { add_to_list = slave_market_counties }
         random_in_list = {
-            list = trade_center_counties
+            list = slave_market_counties
             limit = { scope:owner = this.holder.top_liege }
-            save_scope_as = caravan_unload_county
+            save_scope_as = target_county_store_cargo
         }
-
-        # 荷下ろし
-        scope:caravan_unload_county = {
-            change_variable = {
-                name = roe_slave_token
-                add = scope:artifact_cargo_manifest.var:roe_slave_token
+        # unload cargo from artifact
+        scope:roe_artifact_cargo_manifest = {
+            roe_artifact_cargo_manifest_unload_cargo_and_update_description_effect = yes
+        }
+        # store cargo to county
+        scope:target_county_store_cargo = {
+            roe_county_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
             }
         }
-        scope:artifact_cargo_manifest = {
-            change_variable = {
-                name = roe_slave_token
-                subtract = var:roe_slave_token
+        scope:roe_artifact_cargo_manifest = {
+            trigger_event = {
+                id = roe_artifact.0001
+                days = 3
             }
-            destroy_artifact = this
         }
     }
 }
