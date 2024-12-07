@@ -1,0 +1,10 @@
+﻿namespace = roe_artifact
+
+roe_artifact.0001 = {
+    scope = artifact
+    hidden = yes
+
+    immediate = {
+        destroy_artifact = this
+    }
+}
