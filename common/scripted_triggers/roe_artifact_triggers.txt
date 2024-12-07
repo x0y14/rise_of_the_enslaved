@@ -1,7 +1,29 @@
-﻿roe_artifact_is_cargo_manifest_trigger = {
-    has_variable = roe_is_cargo_manifest
+﻿roe_artifact_cargo_manifest_has_slave_token_variables_trigger = {
     has_variable = roe_african_slave_token
     has_variable = roe_slavic_slave_token
     has_variable = roe_turkic_slave_token
     has_variable = roe_various_slave_token
+}
+
+roe_artifact_cargo_manifest_is_valid_trigger = {
+    has_variable = roe_is_cargo_manifest
+    roe_artifact_cargo_manifest_has_slave_token_variables_trigger = yes
+    0 <= {
+        value = 0
+        add = var:roe_african_slave_token
+        add = var:roe_slavic_slave_token
+        add = var:roe_turkic_slave_token
+        add = var:roe_various_slave_token
+    }
+}
+
+roe_artifact_cargo_manifest_has_more_than_or_equal_1_slave_token_trigger = {
+    roe_artifact_cargo_manifest_is_valid_trigger = yes
+    1 <= {
+        value = 0
+        add = var:roe_african_slave_token
+        add = var:roe_slavic_slave_token
+        add = var:roe_turkic_slave_token
+        add = var:roe_various_slave_token
+    }
 }
