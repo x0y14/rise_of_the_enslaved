@@ -1,0 +1,39 @@
+﻿roe_culture_is_slave_heritage_african = {
+    OR = {
+        has_cultural_pillar = heritage_akan
+        has_cultural_pillar = heritage_bantu
+        has_cultural_pillar = heritage_central_african
+        has_cultural_pillar = heritage_east_african
+        has_cultural_pillar = heritage_west_african # Guinean Uplander
+        has_cultural_pillar = heritage_somalian # Horn African
+        has_cultural_pillar = heritage_yoruba # Niger Delta
+        has_cultural_pillar = heritage_sahelian
+        has_cultural_pillar = heritage_senegambian
+    }
+}
+
+roe_culture_is_slave_heritage_slavic = {
+    OR = {
+        has_cultural_pillar = heritage_east_slavic
+        has_cultural_pillar = heritage_south_slavic
+        has_cultural_pillar = heritage_west_slavic
+        has_cultural_pillar = heritage_vlach
+    }
+}
+
+roe_culture_is_slave_heritage_turk = {
+    OR = {
+        has_cultural_pillar = heritage_magyar
+        has_cultural_pillar = heritage_mongolic
+        has_cultural_pillar = heritage_turkic
+        has_cultural_pillar = heritage_hunnic
+    }
+}
+
+roe_culture_is_slave_heritage_other = {
+    NOR = {
+        roe_culture_is_slave_heritage_african = yes
+        roe_culture_is_slave_heritage_slavic = yes
+        roe_culture_is_slave_heritage_turk = yes
+    }
+}
