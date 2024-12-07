@@ -1,0 +1,120 @@
+﻿# ROOT: landed_title(tier_county)
+roe_county_setup_slave_market_effect = {
+    if = {
+        limit = {
+            roe_county_is_in_slave_market_county_list_trigger = yes
+        }
+        # Tokenの設置
+        set_variable = {
+            name = roe_african_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_slavic_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_turkic_slave_token
+            value = 0
+        }
+        set_variable = {
+            name = roe_various_slave_token
+            value = 0
+        }
+        # 各title毎
+        if = {
+            limit = { this = title:c_bukhara }
+            add_county_modifier = roe_slave_market_bukhara_county_modifier
+        }
+        else_if = {
+            limit = { this = title:c_samarra }
+            add_county_modifier = roe_slave_market_samarra_county_modifier
+        }
+        else_if = {
+            limit = { this = title:c_cairo }
+            add_county_modifier = roe_slave_market_cairo_county_modifier
+        }
+    }
+}
+
+# ROOT: landed_title(tier_county)
+# PARAMS:
+#   AFRICAN_SLAVE_TOKEN: int
+#   SLAVIC_SLAVE_TOKEN: int
+#   TURKIC_SLAVE_TOKEN: int
+#   VARIOUS_SLAVE_TOKEN: int
+roe_county_store_slave_token_effect = {
+    if = {
+        limit = { roe_county_has_valid_slave_market_trigger = yes }
+        change_variable = {
+            name = roe_african_slave_token
+            add = $AFRICAN_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            add = $SLAVIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            add = $TURKIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            add = $VARIOUS_SLAVE_TOKEN$
+        }
+    }
+}
+
+# ROOT: landed_title(tier_county)
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_county_takeout_slave_token_effect = {
+    if = {
+        limit = {
+            # has valid market?
+            roe_county_has_valid_slave_market_trigger = yes
+            # total token >= 1?
+            roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+        }
+        # takeout
+        ## african
+        save_scope_value_as = {
+            name = RETURN_AFRICAN_SLAVE_TOKEN
+            value = var:roe_african_slave_token
+        }
+        change_variable = {
+            name = roe_african_slave_token
+            subtract = scope:RETURN_AFRICAN_SLAVE_TOKEN
+        }
+        ## slavic
+        save_scope_value_as = {
+            name = RETURN_SLAVIC_SLAVE_TOKEN
+            value = var:roe_slavic_slave_token
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            subtract = scope:RETURN_SLAVIC_SLAVE_TOKEN
+        }
+        ## turkic
+        save_scope_value_as = {
+            name = RETURN_TURKIC_SLAVE_TOKEN
+            value = var:roe_turkic_slave_token
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            subtract = scope:RETURN_TURKIC_SLAVE_TOKEN
+        }
+        ## various
+        save_scope_value_as = {
+            name = RETURN_VARIOUS_SLAVE_TOKEN
+            value = var:roe_various_slave_token
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+    }
+}
