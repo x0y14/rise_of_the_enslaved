@@ -1,4 +1,4 @@
-﻿roe_county_is_in_slave_market_county_list = {
+roe_county_is_in_slave_market_county_list_trigger = {
     tier = tier_county
     OR = {
         this = title:c_bukhara
