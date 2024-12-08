@@ -1,0 +1,62 @@
+﻿roe_muslim_trader_character = {
+    age = { 20 40 }
+    dynasty = none
+
+    faith = faith:ashari
+    culture = culture:bedouin
+
+    gender_female_chance = 0
+
+    random_traits = no
+	random_traits_list = {
+		count = { 2 3 }
+		humble = {}
+		calm = {}
+        just = {}
+		zealous = {}
+		temperate = {}
+		diligent = {}
+		patient = {}
+		honest = {}
+	}
+    random_traits_list = {
+		count = 1
+		education_stewardship_2 = {}
+		education_stewardship_3 = {}
+        education_stewardship_4 = {}
+        education_diplomacy_2  = {}
+        education_diplomacy_3  = {}
+        education_diplomacy_4  = {}
+	}
+
+    trait = roe_trader
+
+	stewardship = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+    diplomacy = {
+		min_template_high_skill
+		max_template_high_skill
+    }
+
+	after_creation = {
+		religion:islam_religion = {
+			random_faith = {
+				save_scope_as = islamic_faith
+			}
+		}
+		set_character_faith = scope:islamic_faith
+
+        random_culture_global = {
+            limit = {
+                OR = {
+                    has_cultural_pillar = heritage_arabic
+                    has_cultural_pillar = heritage_berber
+                }
+            }
+            save_scope_as = selected_culture
+        }
+        set_culture = scope:selected_culture
+	}
+}
