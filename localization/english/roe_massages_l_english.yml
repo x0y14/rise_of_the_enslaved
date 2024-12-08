@@ -1,0 +1,3 @@
+﻿l_english:
+  msg_roe_slaves_gained_title: "Slaves Gained"
+  msg_roe_slaves_gained_desc: "You have gained [roe_slaves|E] from the [raid|E] on [RIGHT_TITLE.GetName] ([RIGHT_TITLE.GetHolder.GetShortUIName])"
