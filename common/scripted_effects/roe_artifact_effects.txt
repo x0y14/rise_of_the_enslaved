@@ -6,6 +6,8 @@ roe_create_cargo_manifest_artifact_effect = {
         type = miscellaneous
         visuals = book
         modifier = roe_artifact_cargo_manifest_placeholder_modifier
+        quality = 120
+        wealth = 100
         save_scope_as = newly_created_artifact
     }
     scope:newly_created_artifact = {
