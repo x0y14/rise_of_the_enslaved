@@ -1,0 +1,100 @@
+﻿# Called when a raid action finishes
+# root is the raid army
+# scope:raider is the person owning the raid army
+# scope:barony is the barony title that got raided
+# scope:county is the county title for the barony
+on_raid_action_completion = {
+    on_actions = {
+        roe_enslaved_on_action
+    }
+}
+
+roe_enslaved_on_action = {
+    effect = {
+        scope:barony.title_province = {
+            add_province_modifier = {
+                modifier = roe_province_recently_people_enslaved_modifier
+                years = 3
+            }
+            # どの種類がどれぐらい手に入るのか
+            roe_province_taken_away_slave_token_effect = {
+                RAIDER = scope:raider
+            }
+        }
+        # Armyに取得した奴隷を記録
+        roe_army_store_slave_token_effect = {
+            AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+            SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+            TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+            VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+        # 奴隷手に入れました
+        scope:raider = {
+            # 通知
+			send_interface_message = {
+				type = msg_roe_slaves_gained
+				left_icon = scope:county.holder
+				right_icon = scope:barony
+			}
+        }
+    }
+}
+
+on_raid_loot_delivered = {
+    on_actions = {
+        roe_slave_deliverd_on_action
+    }
+}
+
+# 奴隷をarmyからキャラクターへ移譲
+roe_slave_deliverd_on_action = {
+    trigger = {
+        has_variable = roe_african_slave_token
+        has_variable = roe_slavic_slave_token
+        has_variable = roe_turkic_slave_token
+        has_variable = roe_various_slave_token
+        1 <= {
+            value = 0
+            add = var:roe_african_slave_token
+            add = var:roe_slavic_slave_token
+            add = var:roe_turkic_slave_token
+            add = var:roe_various_slave_token
+        }
+    }
+    effect = {
+        roe_army_takeout_all_slave_token_effect = yes
+        scope:raider = {
+            # 初期化されてなかったら初期化
+            if = {
+                limit = { roe_character_is_valid_slave_owner_trigger = no }
+                roe_character_setup_slave_owner_effect = yes
+            }
+            # キャラクターへ
+            roe_character_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+            }
+        }
+    }
+}
+
+on_defeat_raid_army = {
+    on_actions = {
+        roe_slave_lost_on_action
+    }
+}
+
+roe_slave_lost_on_action = {
+    trigger = {
+        has_variable = roe_african_slave_token
+        has_variable = roe_slavic_slave_token
+        has_variable = roe_turkic_slave_token
+        has_variable = roe_various_slave_token
+    }
+    effect = {
+        # 取り出すだけ(虚無に捨てる)
+        roe_army_takeout_all_slave_token_effect = yes
+    }
+}

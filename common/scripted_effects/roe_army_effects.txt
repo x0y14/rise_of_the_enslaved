@@ -1,0 +1,72 @@
+﻿# ROOT: army
+# PARAMS:
+#   AFRICAN_SLAVE_TOKEN: int
+#   SLAVIC_SLAVE_TOKEN: int
+#   TURKIC_SLAVE_TOKEN: int
+#   VARIOUS_SLAVE_TOKEN: int
+roe_army_store_slave_token_effect = {
+    set_variable = {
+        name = roe_african_slave_token
+        value = $AFRICAN_SLAVE_TOKEN$
+    }
+    set_variable = {
+        name = roe_slavic_slave_token
+        value = $SLAVIC_SLAVE_TOKEN$
+    }
+    set_variable = {
+        name = roe_turkic_slave_token
+        value = $TURKIC_SLAVE_TOKEN$
+    }
+    set_variable = {
+        name = roe_various_slave_token
+        value = $VARIOUS_SLAVE_TOKEN$
+    }
+}
+
+roe_army_takeout_all_slave_token_effect = {
+    if = {
+        limit = {
+            has_variable = roe_african_slave_token
+            has_variable = roe_slavic_slave_token
+            has_variable = roe_turkic_slave_token
+            has_variable = roe_various_slave_token
+        }
+        # takeout
+        ## african
+        save_scope_value_as = {
+            name = RETURN_AFRICAN_SLAVE_TOKEN
+            value = var:roe_african_slave_token
+        }
+        change_variable = {
+            name = roe_african_slave_token
+            subtract = scope:RETURN_AFRICAN_SLAVE_TOKEN
+        }
+        ## slavic
+        save_scope_value_as = {
+            name = RETURN_SLAVIC_SLAVE_TOKEN
+            value = var:roe_slavic_slave_token
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            subtract = scope:RETURN_SLAVIC_SLAVE_TOKEN
+        }
+        ## turkic
+        save_scope_value_as = {
+            name = RETURN_TURKIC_SLAVE_TOKEN
+            value = var:roe_turkic_slave_token
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            subtract = scope:RETURN_TURKIC_SLAVE_TOKEN
+        }
+        ## various
+        save_scope_value_as = {
+            name = RETURN_VARIOUS_SLAVE_TOKEN
+            value = var:roe_various_slave_token
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+    }
+}
