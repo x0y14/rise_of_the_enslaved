@@ -1,0 +1,52 @@
+﻿on_game_start_after_lobby = {
+    on_actions = {
+        roe_setup_slave_market_on_action
+    }
+}
+
+roe_setup_slave_market_on_action = {
+    effect = {
+        # bukhara
+        title:c_bukhara = {
+            if = {
+                limit = { roe_county_has_valid_slave_market_trigger = no }
+                roe_county_setup_slave_market_effect = yes
+            }
+            # 初期値は適当
+            roe_county_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 10
+                SLAVIC_SLAVE_TOKEN = 100
+                TURKIC_SLAVE_TOKEN = 200
+                VARIOUS_SLAVE_TOKEN = 10
+            }
+        }
+        # samarra
+        title:c_samarra = {
+            if = {
+                limit = { roe_county_has_valid_slave_market_trigger = no }
+                roe_county_setup_slave_market_effect = yes
+            }
+            # 初期値は適当
+            roe_county_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 100
+                SLAVIC_SLAVE_TOKEN = 100
+                TURKIC_SLAVE_TOKEN = 100
+                VARIOUS_SLAVE_TOKEN = 100
+            }
+        }
+        # cairo
+        title:c_cairo = {
+            if = {
+                limit = { roe_county_has_valid_slave_market_trigger = no }
+                roe_county_setup_slave_market_effect = yes
+            }
+            # 初期値は適当
+            roe_county_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 200
+                SLAVIC_SLAVE_TOKEN = 20
+                TURKIC_SLAVE_TOKEN = 100
+                VARIOUS_SLAVE_TOKEN = 20
+            }
+        }
+    }
+}
