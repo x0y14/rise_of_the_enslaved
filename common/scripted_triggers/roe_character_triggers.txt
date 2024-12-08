@@ -1,0 +1,9 @@
+﻿# ROOT: Character
+# PARAMS:
+#   GUILD: landed_title(tier_county)
+roe_character_is_trader_with_guild_trigger = {
+    is_landless_adventurer = yes
+    has_trait = roe_trader
+    has_variable = roe_guild
+    var:roe_guild = $GUILD$
+}
