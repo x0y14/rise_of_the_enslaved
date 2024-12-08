@@ -70,7 +70,7 @@
             roe_create_cargo_manifest_artifact_effect = yes
             # 取り出す
             scope:caravan_origin_county = {
-                roe_county_takeout_slave_token_effect = yes
+                roe_county_takeout_all_slave_token_effect = yes
             }
             # 積み込む
             scope:newly_created_artifact ?= { # ?=でないとtooltip表示のときにエラー出る
