@@ -71,7 +71,7 @@ roe_county_store_slave_token_effect = {
 #   RETURN_SLAVIC_SLAVE_TOKEN
 #   RETURN_TURKIC_SLAVE_TOKEN
 #   RETURN_VARIOUS_SLAVE_TOKEN
-roe_county_takeout_slave_token_effect = {
+roe_county_takeout_all_slave_token_effect = {
     if = {
         limit = {
             # has valid market?
@@ -115,6 +115,470 @@ roe_county_takeout_slave_token_effect = {
         change_variable = {
             name = roe_various_slave_token
             subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+    }
+}
+
+
+# ROOT: landed_title(tier_county)
+# PARAMS:
+#   PRIORITY: flag(african, slavic, turkic, various)
+#   MAX_TOKEN_COUNT: int
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_county_takeout_slave_token_with_total_limit_effect = {
+    if = {
+        limit = {
+            # has valid market?
+            roe_county_has_valid_slave_market_trigger = yes
+            # total token >= 1?
+            roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+            # is valid limit?
+            $MAX_TOKEN_COUNT$ > 0
+        }
+        # tokenを取り出せる残り回数
+        set_local_variable = {
+            name = remaining_count
+            value = $MAX_TOKEN_COUNT$
+        }
+        # 取り出し記録
+        set_local_variable = {
+            name = takeout_african_token
+            value = 0
+        }
+        set_local_variable = {
+            name = takeout_slavic_token
+            value = 0
+        }
+        set_local_variable = {
+            name = takeout_turkic_token
+            value = 0
+        }
+        set_local_variable = {
+            name = takeout_various_token
+            value = 0
+        }
+        # 最優先を取り出す
+        switch = {
+            trigger = $PRIORITY$
+            flag:african = {
+                if = {
+                    limit = { var:roe_african_slave_token > 0 }
+                    # 貯蔵されているアフリカントークンが許容取り出し回数を超えていた場合
+                    if = {
+                        limit = {
+                            var:roe_african_slave_token > local_var:remaining_count
+                        }
+                        # 残りの取り出し回数分取り出す。
+                        change_local_variable = { name = takeout_african_token add = local_var:remaining_count }
+                    }
+                    # 超えていない場合は全部取り出す
+                    else = {
+                        change_local_variable = { name = takeout_african_token add = var:roe_african_slave_token }
+                    }
+                    # 取り出した数だけ残り回数を減らす
+                    change_local_variable = { name = remaining_count subtract = local_var:takeout_african_token }
+                }
+            }
+            flag:slavic = {
+                if = {
+                    limit = { var:roe_slavic_slave_token > 0 }
+                    if = {
+                        limit = {
+                            var:roe_slavic_slave_token > local_var:remaining_count
+                        }
+                        # 残りの取り出し回数分取り出す。
+                        change_local_variable = { name = takeout_slavic_token add = local_var:remaining_count }
+                    }
+                    # 超えていない場合は全部取り出す
+                    else = {
+                        change_local_variable = { name = takeout_slavic_token add = var:roe_slavic_slave_token }
+                    }
+                    # 取り出した数だけ残り回数を減らす
+                    change_local_variable = { name = remaining_count subtract = local_var:takeout_slavic_token }
+                }
+            }
+            flag:turkic = {
+                if = {
+                    limit = { var:roe_turkic_slave_token > 0 }
+                    if = {
+                        limit = {
+                            var:roe_turkic_slave_token > local_var:remaining_count
+                        }
+                        # 残りの取り出し回数分取り出す。
+                        change_local_variable = { name = takeout_turkic_token add = local_var:remaining_count }
+                    }
+                    # 超えていない場合は全部取り出す
+                    else = {
+                        change_local_variable = { name = takeout_turkic_token add = var:roe_turkic_slave_token }
+                    }
+                    # 取り出した数だけ残り回数を減らす
+                    change_local_variable = { name = remaining_count subtract = local_var:takeout_turkic_token }
+                }
+            }
+            flag:various = {
+                if = {
+                    limit = { var:roe_various_slave_token > 0 }
+                    if = {
+                        limit = {
+                            var:roe_various_slave_token > local_var:remaining_count
+                        }
+                        # 残りの取り出し回数分取り出す。
+                        change_local_variable = { name = takeout_various_token add = local_var:remaining_count }
+                    }
+                    # 超えていない場合は全部取り出す
+                    else = {
+                        change_local_variable = { name = takeout_various_token add = var:roe_various_slave_token }
+                    }
+                    # 取り出した数だけ残り回数を減らす
+                    change_local_variable = { name = remaining_count subtract = local_var:takeout_various_token }
+                }
+            }
+        }
+        # 残りをランダムに取り出す
+        while = {
+            limit = {
+                # 残り取り出し回数があって
+                local_var:remaining_count > 0
+                # 1以上貯蔵されていること!
+                roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+                #
+                save_temporary_scope_value_as = {
+                    name = current_takeout_total
+                    value = {
+                        value = 1 # >= -> >
+                        add = local_var:takeout_african_token
+                        add = local_var:takeout_slavic_token
+                        add = local_var:takeout_turkic_token
+                        add = local_var:takeout_various_token
+                    }
+                }
+                roe_county_has_more_than_or_equal_slave_token_with_count_trigger = {
+                    COUNT = scope:current_takeout_total
+                }
+            }
+            # ランダムに取り出すものを選ぶ
+            if = { # 取り出し予定数が, 貯蔵数を下回っていて、かつ貯蔵数-予定数>0の場合のみ、ランダム取り出しの候補になる
+                limit = {
+                    # そもそも貯蔵されていること
+                    0 < var:roe_african_slave_token
+                    # 貯蔵量を超えた引き出しでないこと
+                    local_var:takeout_african_token < var:roe_african_slave_token
+                    # 同上
+                    0 < { value = var:roe_african_slave_token subtract = local_var:takeout_african_token }
+                }
+                add_to_variable_list = {
+                    name = slave_flag_list
+                    target = flag:african
+                }
+            }
+            if = {
+                limit = {
+                    0 < var:roe_slavic_slave_token
+                    local_var:takeout_slavic_token < var:roe_slavic_slave_token
+                    0 < { value = var:roe_slavic_slave_token subtract = local_var:takeout_slavic_token }
+                }
+                add_to_variable_list = {
+                    name = slave_flag_list
+                    target = flag:slavic
+                }
+            }
+            if = {
+                limit = {
+                    0 < var:roe_turkic_slave_token
+                    local_var:takeout_turkic_token < var:roe_turkic_slave_token
+                    0 < { value = var:roe_turkic_slave_token subtract = local_var:takeout_turkic_token }
+                }
+                add_to_variable_list = {
+                    name = slave_flag_list
+                    target = flag:turkic
+                }
+            }
+            if = {
+                limit = {
+                    0 < var:roe_various_slave_token
+                    local_var:takeout_various_token < var:roe_various_slave_token
+                    0 < { value = var:roe_various_slave_token subtract = local_var:takeout_various_token }
+                }
+                add_to_variable_list = {
+                    name = slave_flag_list
+                    target = flag:various
+                }
+            }
+            # ランダムに１つトークンの種類を選ぶ
+            random_in_list = {
+                variable = slave_flag_list
+                save_scope_as = selected_slave_flag
+            }
+            # データ引き継がれないように
+            clear_variable_list = slave_flag_list
+            switch = {
+                trigger = scope:selected_slave_flag
+                flag:african = {
+                    change_local_variable = {
+                        name = takeout_african_token
+                        add = 1
+                    }
+                }
+                flag:slavic = {
+                    change_local_variable = {
+                        name = takeout_slavic_token
+                        add = 1
+                    }
+                }
+                flag:turkic = {
+                    change_local_variable = {
+                        name = takeout_turkic_token
+                        add = 1
+                    }
+                }
+                flag:various = {
+                    change_local_variable = {
+                        name = takeout_various_token
+                        add = 1
+                    }
+                }
+            }
+            # ランダムに取り出したので残り回数を減らす
+            change_local_variable = {
+                name = remaining_count
+                subtract = 1
+            }
+        }
+        # 実際の取り出し処理
+        if = {
+            limit = { local_var:takeout_african_token >= 0 }
+            save_scope_value_as = {
+                name = RETURN_AFRICAN_SLAVE_TOKEN
+                value = local_var:takeout_african_token
+            }
+            change_variable = {
+                name = roe_african_slave_token
+                subtract = local_var:takeout_african_token
+            }
+        }
+        if = {
+            limit = { local_var:takeout_slavic_token >= 0 }
+            save_scope_value_as = {
+                name = RETURN_SLAVIC_SLAVE_TOKEN
+                value = local_var:takeout_slavic_token
+            }
+            change_variable = {
+                name = roe_slavic_slave_token
+                subtract = local_var:takeout_slavic_token
+            }
+        }
+        if = {
+            limit = { local_var:takeout_turkic_token >= 0 }
+            save_scope_value_as = {
+                name = RETURN_TURKIC_SLAVE_TOKEN
+                value = local_var:takeout_turkic_token
+            }
+            change_variable = {
+                name = roe_turkic_slave_token
+                subtract = local_var:takeout_turkic_token
+            }
+        }
+        if = {
+            limit = { local_var:takeout_various_token >= 0 }
+            save_scope_value_as = {
+                name = RETURN_VARIOUS_SLAVE_TOKEN
+                value = local_var:takeout_various_token
+            }
+            change_variable = {
+                name = roe_various_slave_token
+                subtract = local_var:takeout_various_token
+            }
+        }
+    }
+}
+
+# ROOT: landed_title(tier_county)
+# PARAMS:
+#   MAX_AFRICAN_TOKEN: int
+#   MAX_SLAVIC_TOKEN: int
+#   MAX_TURKIC_TOKEN: int
+#   MAX_VARIOUS_TOKEN: int
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_county_takeout_slave_token_with_limit_effect = {
+    if = {
+        limit = {
+            # has valid market?
+            roe_county_has_valid_slave_market_trigger = yes
+            # total token >= 1?
+            roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+            # param check
+            $MAX_AFRICAN_TOKEN$ >= 0
+            $MAX_SLAVIC_TOKEN$ >= 0
+            $MAX_TURKIC_TOKEN$ >= 0
+            $MAX_VARIOUS_TOKEN$ >= 0
+            # MAXの合計が0より大きいこと
+            save_temporary_scope_value_as = {
+                name = total_max
+                value = {
+                    value = 0
+                    add = $MAX_AFRICAN_TOKEN$
+                    add = $MAX_SLAVIC_TOKEN$
+                    add = $MAX_TURKIC_TOKEN$
+                    add = $MAX_VARIOUS_TOKEN$
+                }
+            }
+            scope:total_max > 0
+        }
+        # 実際の取り出し
+        # AFRICAN
+        if = {
+            limit = {
+                # 取り出しを希望している
+                $MAX_AFRICAN_TOKEN$ > 0
+                # 貯蔵がある
+                var:roe_african_slave_token > 0
+            }
+            # 取り出し予定
+            set_local_variable = {
+                name = takeout_african_token
+                value = 0
+            }
+            # 貯蔵より取り出し希望が大きい場合
+            if = {
+                limit = { $MAX_AFRICAN_TOKEN$ > var:roe_african_slave_token }
+                # 貯蔵されている分だけ取り出す
+                change_local_variable = {
+                    name = takeout_african_token
+                    add = var:roe_african_slave_token
+                }
+            }
+            # 取り出し希望と同数以上が貯蔵されてる場合
+            else = {
+                # 希望する分だけ取り出す
+                change_local_variable = {
+                    name = takeout_african_token
+                    add = $MAX_AFRICAN_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_african_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_AFRICAN_SLAVE_TOKEN
+                    value = local_var:takeout_african_token
+                }
+                change_variable = {
+                    name = roe_african_slave_token
+                    subtract = local_var:takeout_african_token
+                }
+            }
+        }
+        # SLAVIC
+        if = {
+            limit = {
+                $MAX_SLAVIC_TOKEN$ > 0
+                var:roe_slavic_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_slavic_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_SLAVIC_TOKEN$ > var:roe_slavic_slave_token }
+                change_local_variable = {
+                    name = takeout_slavic_token
+                    add = var:roe_slavic_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_slavic_token
+                    add = $MAX_SLAVIC_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_slavic_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_SLAVIC_SLAVE_TOKEN
+                    value = local_var:takeout_slavic_token
+                }
+                change_variable = {
+                    name = roe_slavic_slave_token
+                    subtract = local_var:takeout_slavic_token
+                }
+            }
+        }
+        # TURKIC
+        if = {
+            limit = {
+                $MAX_TURKIC_TOKEN$ > 0
+                var:roe_turkic_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_turkic_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_TURKIC_TOKEN$ > var:roe_turkic_slave_token }
+                change_local_variable = {
+                    name = takeout_turkic_token
+                    add = var:roe_turkic_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_turkic_token
+                    add = $MAX_TURKIC_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_turkic_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_TURKIC_SLAVE_TOKEN
+                    value = local_var:takeout_turkic_token
+                }
+                change_variable = {
+                    name = roe_turkic_slave_token
+                    subtract = local_var:takeout_turkic_token
+                }
+            }
+        }
+        # VARIOUS
+        if = {
+            limit = {
+                $MAX_VARIOUS_TOKEN$ > 0
+                var:roe_various_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_various_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_VARIOUS_TOKEN$ > var:roe_various_slave_token }
+                change_local_variable = {
+                    name = takeout_various_token
+                    add = var:roe_various_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_various_token
+                    add = $MAX_VARIOUS_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_various_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_VARIOUS_SLAVE_TOKEN
+                    value = local_var:takeout_various_token
+                }
+                change_variable = {
+                    name = roe_various_slave_token
+                    subtract = local_var:takeout_various_token
+                }
+            }
         }
     }
 }
