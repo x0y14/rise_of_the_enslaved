@@ -31,8 +31,8 @@
         }
     }
     if = {
-        limit = { NOT = { has_character_modifier = roe_chacter_slave_owner_modifier } }
-        add_character_modifier = roe_chacter_slave_owner_modifier
+        limit = { NOT = { has_trait = roe_slave_owner } }
+        add_trait = roe_slave_owner
     }
 }
 

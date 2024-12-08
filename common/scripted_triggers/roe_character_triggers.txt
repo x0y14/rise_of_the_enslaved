@@ -16,8 +16,8 @@ roe_character_has_valid_slave_token_variables_trigger = {
 }
 
 roe_character_is_valid_slave_owner_trigger = {
-    # has modifier?
-    has_character_modifier = roe_chacter_slave_owner_modifier
+    # has trait?
+    has_trait = roe_slave_owner
     # has all variables?
     roe_character_has_valid_slave_token_variables_trigger = yes
     # total token >= 0
