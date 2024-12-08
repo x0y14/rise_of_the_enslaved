@@ -1,0 +1,512 @@
+﻿roe_buy_slaves_through_market_decision = {
+    decision_group_type = roe_slave
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+
+    is_shown = {
+        is_landed = yes
+        # マーケットのあるcountyを持っていること
+        custom_tooltip = {
+            text = roe_you_must_control_at_least_1_market_err_tt
+            OR = {
+                any_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                }
+                any_sub_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                }
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        # マーケットに1つ以上の商品があること
+        trigger_if = {
+            limit = {
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                    }
+                }
+            }
+            custom_tooltip = {
+                text = roe_your_market_must_have_at_least_1_slave_err_tt
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+                    }
+                }
+            }
+        }
+    }
+
+    is_valid = {
+        custom_tooltip = {
+            text = roe_you_must_control_at_least_1_market_err_tt
+            OR = {
+                any_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                }
+                any_sub_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                }
+            }
+        }
+        custom_tooltip = {
+            text = roe_your_market_must_have_at_least_1_slave_err_tt
+            OR = {
+                any_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                    roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+                }
+                any_sub_realm_county = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                    roe_county_has_more_than_or_equal_1_slave_token_trigger = yes
+                }
+            }
+        }
+        # MORE DESC PER CHOOSE
+        trigger_if = {
+            limit = { scope:choose_african = yes }
+            custom_tooltip = {
+                text = roe_your_market_must_have_at_least_50_african_slaves_err_tt
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_african_slave_token >= 50
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_african_slave_token >= 50
+                    }
+                }
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_slavic = yes }
+            custom_tooltip = {
+                text = roe_your_market_must_have_at_least_50_slavic_slaves_err_tt
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_slavic_slave_token >= 50
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_slavic_slave_token >= 50
+                    }
+                }
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_turkic = yes }
+            custom_tooltip = {
+                text = roe_your_market_must_have_at_least_50_turkic_slaves_err_tt
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_turkic_slave_token >= 50
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_turkic_slave_token >= 50
+                    }
+                }
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_various = yes }
+            custom_tooltip = {
+                text = roe_your_market_must_have_at_least_50_various_slaves_err_tt
+                OR = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_various_slave_token >= 50
+                    }
+                    any_sub_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_various_slave_token >= 50
+                    }
+                }
+            }
+        }
+    }
+
+    widget = {
+        gui = "decision_view_widget_generic_multichoice_with_effects"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = "roe_buy_slaves_through_market_decision_second_step_button_confirm"
+		show_from_start = yes
+        # AFRICAN
+        item = {
+            value = choose_african
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_your_market_must_have_at_least_50_african_slaves_err_tt
+                    OR = {
+                        any_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_african_slave_token >= 50
+                        }
+                        any_sub_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_african_slave_token >= 50
+                        }
+                    }
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = roe_buy_slaves_through_market_decision_choose_african_name
+            current_description = roe_buy_slaves_through_market_decision_choose_african_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # SLAVIC
+        item = {
+            value = choose_slavic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_your_market_must_have_at_least_50_slavic_slaves_err_tt
+                    OR = {
+                        any_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_slavic_slave_token >= 50
+                        }
+                        any_sub_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_slavic_slave_token >= 50
+                        }
+                    }
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = roe_buy_slaves_through_market_decision_choose_slavic_name
+            current_description = roe_buy_slaves_through_market_decision_choose_slavic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # TURKIC
+        item = {
+            value = choose_turkic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_your_market_must_have_at_least_50_turkic_slaves_err_tt
+                    OR = {
+                        any_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_turkic_slave_token >= 50
+                        }
+                        any_sub_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_turkic_slave_token >= 50
+                        }
+                    }
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = roe_buy_slaves_through_market_decision_choose_turkic_name
+            current_description = roe_buy_slaves_through_market_decision_choose_turkic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # VARIOUS
+        item = {
+            value = choose_various
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_your_market_must_have_at_least_50_various_slaves_err_tt
+                    OR = {
+                        any_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_various_slave_token >= 50
+                        }
+                        any_sub_realm_county = {
+                            roe_county_has_valid_slave_market_trigger = yes
+                            var:roe_various_slave_token >= 50
+                        }
+                    }
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = roe_buy_slaves_through_market_decision_choose_various_name
+            current_description = roe_buy_slaves_through_market_decision_choose_various_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+    }
+
+    cost = {
+        gold = {
+            value = 250
+        }
+    }
+
+    effect = {
+        # Setup Slave Owner
+        if = {
+            limit = { roe_character_is_valid_slave_owner_trigger = no }
+            roe_character_setup_slave_owner_effect = yes
+        }
+
+        # TOOLTIP_ONLY
+        if = {
+            limit = { scope:choose_african = yes }
+            custom_tooltip = roe_buy_slaves_through_market_decision_choose_african_effect_tt
+        }
+        else_if = {
+            limit = { scope:choose_slavic = yes }
+            custom_tooltip = roe_buy_slaves_through_market_decision_choose_slavic_effect_tt
+        }
+        else_if = {
+            limit = { scope:choose_turkic = yes }
+            custom_tooltip = roe_buy_slaves_through_market_decision_choose_turkic_effect_tt
+        }
+        else_if = {
+            custom_tooltip = roe_buy_slaves_through_market_decision_choose_various_effect_tt
+        }
+
+
+        # 取り出す数
+        set_local_variable = {
+            name = takeout_token_count
+            value = 50
+        }
+
+        # AFRICAN
+        if = {
+            limit = {
+                scope:choose_african = yes
+                exists = local_var:takeout_token_count
+            }
+            if = {
+                limit = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_african_slave_token >= local_var:takeout_token_count
+                    }
+                }
+                random_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_african_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # どの市場から取り出すのか選ぶ: sub_realm
+            if = {
+                limit = {
+                    NOT = { exists = scope:market_county }
+                }
+                random_sub_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_african_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # 購入
+            if = {
+                limit = { exists = scope:market_county }
+                # countyから取り出し
+                scope:market_county = {
+                    roe_county_takeout_slave_token_with_limit_effect = {
+                        MAX_AFRICAN_TOKEN = local_var:takeout_token_count
+                        MAX_SLAVIC_TOKEN = 0
+                        MAX_TURKIC_TOKEN = 0
+                        MAX_VARIOUS_TOKEN = 0
+                    }
+                }
+                # characterに移譲
+                roe_character_store_slave_token_effect = {
+                    AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                    SLAVIC_SLAVE_TOKEN = 0
+                    TURKIC_SLAVE_TOKEN = 0
+                    VARIOUS_SLAVE_TOKEN = 0
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:choose_slavic = yes
+                exists = local_var:takeout_token_count
+            }
+            if = {
+                limit = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_slavic_slave_token >= local_var:takeout_token_count
+                    }
+                }
+                random_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_slavic_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # どの市場から取り出すのか選ぶ: sub_realm
+            if = {
+                limit = {
+                    NOT = { exists = scope:market_county }
+                }
+                random_sub_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_slavic_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # 購入
+            if = {
+                limit = { exists = scope:market_county }
+                # countyから取り出し
+                scope:market_county = {
+                    roe_county_takeout_slave_token_with_limit_effect = {
+                        MAX_AFRICAN_TOKEN = 0
+                        MAX_SLAVIC_TOKEN = local_var:takeout_token_count
+                        MAX_TURKIC_TOKEN = 0
+                        MAX_VARIOUS_TOKEN = 0
+                    }
+                }
+                # characterに移譲
+                roe_character_store_slave_token_effect = {
+                    AFRICAN_SLAVE_TOKEN = 0
+                    SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                    TURKIC_SLAVE_TOKEN = 0
+                    VARIOUS_SLAVE_TOKEN = 0
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:choose_turkic = yes
+                exists = local_var:takeout_token_count
+            }
+            if = {
+                limit = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_turkic_slave_token >= local_var:takeout_token_count
+                    }
+                }
+                random_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_turkic_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # どの市場から取り出すのか選ぶ: sub_realm
+            if = {
+                limit = { NOT = { exists = scope:market_county } }
+                random_sub_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_turkic_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # 購入
+            if = {
+                limit = { exists = scope:market_county }
+                # countyから取り出し
+                scope:market_county = {
+                    roe_county_takeout_slave_token_with_limit_effect = {
+                        MAX_AFRICAN_TOKEN = 0
+                        MAX_SLAVIC_TOKEN = 0
+                        MAX_TURKIC_TOKEN = local_var:takeout_token_count
+                        MAX_VARIOUS_TOKEN = 0
+                    }
+                }
+                # characterに移譲
+                roe_character_store_slave_token_effect = {
+                    AFRICAN_SLAVE_TOKEN = 0
+                    SLAVIC_SLAVE_TOKEN = 0
+                    TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                    VARIOUS_SLAVE_TOKEN = 0
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:choose_various = yes
+                exists = local_var:takeout_token_count
+            }
+            if = {
+                limit = {
+                    any_realm_county = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_various_slave_token >= local_var:takeout_token_count
+                    }
+                }
+                random_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_various_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # どの市場から取り出すのか選ぶ: sub_realm
+            if = {
+                limit = {
+                    NOT = { exists = scope:market_county }
+                }
+                random_sub_realm_county = {
+                    limit = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        var:roe_various_slave_token >= local_var:takeout_token_count
+                    }
+                    save_scope_as = market_county
+                }
+            }
+            # 購入
+            if = {
+                limit = { exists = scope:market_county }
+                # countyから取り出し
+                scope:market_county = {
+                    roe_county_takeout_slave_token_with_limit_effect = {
+                        MAX_AFRICAN_TOKEN = 0
+                        MAX_SLAVIC_TOKEN = 0
+                        MAX_TURKIC_TOKEN = 0
+                        MAX_VARIOUS_TOKEN = local_var:takeout_token_count
+                    }
+                }
+                # characterに移譲
+                roe_character_store_slave_token_effect = {
+                    AFRICAN_SLAVE_TOKEN = 0
+                    SLAVIC_SLAVE_TOKEN = 0
+                    TURKIC_SLAVE_TOKEN = 0
+                    VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+                }
+            }
+        }
+    }
+
+    ai_check_interval = 6
+    ai_potential = {
+        faith.religion = religion:islam_religion
+    }
+    ai_will_do = {
+        base = 100
+    }
+}
