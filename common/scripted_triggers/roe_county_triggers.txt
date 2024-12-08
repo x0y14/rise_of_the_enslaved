@@ -49,3 +49,18 @@ roe_county_has_more_than_or_equal_1_slave_token_trigger = {
         add = var:roe_various_slave_token
     }
 }
+
+
+# ROOT: landed_title(tier_county)
+# PARAMS:
+#   COUNT: int
+roe_county_has_more_than_or_equal_slave_token_with_count_trigger = {
+    roe_county_has_valid_slave_market_trigger = yes
+    $COUNT$ <= {
+        value = 0
+        add = var:roe_african_slave_token
+        add = var:roe_slavic_slave_token
+        add = var:roe_turkic_slave_token
+        add = var:roe_various_slave_token
+    }
+}
