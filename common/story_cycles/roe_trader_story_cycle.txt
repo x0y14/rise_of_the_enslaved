@@ -15,11 +15,155 @@
         end_story = yes
     }
 
-    # check trade center
+    # 拠点にtokenが溜まってたら勝手に契約作って持ってく
+    effect_group = {
+        days = { 10 30 }
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    # 移動中ではなく
+                    is_travelling = no
+                    # 仕事もなく
+                    any_character_active_contract = {
+                        count = 0
+                    }
+                    # 拠点に近い
+                    save_temporary_scope_as = story_owner
+                    scope:story_owner.var:roe_guild.title_province = {
+                        squared_distance = {
+                            target = scope:story_owner.location
+                            value <= squared_distance_small
+                        }
+                    }
+                    # 十分な富があること
+                    var:roe_guild = {
+                        roe_county_has_valid_slave_market_trigger = yes
+                        roe_county_has_more_than_or_equal_slave_token_with_count_trigger = {
+                            COUNT = 10
+                        }
+                    }
+                }
+            }
+            effect = {
+                story_owner = { save_scope_as = story_owner }
+                scope:story_owner.var:roe_guild = { save_scope_as = caravan_origin_county }
+                roe_choice_trade_destination_county_with_params_effect = {
+                    ORIGIN_COUNTY = scope:caravan_origin_county
+                }
+                scope:RETURN_DEST_COUNTY = { save_scope_as = caravan_dest_county }
+                
+                # 積載リストを作成する
+                scope:caravan_origin_county.holder.top_liege = {
+                    # create artifact
+                    roe_create_cargo_manifest_artifact_effect = yes
+                    # 取り出す
+                    scope:caravan_origin_county = {
+                        roe_county_takeout_slave_token_with_limit_effect = {
+                            MAX_AFRICAN_TOKEN = 10
+                            MAX_SLAVIC_TOKEN = 10
+                            MAX_TURKIC_TOKEN = 30
+                            MAX_VARIOUS_TOKEN = 10
+                        }
+                    }
+                    # 積み込む
+                    scope:newly_created_artifact ?= { # ?=でないとtooltip表示のときにエラー出る
+                        roe_artifact_cargo_manifest_load_cargo_and_update_desciption_effect = {
+                            AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                            SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                            TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                            VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+                        }
+                    }
+                }
+                
+                # 契約作成
+                scope:story_owner = {
+                    create_task_contract = {
+                        task_contract_type = laamp_transport_artifact # 契約の種類
+                        location = scope:caravan_origin_county.title_province # どこに契約を生成するか
+                        task_contract_employer = scope:caravan_origin_county.holder.top_liege # 雇う人
+                        task_contract_tier = 22500 #Legendary!
+                        save_scope_as = new_contract
+                        target = scope:caravan_dest_county.holder.top_liege # 受取役となるのは誰
+                    }
+                    # 契約の肉付け
+                    scope:new_contract = {
+                        # 運ぶものを設定
+                        set_variable = {
+                            name = escorted_artifact
+                            value = scope:newly_created_artifact
+                        }
+                        # どこに運ぶ
+                        set_variable = {
+                            name = task_contract_destination
+                            value = scope:caravan_dest_county.title_province
+                        }
+                    }
+                    # 契約!
+                    accept_task_contract = scope:new_contract
+                }
+            }
+        }
+    }
+
+    # フックの自動削除
     effect_group = {
         days = { 30 90 }
         triggered_effect = {
-            
+            trigger = {
+                story_owner = {
+                    any_hooked_character = {
+                        count > 0
+                    }
+                }
+            }
+            effect = {
+                story_owner = {
+                    save_scope_as = story_owner
+                    every_hooked_character = {
+                        save_scope_as = hooked_character
+                        scope:story_owner = {
+                            remove_hook = { target = scope:hooked_character }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    # 活動拠点から離れてたら戻る
+    effect_group = {
+        days = { 10 30 }
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    # 移動中ではなく
+                    is_travelling = no
+                    # 仕事もなく
+                    any_character_active_contract = {
+                        count = 0
+                    }
+                    # 拠点から離れてる
+                    save_temporary_scope_as = story_owner
+                    scope:story_owner.var:roe_guild.title_province = {
+                        squared_distance = {
+                            target = scope:story_owner.location
+                            value > 5000
+                        }
+                    }
+                }
+            }
+            effect = {
+                story_owner = {
+					start_travel_plan = {
+						destination = var:roe_guild.title_province
+						on_arrival_event = travel_completion_event.1000
+						# on_arrival_destinations = all
+						return_trip = no # One way
+						travel_with_domicile = yes
+					}
+                }
+            }
         }
     }
 
@@ -36,6 +180,40 @@
                     end_story = yes
                 }
             }
+            # Guildデータが無くなったら適当に設定するよ
+            triggered_effect = {
+                trigger = {
+                    NOT = { story_owner = { has_variable = roe_guild } }
+                }
+                effect = {
+                    story_owner = { save_scope_as = story_owner }
+                    title:c_bukhara = { add_to_list = slave_market_counties }
+                    title:c_samarra = { add_to_list = slave_market_counties }
+                    title:c_cairo = { add_to_list = slave_market_counties }
+                    random_in_list = {
+                        list = slave_market_counties
+                        weight = {
+                            base = 9000000 # squared_distance_monstrous # 9000000
+                            modifier = {
+                                save_temporary_scope_as = temp_county
+                                # 距離が遠いい場合、減点が大きくなる。つまり近いものが選択される
+                                add = {
+                                    value = "scope:story_owner.location.squared_distance(scope:temp_county.title_province)"
+                                    multiply = -1
+                                }
+                                exists = scope:story_owner.location
+                            }
+                        }
+                        save_scope_as = selected_county
+                    }
+                    story_owner = {
+                        set_variable = {
+                            name = roe_guild
+                            value = scope:selected_county
+                        }
+                    }
+                }
+            }
             # 土地なし冒険者じゃなくなったらもとに戻すよ
             triggered_effect = {
                 trigger = {
@@ -43,14 +221,22 @@
                 }
                 effect = {
                     story_owner = { save_scope_as = story_owner }
-                    scope:story_owner = {
-                        if = {
-                            limit = { is_ruler = yes }
-                            depose = yes
+                    if = {
+                        limit = {
+                            exists = scope:story_owner
+                            scope:story_owner = { is_alive = yes }
                         }
-                        create_landless_adventurer_title_effect = {
-                            REASON = flag:voluntary
-                            FLAVOR_CHAR = scope:story_owner
+                        scope:story_owner = {
+                            if = {
+                                limit = { is_ruler = yes }
+                                depose = yes
+                            }
+                            create_landless_adventurer_title_effect = {
+                                REASON = flag:voluntary
+                                FLAVOR_CHAR = scope:story_owner
+                            }
+                            add_realm_law_skip_effects = camp_purpose_explorers
+                            set_variable = flavourise_camp_purpose_explorers
                         }
                     }
                 }
