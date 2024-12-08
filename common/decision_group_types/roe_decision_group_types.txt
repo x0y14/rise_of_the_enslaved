@@ -1,0 +1,4 @@
+﻿roe_slave = {
+    sort_order = 110
+    gui_tags = { big_button }
+}
