@@ -1,4 +1,20 @@
-﻿on_game_start_after_lobby = {
+﻿on_game_start = {
+    on_actions = {
+        roe_installed_on_action
+    }
+}
+
+roe_installed_on_action = {
+    effect = {
+        set_global_variable = {
+            name = rise_of_the_enslaved_installed
+            value = yes
+        }
+    }
+}
+
+
+on_game_start_after_lobby = {
     on_actions = {
         roe_setup_slave_market_on_action
     }
