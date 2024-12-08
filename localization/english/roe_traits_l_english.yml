@@ -1,3 +1,7 @@
 ﻿l_english:
   trait_roe_trader: "Trader"
   trait_roe_trader_desc: "DESC"
+
+  trait_roe_slave_owner: "Slave Owner"
+  trait_roe_slave_owner_desc: "This character owns slaves."
+  trait_roe_slave_owner_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] owns slaves.\n    African Slaves: [ROOT.GetCharacter.MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [ROOT.GetCharacter.MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [ROOT.GetCharacter.MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [ROOT.GetCharacter.MakeScope.Var('roe_various_slave_token').GetValue]"

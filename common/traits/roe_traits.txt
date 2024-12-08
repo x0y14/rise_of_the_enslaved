@@ -33,3 +33,21 @@
     # AI
     ai_sociability = 100
 }
+
+roe_slave_owner = {
+    category = fame
+    icon = campeador.dds
+
+	name =  trait_roe_slave_owner
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_roe_slave_owner_desc
+			}
+			desc = trait_roe_slave_owner_character_desc
+		}
+	}
+}
