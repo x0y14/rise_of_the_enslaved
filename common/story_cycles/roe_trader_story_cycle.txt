@@ -1,9 +1,23 @@
 ﻿roe_trader_story = {
     on_setup = {
-        story_owner = {
+        story_owner ?= {
+            save_scope_as = story_owner
             if = {
                 limit = { NOT = { has_trait = roe_trader } }
                 add_trait = roe_trader
+            }
+            if = {
+                limit = { is_landless_adventurer = no }
+                if = {
+                    limit = { is_ruler = yes }
+                    depose = yes
+                }
+                create_landless_adventurer_title_effect = {
+                    REASON = flag:voluntary
+                    FLAVOR_CHAR = scope:story_owner
+                }
+                add_realm_law_skip_effects = camp_purpose_explorers
+                set_variable = flavourise_camp_purpose_explorers
             }
         }
     }
@@ -226,7 +240,7 @@
                             exists = scope:story_owner
                             scope:story_owner = { is_alive = yes }
                         }
-                        scope:story_owner = {
+                        scope:story_owner ?= {
                             if = {
                                 limit = { is_ruler = yes }
                                 depose = yes
