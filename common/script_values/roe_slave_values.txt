@@ -1,0 +1,10 @@
+﻿# PARAMS:
+#   county
+roe_county_taken_away_slave_token_value = {
+    value = $COUNTY$.development_level
+    multiply = 10
+}
+
+roe_min_slave_token_unit_value = {
+    value = 100
+}
