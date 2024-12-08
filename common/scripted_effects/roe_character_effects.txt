@@ -1,0 +1,306 @@
+﻿roe_character_setup_slave_owner_effect = {
+    if = {
+        limit = { roe_character_has_valid_slave_token_variables_trigger = no }
+        if = {
+            limit = { NOT = { has_variable = roe_african_slave_token } }
+            set_variable = {
+                name = roe_african_slave_token
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { has_variable = roe_slavic_slave_token } }
+            set_variable = {
+                name = roe_slavic_slave_token
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { has_variable = roe_turkic_slave_token } }
+            set_variable = {
+                name = roe_turkic_slave_token
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { has_variable = roe_various_slave_token } }
+            set_variable = {
+                name = roe_various_slave_token
+                value = 0
+            }
+        }
+    }
+    if = {
+        limit = { NOT = { has_character_modifier = roe_chacter_slave_owner_modifier } }
+        add_character_modifier = roe_chacter_slave_owner_modifier
+    }
+}
+
+# ROOT: character
+# PARAMS:
+#   AFRICAN_SLAVE_TOKEN: int
+#   SLAVIC_SLAVE_TOKEN: int
+#   TURKIC_SLAVE_TOKEN: int
+#   VARIOUS_SLAVE_TOKEN: int
+roe_character_store_slave_token_effect = {
+    if = {
+        limit = { roe_character_is_valid_slave_owner_trigger = yes }
+        change_variable = {
+            name = roe_african_slave_token
+            add = $AFRICAN_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            add = $SLAVIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            add = $TURKIC_SLAVE_TOKEN$
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            add = $VARIOUS_SLAVE_TOKEN$
+        }
+    }
+}
+
+# ROOT: character
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_character_takeout_all_slave_token_effect = {
+    if = {
+        limit = {
+            # is valid owner?
+            roe_character_is_valid_slave_owner_trigger = yes
+            # total >= 1?
+            roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        }
+        # takeout
+        ## african
+        save_scope_value_as = {
+            name = RETURN_AFRICAN_SLAVE_TOKEN
+            value = var:roe_african_slave_token
+        }
+        change_variable = {
+            name = roe_african_slave_token
+            subtract = scope:RETURN_AFRICAN_SLAVE_TOKEN
+        }
+        ## slavic
+        save_scope_value_as = {
+            name = RETURN_SLAVIC_SLAVE_TOKEN
+            value = var:roe_slavic_slave_token
+        }
+        change_variable = {
+            name = roe_slavic_slave_token
+            subtract = scope:RETURN_SLAVIC_SLAVE_TOKEN
+        }
+        ## turkic
+        save_scope_value_as = {
+            name = RETURN_TURKIC_SLAVE_TOKEN
+            value = var:roe_turkic_slave_token
+        }
+        change_variable = {
+            name = roe_turkic_slave_token
+            subtract = scope:RETURN_TURKIC_SLAVE_TOKEN
+        }
+        ## various
+        save_scope_value_as = {
+            name = RETURN_VARIOUS_SLAVE_TOKEN
+            value = var:roe_various_slave_token
+        }
+        change_variable = {
+            name = roe_various_slave_token
+            subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
+        }
+    }
+}
+
+# ROOT: character
+# PARAMS:
+#   MAX_AFRICAN_TOKEN: int
+#   MAX_SLAVIC_TOKEN: int
+#   MAX_TURKIC_TOKEN: int
+#   MAX_VARIOUS_TOKEN: int
+# Return Scopes:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_character_takeout_slave_token_with_limit_effect = {
+    if = {
+        limit = {
+            # is valid owner?
+            roe_character_is_valid_slave_owner_trigger = yes
+            # total >= 1?
+            roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+            # param check
+            $MAX_AFRICAN_TOKEN$ >= 0
+            $MAX_SLAVIC_TOKEN$ >= 0
+            $MAX_TURKIC_TOKEN$ >= 0
+            $MAX_VARIOUS_TOKEN$ >= 0
+            # MAXの合計が0より大きいこと
+            save_temporary_scope_value_as = {
+                name = total_max
+                value = {
+                    value = 0
+                    add = $MAX_AFRICAN_TOKEN$
+                    add = $MAX_SLAVIC_TOKEN$
+                    add = $MAX_TURKIC_TOKEN$
+                    add = $MAX_VARIOUS_TOKEN$
+                }
+            }
+            scope:total_max > 0
+        }
+        # 実際の取り出し
+        # AFRICAN
+        if = {
+            limit = {
+                # 取り出しを希望している
+                $MAX_AFRICAN_TOKEN$ > 0
+                # 貯蔵がある
+                var:roe_african_slave_token > 0
+            }
+            # 取り出し予定
+            set_local_variable = {
+                name = takeout_african_token
+                value = 0
+            }
+            # 貯蔵より取り出し希望が大きい場合
+            if = {
+                limit = { $MAX_AFRICAN_TOKEN$ > var:roe_african_slave_token }
+                # 貯蔵されている分だけ取り出す
+                change_local_variable = {
+                    name = takeout_african_token
+                    add = var:roe_african_slave_token
+                }
+            }
+            # 取り出し希望と同数以上が貯蔵されてる場合
+            else = {
+                # 希望する分だけ取り出す
+                change_local_variable = {
+                    name = takeout_african_token
+                    add = $MAX_AFRICAN_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_african_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_AFRICAN_SLAVE_TOKEN
+                    value = local_var:takeout_african_token
+                }
+                change_variable = {
+                    name = roe_african_slave_token
+                    subtract = local_var:takeout_african_token
+                }
+            }
+        }
+        # SLAVIC
+        if = {
+            limit = {
+                $MAX_SLAVIC_TOKEN$ > 0
+                var:roe_slavic_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_slavic_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_SLAVIC_TOKEN$ > var:roe_slavic_slave_token }
+                change_local_variable = {
+                    name = takeout_slavic_token
+                    add = var:roe_slavic_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_slavic_token
+                    add = $MAX_SLAVIC_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_slavic_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_SLAVIC_SLAVE_TOKEN
+                    value = local_var:takeout_slavic_token
+                }
+                change_variable = {
+                    name = roe_slavic_slave_token
+                    subtract = local_var:takeout_slavic_token
+                }
+            }
+        }
+        # TURKIC
+        if = {
+            limit = {
+                $MAX_TURKIC_TOKEN$ > 0
+                var:roe_turkic_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_turkic_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_TURKIC_TOKEN$ > var:roe_turkic_slave_token }
+                change_local_variable = {
+                    name = takeout_turkic_token
+                    add = var:roe_turkic_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_turkic_token
+                    add = $MAX_TURKIC_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_turkic_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_TURKIC_SLAVE_TOKEN
+                    value = local_var:takeout_turkic_token
+                }
+                change_variable = {
+                    name = roe_turkic_slave_token
+                    subtract = local_var:takeout_turkic_token
+                }
+            }
+        }
+        # VARIOUS
+        if = {
+            limit = {
+                $MAX_VARIOUS_TOKEN$ > 0
+                var:roe_various_slave_token > 0
+            }
+            set_local_variable = {
+                name = takeout_various_token
+                value = 0
+            }
+            if = {
+                limit = { $MAX_VARIOUS_TOKEN$ > var:roe_various_slave_token }
+                change_local_variable = {
+                    name = takeout_various_token
+                    add = var:roe_various_slave_token
+                }
+            }
+            else = {
+                change_local_variable = {
+                    name = takeout_various_token
+                    add = $MAX_VARIOUS_TOKEN$
+                }
+            }
+            if = {
+                limit = { local_var:takeout_various_token >= 0 }
+                save_scope_value_as = {
+                    name = RETURN_VARIOUS_SLAVE_TOKEN
+                    value = local_var:takeout_various_token
+                }
+                change_variable = {
+                    name = roe_various_slave_token
+                    subtract = local_var:takeout_various_token
+                }
+            }
+        }
+    }
+}
