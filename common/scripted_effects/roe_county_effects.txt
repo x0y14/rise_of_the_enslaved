@@ -1,4 +1,4 @@
-﻿# ROOT: landed_title(tier_county)
+# ROOT: landed_title(tier_county)
 roe_county_setup_slave_market_effect = {
     if = {
         limit = {
@@ -580,5 +580,34 @@ roe_county_takeout_slave_token_with_limit_effect = {
                 }
             }
         }
+        if = {
+            limit = { NOT = { exists = scope:RETURN_AFRICAN_SLAVE_TOKEN } }
+            save_scope_value_as = {
+                name = RETURN_AFRICAN_SLAVE_TOKEN
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { exists = scope:RETURN_SLAVIC_SLAVE_TOKEN } }
+            save_scope_value_as = {
+                name = RETURN_SLAVIC_SLAVE_TOKEN
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { exists = scope:RETURN_TURKIC_SLAVE_TOKEN } }
+            save_scope_value_as = {
+                name = RETURN_TURKIC_SLAVE_TOKEN
+                value = 0
+            }
+        }
+        if = {
+            limit = { NOT = { exists = scope:RETURN_VARIOUS_SLAVE_TOKEN } }
+            save_scope_value_as = {
+                name = RETURN_VARIOUS_SLAVE_TOKEN
+                value = 0
+            }
+        }
+    }
     }
 }
