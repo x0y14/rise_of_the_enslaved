@@ -1,4 +1,4 @@
-# ROOT: landed_title(tier_county)
+﻿# ROOT: landed_title(tier_county)
 roe_county_setup_slave_market_effect = {
     if = {
         limit = {
@@ -609,5 +609,109 @@ roe_county_takeout_slave_token_with_limit_effect = {
             }
         }
     }
+}
+
+
+# ROOT: Province
+# PARAMS:
+#   RAIDER: character
+# RETURN SCOPES:
+#   RETURN_AFRICAN_SLAVE_TOKEN
+#   RETURN_SLAVIC_SLAVE_TOKEN
+#   RETURN_TURKIC_SLAVE_TOKEN
+#   RETURN_VARIOUS_SLAVE_TOKEN
+roe_province_taken_away_slave_token_effect = {
+    save_scope_as = raided_province
+
+    set_local_variable = {
+        name = african_token
+        value = 0
+    }
+    set_local_variable = {
+        name = slavic_token
+        value = 0
+    }
+    set_local_variable = {
+        name = turkic_token
+        value = 0
+    }
+    set_local_variable = {
+        name = various_token
+        value = 0
+    }
+
+    # token獲得量の計算
+    set_local_variable = {
+        name = got_slave_token
+        value = {
+            value = scope:raided_province.barony.county.development_level
+            if = {
+                limit = { scope:raided_province.barony.county.development_level = 0 }
+                add = 1
+            }
+            multiply = roe_slave_token_per_devlv_value
+            if = {
+                limit = {
+                    $RAIDER$.culture = {
+                        OR = {
+                            has_cultural_pillar = heritage_turkic
+                            has_cultural_pillar = heritage_mongolic
+                        }
+                    }
+                }
+                multiply = 2
+                round = yes
+            }
+            # todo: 文化の維新?レベルが低いほど獲得量が多くなるとか
+        }
+    }
+    # tokenの種類の判別
+    scope:raided_province.barony.county.culture = {
+        if = {
+            limit = { roe_culture_is_slave_heritage_african_trigger = yes }
+            change_local_variable = {
+                name = african_token
+                add = local_var:got_slave_token
+            }
+        }
+        else_if = {
+            limit = { roe_culture_is_slave_heritage_slavic_trigger = yes }
+            change_local_variable = {
+                name = slavic_token
+                add = local_var:got_slave_token
+            }
+        }
+        else_if = {
+            limit = { roe_culture_is_slave_heritage_turkic_trigger = yes }
+            change_local_variable = {
+                name = turkic_token
+                add = local_var:got_slave_token
+            }
+        }
+        else_if = {
+            limit = { roe_culture_is_slave_heritage_various_trigger = yes }
+            change_local_variable = {
+                name = various_token
+                add = local_var:got_slave_token
+            }
+        }
+    }
+
+    # RETURN
+    save_scope_value_as = {
+        name = RETURN_AFRICAN_SLAVE_TOKEN
+        value = local_var:african_token
+    }
+    save_scope_value_as = {
+        name = RETURN_SLAVIC_SLAVE_TOKEN
+        value = local_var:slavic_token
+    }
+    save_scope_value_as = {
+        name = RETURN_TURKIC_SLAVE_TOKEN
+        value = local_var:turkic_token
+    }
+    save_scope_value_as = {
+        name = RETURN_VARIOUS_SLAVE_TOKEN
+        value = local_var:various_token
     }
 }
