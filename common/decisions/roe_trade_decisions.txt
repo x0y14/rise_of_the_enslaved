@@ -8,7 +8,7 @@ roe_buy_slaves_through_market_decision = {
         is_landed = yes
         # マーケットのあるcountyを持っていること
         custom_tooltip = {
-            text = roe_you_must_control_at_least_1_market_err_tt
+            text = roe_you_must_control_at_least_1_market_tt
             OR = {
                 any_realm_county = {
                     roe_county_has_valid_slave_market_trigger = yes
@@ -34,7 +34,7 @@ roe_buy_slaves_through_market_decision = {
                 }
             }
             custom_tooltip = {
-                text = roe_your_market_must_have_at_least_1_slave_err_tt
+                text = roe_your_market_must_have_at_least_1_slave_tt
                 OR = {
                     any_realm_county = {
                         roe_county_has_valid_slave_market_trigger = yes
@@ -51,7 +51,7 @@ roe_buy_slaves_through_market_decision = {
 
     is_valid = {
         custom_tooltip = {
-            text = roe_you_must_control_at_least_1_market_err_tt
+            text = roe_you_must_control_at_least_1_market_tt
             OR = {
                 any_realm_county = {
                     roe_county_has_valid_slave_market_trigger = yes
@@ -62,7 +62,7 @@ roe_buy_slaves_through_market_decision = {
             }
         }
         custom_tooltip = {
-            text = roe_your_market_must_have_at_least_1_slave_err_tt
+            text = roe_your_market_must_have_at_least_1_slave_tt
             OR = {
                 any_realm_county = {
                     roe_county_has_valid_slave_market_trigger = yes
@@ -78,7 +78,7 @@ roe_buy_slaves_through_market_decision = {
         trigger_if = {
             limit = { scope:choose_african = yes }
             custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_african_slaves_err_tt
+                text = roe_your_market_must_have_at_least_min_unit_african_slaves_tt
                 OR = {
                     any_realm_county = {
                         roe_county_has_valid_slave_market_trigger = yes
@@ -94,7 +94,7 @@ roe_buy_slaves_through_market_decision = {
         trigger_if = {
             limit = { scope:choose_slavic = yes }
             custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_err_tt
+                text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_tt
                 OR = {
                     any_realm_county = {
                         roe_county_has_valid_slave_market_trigger = yes
@@ -110,7 +110,7 @@ roe_buy_slaves_through_market_decision = {
         trigger_if = {
             limit = { scope:choose_turkic = yes }
             custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_err_tt
+                text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_tt
                 OR = {
                     any_realm_county = {
                         roe_county_has_valid_slave_market_trigger = yes
@@ -126,7 +126,7 @@ roe_buy_slaves_through_market_decision = {
         trigger_if = {
             limit = { scope:choose_various = yes }
             custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_various_slaves_err_tt
+                text = roe_your_market_must_have_at_least_min_unit_various_slaves_tt
                 OR = {
                     any_realm_county = {
                         roe_county_has_valid_slave_market_trigger = yes
@@ -151,7 +151,7 @@ roe_buy_slaves_through_market_decision = {
             value = choose_african
             is_valid = {
                 custom_tooltip = {
-                    text = roe_your_market_must_have_at_least_min_unit_african_slaves_err_tt
+                    text = roe_your_market_must_have_at_least_min_unit_african_slaves_tt
                     OR = {
                         any_realm_county = {
                             roe_county_has_valid_slave_market_trigger = yes
@@ -176,7 +176,7 @@ roe_buy_slaves_through_market_decision = {
             value = choose_slavic
             is_valid = {
                 custom_tooltip = {
-                    text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_err_tt
+                    text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_tt
                     OR = {
                         any_realm_county = {
                             roe_county_has_valid_slave_market_trigger = yes
@@ -201,7 +201,7 @@ roe_buy_slaves_through_market_decision = {
             value = choose_turkic
             is_valid = {
                 custom_tooltip = {
-                    text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_err_tt
+                    text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_tt
                     OR = {
                         any_realm_county = {
                             roe_county_has_valid_slave_market_trigger = yes
@@ -226,7 +226,7 @@ roe_buy_slaves_through_market_decision = {
             value = choose_various
             is_valid = {
                 custom_tooltip = {
-                    text = roe_your_market_must_have_at_least_min_unit_various_slaves_err_tt
+                    text = roe_your_market_must_have_at_least_min_unit_various_slaves_tt
                     OR = {
                         any_realm_county = {
                             roe_county_has_valid_slave_market_trigger = yes

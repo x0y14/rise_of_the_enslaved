@@ -32,13 +32,13 @@
                 this = title:c_cairo.holder.top_liege
             }
             custom_tooltip = {
-                text = roe_test_create_trade_task_contract_interaction_no_slave_market_err_tt
+                text = roe_test_create_trade_task_contract_interaction_no_slave_market_tt
                 title:c_bukhara = { roe_county_has_valid_slave_market_trigger = yes }
                 title:c_samarra = { roe_county_has_valid_slave_market_trigger = yes }
                 title:c_cairo = { roe_county_has_valid_slave_market_trigger = yes }
             }
             custom_tooltip = {
-                text = roe_test_create_trade_task_contract_interaction_total_slave_token_in_market_is_zero_err_tt
+                text = roe_test_create_trade_task_contract_interaction_total_slave_token_in_market_is_zero_tt
                 title:c_bukhara = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
                 title:c_samarra = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
                 title:c_cairo = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
