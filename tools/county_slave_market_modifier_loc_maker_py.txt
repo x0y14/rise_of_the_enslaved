@@ -1,0 +1,10 @@
+﻿# import re
+# for line in modifiers_txt.split("\n"):
+#     market_mod_reg = re.compile("roe_county_slave_market_(.*)_modifier")
+#     res = market_mod_reg.match(line)
+#     if res != None:
+#         county_name = res.group(1)
+#         print(f"# {county_name}")
+#         print(f"""roe_county_slave_market_{county_name}_modifier: \"Slave Market\"""")
+        
+#         print(f"""roe_county_slave_market_{county_name}_modifier_desc: \"Slave Market\\n    African Slaves: [GetTitleByKey('c_{county_name}').MakeScope.Var('roe_african_slave_token').GetValue]\\n    Slavic Slaves: [GetTitleByKey('c_{county_name}').MakeScope.Var('roe_slavic_slave_token').GetValue]\\n    Turkic Slaves: [GetTitleByKey('c_{county_name}').MakeScope.Var('roe_turkic_slave_token').GetValue]\\n    Various Slaves: [GetTitleByKey('c_{county_name}').MakeScope.Var('roe_various_slave_token').GetValue]\"""")
