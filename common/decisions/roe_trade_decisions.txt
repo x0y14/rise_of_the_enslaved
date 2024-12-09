@@ -275,6 +275,7 @@ roe_buy_slaves_through_market_decision = {
             custom_tooltip = roe_buy_slaves_through_market_decision_choose_turkic_effect_tt
         }
         else_if = {
+            limit = { scope:choose_various = yes }
             custom_tooltip = roe_buy_slaves_through_market_decision_choose_various_effect_tt
         }
 
