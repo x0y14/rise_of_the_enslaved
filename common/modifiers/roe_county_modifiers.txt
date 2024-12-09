@@ -1,4 +1,7 @@
 ﻿# Slave Market
+# Islamic Area
+# https://en.wikipedia.org/wiki/Black_Sea_slave_trade
+# https://openendedsocialstudies.org/2016/06/25/the-silk-road-international-trade-and-global-prosperity/
 roe_county_slave_market_bukhara_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
@@ -11,7 +14,109 @@ roe_county_slave_market_cairo_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
+roe_county_slave_market_shirvan_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kashgar_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kabul_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_hormuz_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_mandab_modifier = { # Aden
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_basra_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
 
+# Africa
+# https://blog.library.si.edu/blog/2013/10/21/david-livingstone-and-the-other-slave-trade-part-ii-the-arab-slave-trade/
+# https://www.studentsofhistory.com/trans-saharan-trade
+roe_county_slave_market_aydhab_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_tunis_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_marrakesh_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kanem_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_gao_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_tirakka_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+
+# Viking Area
+# https://en.wikipedia.org/wiki/Swedish_slave_trade
+# https://www.worldhistory.org/trans/fr/1-17400/hedeby/
+roe_county_slave_market_slesvig_modidier = { # Hedeby
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_upland_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_novgorod_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kiev_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kalos_limen_modifier = { # cherson is not county...
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+
+# Stepp Area
+roe_county_slave_market_bolghar_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_itil_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+
+# Asia Area
+roe_county_slave_market_guazhou_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_kara_khoja_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_delhi_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+
+
+# DEBUFF
 # 住人が奴隷として連れ去られた
 roe_province_recently_people_enslaved_modifier = {
     icon = prison_negative

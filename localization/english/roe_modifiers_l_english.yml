@@ -1,11 +1,78 @@
 ﻿l_english:
   # COUNTY
+  # bukhara
   roe_county_slave_market_bukhara_modifier: "Slave Market"
   roe_county_slave_market_bukhara_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_bukhara').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # samarra
   roe_county_slave_market_samarra_modifier: "Slave Market"
   roe_county_slave_market_samarra_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_samarra').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_samarra').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_samarra').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_samarra').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # cairo
   roe_county_slave_market_cairo_modifier: "Slave Market"
   roe_county_slave_market_cairo_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_cairo').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_cairo').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_cairo').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_cairo').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # shirvan
+  roe_county_slave_market_shirvan_modifier: "Slave Market"
+  roe_county_slave_market_shirvan_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_shirvan').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_shirvan').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_shirvan').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_shirvan').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kashgar
+  roe_county_slave_market_kashgar_modifier: "Slave Market"
+  roe_county_slave_market_kashgar_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kashgar').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kashgar').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kashgar').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kashgar').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kabul
+  roe_county_slave_market_kabul_modifier: "Slave Market"
+  roe_county_slave_market_kabul_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kabul').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kabul').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kabul').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kabul').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # hormuz
+  roe_county_slave_market_hormuz_modifier: "Slave Market"
+  roe_county_slave_market_hormuz_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_hormuz').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_hormuz').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_hormuz').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_hormuz').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # mandab
+  roe_county_slave_market_mandab_modifier: "Slave Market"
+  roe_county_slave_market_mandab_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_mandab').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_mandab').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_mandab').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_mandab').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # basra
+  roe_county_slave_market_basra_modifier: "Slave Market"
+  roe_county_slave_market_basra_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_basra').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_basra').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_basra').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_basra').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # aydhab
+  roe_county_slave_market_aydhab_modifier: "Slave Market"
+  roe_county_slave_market_aydhab_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_aydhab').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_aydhab').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_aydhab').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_aydhab').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # tunis
+  roe_county_slave_market_tunis_modifier: "Slave Market"
+  roe_county_slave_market_tunis_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_tunis').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_tunis').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_tunis').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_tunis').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # marrakesh
+  roe_county_slave_market_marrakesh_modifier: "Slave Market"
+  roe_county_slave_market_marrakesh_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_marrakesh').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_marrakesh').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_marrakesh').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_marrakesh').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kanem
+  roe_county_slave_market_kanem_modifier: "Slave Market"
+  roe_county_slave_market_kanem_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kanem').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kanem').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kanem').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kanem').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # gao
+  roe_county_slave_market_gao_modifier: "Slave Market"
+  roe_county_slave_market_gao_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_gao').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_gao').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_gao').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_gao').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # tirakka
+  roe_county_slave_market_tirakka_modifier: "Slave Market"
+  roe_county_slave_market_tirakka_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # upland
+  roe_county_slave_market_upland_modifier: "Slave Market"
+  roe_county_slave_market_upland_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # novgorod
+  roe_county_slave_market_novgorod_modifier: "Slave Market"
+  roe_county_slave_market_novgorod_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_novgorod').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_novgorod').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_novgorod').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_novgorod').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kiev
+  roe_county_slave_market_kiev_modifier: "Slave Market"
+  roe_county_slave_market_kiev_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kiev').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kiev').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kiev').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kiev').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kalos_limen
+  roe_county_slave_market_kalos_limen_modifier: "Slave Market"
+  roe_county_slave_market_kalos_limen_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kalos_limen').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kalos_limen').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kalos_limen').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kalos_limen').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # bolghar
+  roe_county_slave_market_bolghar_modifier: "Slave Market"
+  roe_county_slave_market_bolghar_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_bolghar').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_bolghar').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_bolghar').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_bolghar').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # itil
+  roe_county_slave_market_itil_modifier: "Slave Market"
+  roe_county_slave_market_itil_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_itil').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_itil').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_itil').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_itil').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # guazhou
+  roe_county_slave_market_guazhou_modifier: "Slave Market"
+  roe_county_slave_market_guazhou_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_guazhou').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_guazhou').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_guazhou').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_guazhou').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # kara_khoja
+  roe_county_slave_market_kara_khoja_modifier: "Slave Market"
+  roe_county_slave_market_kara_khoja_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_kara_khoja').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_kara_khoja').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_kara_khoja').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_kara_khoja').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # delhi
+  roe_county_slave_market_delhi_modifier: "Slave Market"
+  roe_county_slave_market_delhi_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_delhi').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_delhi').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_delhi').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_delhi').MakeScope.Var('roe_various_slave_token').GetValue]"
+
   # PROVINCE
   roe_province_recently_people_enslaved_modifier: "Recently People Enslaved"
   roe_province_recently_people_enslaved_modifier_desc: "The people of this holding have recently been taken away and enslaved."

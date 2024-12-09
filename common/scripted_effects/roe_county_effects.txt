@@ -22,18 +22,127 @@ roe_county_setup_slave_market_effect = {
             value = 0
         }
         # 各title毎
+        # bukhara
         if = {
             limit = { this = title:c_bukhara }
             add_county_modifier = roe_county_slave_market_bukhara_modifier
         }
+        # samarra
         else_if = {
             limit = { this = title:c_samarra }
             add_county_modifier = roe_county_slave_market_samarra_modifier
         }
+        # cairo
         else_if = {
             limit = { this = title:c_cairo }
             add_county_modifier = roe_county_slave_market_cairo_modifier
         }
+        # shirvan
+        else_if = {
+            limit = { this = title:c_shirvan }
+            add_county_modifier = roe_county_slave_market_shirvan_modifier
+        }
+        # kashgar
+        else_if = {
+            limit = { this = title:c_kashgar }
+            add_county_modifier = roe_county_slave_market_kashgar_modifier
+        }
+        # kabul
+        else_if = {
+            limit = { this = title:c_kabul }
+            add_county_modifier = roe_county_slave_market_kabul_modifier
+        }
+        # hormuz
+        else_if = {
+            limit = { this = title:c_hormuz }
+            add_county_modifier = roe_county_slave_market_hormuz_modifier
+        }
+        # mandab
+        else_if = {
+            limit = { this = title:c_mandab }
+            add_county_modifier = roe_county_slave_market_mandab_modifier
+        }
+        # basra
+        else_if = {
+            limit = { this = title:c_basra }
+            add_county_modifier = roe_county_slave_market_basra_modifier
+        }
+        # aydhab
+        else_if = {
+            limit = { this = title:c_aydhab }
+            add_county_modifier = roe_county_slave_market_aydhab_modifier
+        }
+        # tunis
+        else_if = {
+            limit = { this = title:c_tunis }
+            add_county_modifier = roe_county_slave_market_tunis_modifier
+        }
+        # marrakesh
+        else_if = {
+            limit = { this = title:c_marrakesh }
+            add_county_modifier = roe_county_slave_market_marrakesh_modifier
+        }
+        # kanem
+        else_if = {
+            limit = { this = title:c_kanem }
+            add_county_modifier = roe_county_slave_market_kanem_modifier
+        }
+        # gao
+        else_if = {
+            limit = { this = title:c_gao }
+            add_county_modifier = roe_county_slave_market_gao_modifier
+        }
+        # tirakka
+        else_if = {
+            limit = { this = title:c_tirakka }
+            add_county_modifier = roe_county_slave_market_tirakka_modifier
+        }
+        # upland
+        else_if = {
+            limit = { this = title:c_upland }
+            add_county_modifier = roe_county_slave_market_upland_modifier
+        }
+        # novgorod
+        else_if = {
+            limit = { this = title:c_novgorod }
+            add_county_modifier = roe_county_slave_market_novgorod_modifier
+        }
+        # kiev
+        else_if = {
+            limit = { this = title:c_kiev }
+            add_county_modifier = roe_county_slave_market_kiev_modifier
+        }
+        # kalos_limen
+        else_if = {
+            limit = { this = title:c_kalos_limen }
+            add_county_modifier = roe_county_slave_market_kalos_limen_modifier
+        }
+        # bolghar
+        else_if = {
+            limit = { this = title:c_bolghar }
+            add_county_modifier = roe_county_slave_market_bolghar_modifier
+        }
+        # itil
+        else_if = {
+            limit = { this = title:c_itil }
+            add_county_modifier = roe_county_slave_market_itil_modifier
+        }
+        # guazhou
+        else_if = {
+            limit = { this = title:c_guazhou }
+            add_county_modifier = roe_county_slave_market_guazhou_modifier
+        }
+        # kara_khoja
+        else_if = {
+            limit = { this = title:c_kara_khoja }
+            add_county_modifier = roe_county_slave_market_kara_khoja_modifier
+        }
+        # delhi
+        else_if = {
+            limit = { this = title:c_delhi }
+            add_county_modifier = roe_county_slave_market_delhi_modifier
+        }
+
     }
 }
 
