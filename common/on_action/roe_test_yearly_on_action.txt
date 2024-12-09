@@ -1,7 +1,7 @@
 ﻿yearly_global_pulse = {
     on_actions = {
         roe_test_yearly_bukhara_increment_token_on_action
-        roe_test_yearly_trader_check_on_action
+        roe_test_yearly_merchant_check_on_action
     }
 }
 
@@ -23,18 +23,18 @@ roe_test_yearly_bukhara_increment_token_on_action = {
     }
 }
 
-roe_test_yearly_trader_check_on_action = {
+roe_test_yearly_merchant_check_on_action = {
     trigger = {
         # squared_distance
         NAND = {
             any_ruler = {
-                roe_character_is_trader_with_guild_trigger = { GUILD = title:c_bukhara }
+                roe_character_is_merchant_with_guild_trigger = { GUILD = title:c_bukhara }
             }
             any_ruler = {
-                roe_character_is_trader_with_guild_trigger = { GUILD = title:c_samarra }
+                roe_character_is_merchant_with_guild_trigger = { GUILD = title:c_samarra }
             }
             any_ruler = {
-                roe_character_is_trader_with_guild_trigger = { GUILD = title:c_cairo }
+                roe_character_is_merchant_with_guild_trigger = { GUILD = title:c_cairo }
             }
         }
     }
@@ -45,23 +45,23 @@ roe_test_yearly_trader_check_on_action = {
             limit = {
                 NOT = {
                     any_ruler = {
-                        roe_character_is_trader_with_guild_trigger = { GUILD = scope:guild }
+                        roe_character_is_merchant_with_guild_trigger = { GUILD = scope:guild }
                     }
                 }
             }
             title:c_bukhara = { save_scope_as = guild }
             create_character = {
-                template = roe_muslim_trader_character
+                template = roe_muslim_merchant_character
                 gender_female_chance = 0
                 location = scope:guild.title_province
-                save_scope_as = muslim_trader
+                save_scope_as = muslim_merchant
             }
-            scope:muslim_trader = {
+            scope:muslim_merchant = {
                 set_variable = {
                     name = roe_guild
                     value = scope:guild
                 }
-                create_story = roe_trader_story
+                create_story = roe_merchant_story
             }
         }
         # サマラを拠点とする商人がいない場合
@@ -70,23 +70,23 @@ roe_test_yearly_trader_check_on_action = {
             limit = {
                 NOT = {
                     any_ruler = {
-                        roe_character_is_trader_with_guild_trigger = { GUILD = scope:guild }
+                        roe_character_is_merchant_with_guild_trigger = { GUILD = scope:guild }
                     }
                 }
             }
             title:c_samarra = { save_scope_as = guild }
             create_character = {
-                template = roe_muslim_trader_character
+                template = roe_muslim_merchant_character
                 gender_female_chance = 0
                 location = scope:guild.title_province
-                save_scope_as = muslim_trader
+                save_scope_as = muslim_merchant
             }
-            scope:muslim_trader = {
+            scope:muslim_merchant = {
                 set_variable = {
                     name = roe_guild
                     value = scope:guild
                 }
-                create_story = roe_trader_story
+                create_story = roe_merchant_story
             }
         }
         # カイロを拠点とする商人がいない場合
@@ -95,23 +95,23 @@ roe_test_yearly_trader_check_on_action = {
             limit = {
                 NOT = {
                     any_ruler = {
-                        roe_character_is_trader_with_guild_trigger = { GUILD = scope:guild }
+                        roe_character_is_merchant_with_guild_trigger = { GUILD = scope:guild }
                     }
                 }
             }
             title:c_cairo = { save_scope_as = guild }
             create_character = {
-                template = roe_muslim_trader_character
+                template = roe_muslim_merchant_character
                 gender_female_chance = 0
                 location = scope:guild.title_province
-                save_scope_as = muslim_trader
+                save_scope_as = muslim_merchant
             }
-            scope:muslim_trader = {
+            scope:muslim_merchant = {
                 set_variable = {
                     name = roe_guild
                     value = scope:guild
                 }
-                create_story = roe_trader_story
+                create_story = roe_merchant_story
             }
         }
     }

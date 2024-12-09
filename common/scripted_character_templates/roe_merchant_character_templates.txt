@@ -1,4 +1,4 @@
-﻿roe_muslim_trader_character = {
+﻿roe_muslim_merchant_character = {
     age = { 20 40 }
     dynasty = none
 
@@ -29,7 +29,7 @@
         education_diplomacy_4  = {}
 	}
 
-    trait = roe_trader
+    trait = roe_merchant
 
 	stewardship = {
 		min_template_high_skill

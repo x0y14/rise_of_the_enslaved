@@ -1,10 +1,10 @@
-﻿roe_trader_story = {
+﻿roe_merchant_story = {
     on_setup = {
         story_owner ?= {
             save_scope_as = story_owner
             if = {
-                limit = { NOT = { has_trait = roe_trader } }
-                add_trait = roe_trader
+                limit = { NOT = { has_trait = roe_merchant } }
+                add_trait = roe_merchant
             }
             if = {
                 limit = { is_landless_adventurer = no }

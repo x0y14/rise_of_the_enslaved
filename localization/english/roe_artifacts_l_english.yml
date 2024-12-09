@@ -1,4 +1,4 @@
 ﻿l_english:
   roe_cargo_manifest: "Cargo Manifest"
-  roe_cargo_manifest_description_placeholder: "Trader's Cargo Manifest"
-  roe_cargo_manifest_description: "Trader's Cargo Manifest\n    African Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_various_slave_token').GetValue]"
+  roe_cargo_manifest_description_placeholder: "merchant's Cargo Manifest"
+  roe_cargo_manifest_description: "merchant's Cargo Manifest\n    African Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [artifact_cargo_manifest.MakeScope.Var('roe_various_slave_token').GetValue]"
