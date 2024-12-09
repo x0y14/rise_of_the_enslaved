@@ -5,3 +5,7 @@
 roe_min_slave_token_unit_value = {
     value = 100
 }
+
+roe_slave_price_per_unit_value = {
+    value = 3 # TODO
+}

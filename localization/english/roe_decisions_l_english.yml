@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
   roe_test_setup_slave_market_decision: "Setup Slave Market"
   roe_test_setup_slave_market_decision_desc: "DESC"
   roe_test_setup_slave_market_decision_tooltip: "TOOLTIP"
@@ -35,3 +35,18 @@ l_english:
   choose_various_tooltip: "choose various tooltip"
   choose_various_desc: "CHOOSE VARIOUS DESC"
   roe_buy_slaves_through_market_decision_choose_various_effect_tt: "You gain [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_various_slaves|E]"
+
+  roe_sell_slaves_through_market_decision: "Sell Slaves Through Market"
+  roe_sell_slaves_through_market_decision_desc: "DESC"
+  roe_sell_slaves_through_market_decision_tooltip: "TOOLTIP"
+  roe_sell_slaves_through_market_decision_confirm: "confirm"
+  roe_sell_slaves_through_market_decision_second_step_button_confirm: "$roe_buy_slaves_through_market_decision_second_step_button_confirm$"
+  choose_all_slaves_name: "CHOOSE ALL"
+  choose_all_slaves_tooltip: "choose all tooltip"
+  choose_all_slaves_desc: "CHOOSE ALL DESC"
+  roe_sell_slaves_through_market_decision_choose_african_effect_tt: "You lost [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|-0] [roe_african_slaves|E]"
+  roe_sell_slaves_through_market_decision_choose_slavic_effect_tt: "You lost [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|-0] [roe_slavic_slaves|E]"
+  roe_sell_slaves_through_market_decision_choose_turkic_effect_tt: "You lost [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|-0] [roe_turkic_slaves|E]"
+  roe_sell_slaves_through_market_decision_choose_various_effect_tt: "You lost [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|-0] [roe_various_slaves|E]"
+  roe_sell_slaves_through_market_decision_choose_all_effect_tt: "You lost all of your [roe_slaves|E]"
+  roe_sell_slaves_through_market_decision_gain_gold_effect_tt: "You gain [gold_i][gain_gold.GetValue|+0]"

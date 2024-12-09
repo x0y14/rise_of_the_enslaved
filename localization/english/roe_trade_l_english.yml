@@ -1,2 +1,27 @@
-l_english:
+﻿l_english:
+  # MARKET
   roe_you_must_control_at_least_1_market_tt: "You must control at least 1 [roe_slave_market|E]"
+  # Market must have at least 1 Slave
+  roe_your_market_must_have_at_least_1_slave_tt: "Your [roe_slave_market|E] must have at least 1 [roe_slave|E]"
+  roe_your_market_must_have_at_least_1_african_slave_tt: "Your [roe_slave_market|E] must have at least 1 [roe_african_slave|E]"
+  roe_your_market_must_have_at_least_1_slavic_slave_tt: "Your [roe_slave_market|E] must have at least 1 [roe_slavic_slave|E]"
+  roe_your_market_must_have_at_least_1_turkic_slave_tt: "Your [roe_slave_market|E] must have at least 1 [roe_turkic_slave|E]"
+  roe_your_market_must_have_at_least_1_various_slave_tt: "Your [roe_slave_market|E] must have at least 1 [roe_various_slave|E]"
+  # Market must have at least MIN_UNIT Slaves
+  roe_your_market_must_have_at_least_min_unit_african_slaves_tt: "Your [roe_slave_market|E] must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_african_slaves|E]"
+  roe_your_market_must_have_at_least_min_unit_slavic_slaves_tt: "Your [roe_slave_market|E] must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_slavic_slaves|E]"
+  roe_your_market_must_have_at_least_min_unit_turkic_slaves_tt: "Your [roe_slave_market|E] must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_turkic_slaves|E]"
+  roe_your_market_must_have_at_least_min_unit_various_slaves_tt: "Your [roe_slave_market|E] must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_various_slaves|E]"
+
+  # Character
+  # You must have at least 1 Slave
+  roe_you_must_have_at_least_1_slave_tt: "You must have at least 1 [roe_slave|E]"
+  roe_you_must_have_at_least_1_african_slave_tt: "You must have at least 1 [roe_african_slave|E]"
+  roe_you_must_have_at_least_1_slavic_slave_tt: "You must have at least 1 [roe_slavic_slave|E]"
+  roe_you_must_have_at_least_1_turkic_slave_tt: "You must have at least 1 [roe_turkic_slave|E]"
+  roe_you_must_have_at_least_1_various_slave_tt: "You must have at least 1 [roe_various_slave|E]"
+  # You must have at least MIN_UNIT Slaves
+  roe_you_must_have_at_least_min_unit_african_slaves_tt: "You must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_african_slaves|E]"
+  roe_you_must_have_at_least_min_unit_slavic_slaves_tt: "You must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_slavic_slaves|E]"
+  roe_you_must_have_at_least_min_unit_turkic_slaves_tt: "You must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_turkic_slaves|E]"
+  roe_you_must_have_at_least_min_unit_various_slaves_tt: "You must have at least [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_various_slaves|E]"
