@@ -58,10 +58,6 @@ roe_county_slave_market_kanem_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
-roe_county_slave_market_gao_modifier = {
-    icon = prison_mixed
-    development_growth_factor = very_large_development_growth_gain
-}
 roe_county_slave_market_tirakka_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
@@ -87,6 +83,10 @@ roe_county_slave_market_kiev_modifier = {
     development_growth_factor = very_large_development_growth_gain
 }
 roe_county_slave_market_kalos_limen_modifier = { # cherson is not county...
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_byzantion_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }

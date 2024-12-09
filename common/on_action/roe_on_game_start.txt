@@ -48,8 +48,6 @@ roe_setup_slave_market_on_action = {
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_marrakesh }
         # kanem
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kanem }
-        # gao
-        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_gao }
         # tirakka
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_tirakka }
         # slesvig
@@ -62,6 +60,8 @@ roe_setup_slave_market_on_action = {
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kiev }
         # kalos_limen
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kalos_limen }
+        # byzantion
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_byzantion }
         # bolghar
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_bolghar }
         # itil
@@ -72,6 +72,7 @@ roe_setup_slave_market_on_action = {
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kara_khoja }
         # delhi
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_delhi }
+
 
         every_in_global_list = {
             variable = roe_slave_market_counties
