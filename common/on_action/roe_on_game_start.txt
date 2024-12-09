@@ -23,58 +23,58 @@ on_game_start_after_lobby = {
 roe_setup_slave_market_on_action = {
     effect = {
         # bukhara
-        title:c_bukhara = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_bukhara }
         # samarra
-        title:c_samarra = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_samarra }
         # cairo
-        title:c_cairo = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_cairo }
         # shirvan
-        title:c_shirvan = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_shirvan }
         # kashgar
-        title:c_kashgar = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kashgar }
         # kabul
-        title:c_kabul = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kabul }
         # hormuz
-        title:c_hormuz = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_hormuz }
         # mandab
-        title:c_mandab = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_mandab }
         # basra
-        title:c_basra = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_basra }
         # aydhab
-        title:c_aydhab = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_aydhab }
         # tunis
-        title:c_tunis = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_tunis }
         # marrakesh
-        title:c_marrakesh = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_marrakesh }
         # kanem
-        title:c_kanem = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kanem }
         # gao
-        title:c_gao = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_gao }
         # tirakka
-        title:c_tirakka = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_tirakka }
         # slesvig
-        title:c_slesvig = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_slesvig }
         # upland
-        title:c_upland = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_upland }
         # novgorod
-        title:c_novgorod = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_novgorod }
         # kiev
-        title:c_kiev = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kiev }
         # kalos_limen
-        title:c_kalos_limen = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kalos_limen }
         # bolghar
-        title:c_bolghar = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_bolghar }
         # itil
-        title:c_itil = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_itil }
         # guazhou
-        title:c_guazhou = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_guazhou }
         # kara_khoja
-        title:c_kara_khoja = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_kara_khoja }
         # delhi
-        title:c_delhi = { add_to_list = market_counties }
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_delhi }
 
-        every_in_list = {
-            list = market_counties
+        every_in_global_list = {
+            variable = roe_slave_market_counties
             # 初期化!
             if = {
                 limit = { roe_county_has_valid_slave_market_trigger = no }

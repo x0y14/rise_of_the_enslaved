@@ -5,4 +5,4 @@
 #     if res != None:
 #         county_name = res.group(1)
 #         print(f"# {county_name}")
-#         print(f"title:c_{county_name} = {{ add_to_list = market_counties }}")
+#         print(f"add_to_global_variable_list = {{ name = roe_slave_market_counties target = title:c_{county_name} }}")
