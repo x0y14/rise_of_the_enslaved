@@ -9,3 +9,17 @@ roe_min_slave_token_unit_value = {
 roe_slave_price_per_unit_value = {
     value = 3 # TODO
 }
+
+roe_county_init_slave_token_value = {
+    value = 0
+    add = {
+        value = this.development_level
+        if = {
+            limit = { this.development_level = 0 }
+            add = 1
+        }
+        multiply = roe_slave_token_per_devlv_value
+        add = { 0 5 }
+    }
+    round = yes
+}

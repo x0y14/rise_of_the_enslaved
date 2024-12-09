@@ -1,9 +1,56 @@
 ﻿roe_county_is_in_slave_market_county_list_trigger = {
     tier = tier_county
     OR = {
+        # bukhara
         this = title:c_bukhara
+        # samarra
         this = title:c_samarra
+        # cairo
         this = title:c_cairo
+        # shirvan
+        this = title:c_shirvan
+        # kashgar
+        this = title:c_kashgar
+        # kabul
+        this = title:c_kabul
+        # hormuz
+        this = title:c_hormuz
+        # mandab
+        this = title:c_mandab
+        # basra
+        this = title:c_basra
+        # aydhab
+        this = title:c_aydhab
+        # tunis
+        this = title:c_tunis
+        # marrakesh
+        this = title:c_marrakesh
+        # kanem
+        this = title:c_kanem
+        # gao
+        this = title:c_gao
+        # tirakka
+        this = title:c_tirakka
+        # slesvig
+        this = title:c_slesvig
+        # upland
+        this = title:c_upland
+        # novgorod
+        this = title:c_novgorod
+        # kiev
+        this = title:c_kiev
+        # kalos_limen
+        this = title:c_kalos_limen
+        # bolghar
+        this = title:c_bolghar
+        # itil
+        this = title:c_itil
+        # guazhou
+        this = title:c_guazhou
+        # kara_khoja
+        this = title:c_kara_khoja
+        # delhi
+        this = title:c_delhi
     }
 }
 

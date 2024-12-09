@@ -23,45 +23,217 @@ on_game_start_after_lobby = {
 roe_setup_slave_market_on_action = {
     effect = {
         # bukhara
-        title:c_bukhara = {
-            if = {
-                limit = { roe_county_has_valid_slave_market_trigger = no }
-                roe_county_setup_slave_market_effect = yes
-            }
-            # 初期値は適当
-            roe_county_store_slave_token_effect = {
-                AFRICAN_SLAVE_TOKEN = 10
-                SLAVIC_SLAVE_TOKEN = 100
-                TURKIC_SLAVE_TOKEN = 200
-                VARIOUS_SLAVE_TOKEN = 10
-            }
-        }
+        title:c_bukhara = { add_to_list = market_counties }
         # samarra
-        title:c_samarra = {
-            if = {
-                limit = { roe_county_has_valid_slave_market_trigger = no }
-                roe_county_setup_slave_market_effect = yes
-            }
-            # 初期値は適当
-            roe_county_store_slave_token_effect = {
-                AFRICAN_SLAVE_TOKEN = 100
-                SLAVIC_SLAVE_TOKEN = 100
-                TURKIC_SLAVE_TOKEN = 100
-                VARIOUS_SLAVE_TOKEN = 100
-            }
-        }
+        title:c_samarra = { add_to_list = market_counties }
         # cairo
-        title:c_cairo = {
+        title:c_cairo = { add_to_list = market_counties }
+        # shirvan
+        title:c_shirvan = { add_to_list = market_counties }
+        # kashgar
+        title:c_kashgar = { add_to_list = market_counties }
+        # kabul
+        title:c_kabul = { add_to_list = market_counties }
+        # hormuz
+        title:c_hormuz = { add_to_list = market_counties }
+        # mandab
+        title:c_mandab = { add_to_list = market_counties }
+        # basra
+        title:c_basra = { add_to_list = market_counties }
+        # aydhab
+        title:c_aydhab = { add_to_list = market_counties }
+        # tunis
+        title:c_tunis = { add_to_list = market_counties }
+        # marrakesh
+        title:c_marrakesh = { add_to_list = market_counties }
+        # kanem
+        title:c_kanem = { add_to_list = market_counties }
+        # gao
+        title:c_gao = { add_to_list = market_counties }
+        # tirakka
+        title:c_tirakka = { add_to_list = market_counties }
+        # slesvig
+        title:c_slesvig = { add_to_list = market_counties }
+        # upland
+        title:c_upland = { add_to_list = market_counties }
+        # novgorod
+        title:c_novgorod = { add_to_list = market_counties }
+        # kiev
+        title:c_kiev = { add_to_list = market_counties }
+        # kalos_limen
+        title:c_kalos_limen = { add_to_list = market_counties }
+        # bolghar
+        title:c_bolghar = { add_to_list = market_counties }
+        # itil
+        title:c_itil = { add_to_list = market_counties }
+        # guazhou
+        title:c_guazhou = { add_to_list = market_counties }
+        # kara_khoja
+        title:c_kara_khoja = { add_to_list = market_counties }
+        # delhi
+        title:c_delhi = { add_to_list = market_counties }
+
+        every_in_list = {
+            list = market_counties
+            # 初期化!
             if = {
                 limit = { roe_county_has_valid_slave_market_trigger = no }
                 roe_county_setup_slave_market_effect = yes
             }
-            # 初期値は適当
+            # 地域ボーナス無しの初期値
+            set_local_variable = {
+                name = init_african_slave_token
+                value = roe_county_init_slave_token_value
+            }
+            set_local_variable = {
+                name = init_slavic_slave_token
+                value = roe_county_init_slave_token_value
+            }
+            set_local_variable = {
+                name = init_turkic_slave_token
+                value = roe_county_init_slave_token_value
+            }
+            set_local_variable = {
+                name = init_various_slave_token
+                value = roe_county_init_slave_token_value
+            }
+            # 計算について
+            # roe_slave_token_per_devlv_value = 10
+            # roe_county_init_slave_token_value(10~1000) = county_devlv(min=1) * roe_slave_token_per_devlv_value(10)
+
+            # すべてのworld_~が含まれていることを確認してください!
+            # [x] world_europe
+            # [x] world_asia_minor
+            # [x] world_middle_east
+            # [x] world_india
+            # [x] world_africa
+            # [x] world_steppe
+            # [x] world_tibet
+            # [x] world_burma
+            # African Major
+            if = {
+                limit = {
+                    this.title_province = {
+                        OR = {
+                            geographical_region = world_africa
+                        }
+                    }
+                }
+                change_local_variable = {
+                    name = init_african_slave_token
+                    add = { 1 10 }
+                    multiply = { 5 20 }
+                }
+            }
+            # Slavic Major
+            else_if = {
+                limit = {
+                    this.title_province = {
+                        OR = {
+                            geographical_region = world_europe
+                        }
+                    }
+                }
+                change_local_variable = {
+                    name = init_slavic_slave_token
+                    add = { 1 10 }
+                    multiply = { 5 20 }
+                }
+            }
+            # Turkic Major
+            else_if = {
+                limit = {
+                    this.title_province = {
+                        OR = {
+                            geographical_region = world_europe
+                            geographical_region = world_middle_east
+                            geographical_region = world_steppe
+                        }
+                    }
+                }
+                change_local_variable = {
+                    name = init_turkic_slave_token
+                    add = { 1 10 }
+                    multiply = { 5 20 }
+                }
+            }
+            # Various Major
+            else_if = {
+                limit = {
+                    this.title_province = {
+                        OR = {
+                            geographical_region = world_asia_minor
+                            geographical_region = world_india
+                            geographical_region = world_tibet
+                            geographical_region = world_burma
+                        }
+                    }
+                }
+                change_local_variable = {
+                    name = init_various_slave_token
+                    add = { 1 10 }
+                    multiply = { 5 20 }
+                }
+            }
+
+            # Title Bonus
+            if = {
+                limit = { this = title:c_bukhara }
+                change_local_variable = {
+                    name = init_turkic_slave_token
+                    add = 500
+                }
+            }
+            else_if = {
+                limit = { this = title:c_samarra }
+                change_local_variable = {
+                    name = init_turkic_slave_token
+                    add = 500
+                }
+            }
+            else_if = {
+                limit = { this = title:c_cairo }
+                change_local_variable = {
+                    name = init_turkic_slave_token
+                    add = 500
+                }
+            }
+
+            # ROUND
+            set_local_variable = {
+                name = init_african_slave_token
+                value = {
+                    value = local_var:init_african_slave_token
+                    round = yes
+                }
+            }
+            set_local_variable = {
+                name = init_slavic_slave_token
+                value = {
+                    value = local_var:init_slavic_slave_token
+                    round = yes
+                }
+            }
+            set_local_variable = {
+                name = init_turkic_slave_token
+                value = {
+                    value = local_var:init_turkic_slave_token
+                    round = yes
+                }
+            }
+            set_local_variable = {
+                name = init_various_slave_token
+                value = {
+                    value = local_var:init_various_slave_token
+                    round = yes
+                }
+            }
+
             roe_county_store_slave_token_effect = {
-                AFRICAN_SLAVE_TOKEN = 200
-                SLAVIC_SLAVE_TOKEN = 20
-                TURKIC_SLAVE_TOKEN = 100
-                VARIOUS_SLAVE_TOKEN = 20
+                AFRICAN_SLAVE_TOKEN = local_var:init_african_slave_token
+                SLAVIC_SLAVE_TOKEN = local_var:init_slavic_slave_token
+                TURKIC_SLAVE_TOKEN = local_var:init_turkic_slave_token
+                VARIOUS_SLAVE_TOKEN = local_var:init_various_slave_token
             }
         }
     }
