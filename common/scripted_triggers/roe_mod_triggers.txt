@@ -1,0 +1,4 @@
+﻿# For Variable 'rise_of_the_enslaved_installed' is set but is never used. ...
+rise_of_the_enslaved_installed_trigger = {
+    has_global_variable = rise_of_the_enslaved_installed
+}
