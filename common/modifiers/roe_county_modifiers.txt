@@ -70,7 +70,7 @@ roe_county_slave_market_tirakka_modifier = {
 # Viking Area
 # https://en.wikipedia.org/wiki/Swedish_slave_trade
 # https://www.worldhistory.org/trans/fr/1-17400/hedeby/
-roe_county_slave_market_slesvig_modidier = { # Hedeby
+roe_county_slave_market_slesvig_modifier = { # Hedeby
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }

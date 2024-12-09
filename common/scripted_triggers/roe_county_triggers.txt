@@ -39,6 +39,8 @@ roe_county_has_slave_market_county_modifier_trigger = {
         has_county_modifier = roe_county_slave_market_gao_modifier
         # tirakka
         has_county_modifier = roe_county_slave_market_tirakka_modifier
+        # slesvig
+        has_county_modifier = roe_county_slave_market_slesvig_modifier
         # upland
         has_county_modifier = roe_county_slave_market_upland_modifier
         # novgorod

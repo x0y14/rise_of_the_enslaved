@@ -45,6 +45,9 @@
   # tirakka
   roe_county_slave_market_tirakka_modifier: "Slave Market"
   roe_county_slave_market_tirakka_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_tirakka').MakeScope.Var('roe_various_slave_token').GetValue]"
+  # slesvig
+  roe_county_slave_market_slesvig_modifier: "Slave Market"
+  roe_county_slave_market_slesvig_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_slesvig').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_slesvig').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_slesvig').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_slesvig').MakeScope.Var('roe_various_slave_token').GetValue]"
   # upland
   roe_county_slave_market_upland_modifier: "Slave Market"
   roe_county_slave_market_upland_modifier_desc: "Slave Market\n    African Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_african_slave_token').GetValue]\n    Slavic Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_slavic_slave_token').GetValue]\n    Turkic Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_turkic_slave_token').GetValue]\n    Various Slaves: [GetTitleByKey('c_upland').MakeScope.Var('roe_various_slave_token').GetValue]"

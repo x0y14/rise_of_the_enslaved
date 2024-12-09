@@ -97,6 +97,11 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_tirakka }
             add_county_modifier = roe_county_slave_market_tirakka_modifier
         }
+        # slesvig
+        else_if = {
+            limit = { this = title:c_slesvig }
+            add_county_modifier = roe_county_slave_market_slesvig_modifier
+        }
         # upland
         else_if = {
             limit = { this = title:c_upland }
@@ -142,7 +147,6 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_delhi }
             add_county_modifier = roe_county_slave_market_delhi_modifier
         }
-
     }
 }
 
