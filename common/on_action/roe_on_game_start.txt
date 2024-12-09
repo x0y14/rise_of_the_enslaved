@@ -40,6 +40,8 @@ roe_setup_slave_market_on_action = {
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_mandab }
         # basra
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_basra }
+        # mecca
+        add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_mecca }
         # aydhab
         add_to_global_variable_list = { name = roe_slave_market_counties target = title:c_aydhab }
         # tunis

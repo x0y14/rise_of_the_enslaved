@@ -67,6 +67,11 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_basra }
             add_county_modifier = roe_county_slave_market_basra_modifier
         }
+        # mecca
+        else_if = {
+            limit = { this = title:c_mecca }
+            add_county_modifier = roe_county_slave_market_mecca_modifier
+        }
         # aydhab
         else_if = {
             limit = { this = title:c_aydhab }
@@ -147,7 +152,6 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_delhi }
             add_county_modifier = roe_county_slave_market_delhi_modifier
         }
-
     }
 }
 
