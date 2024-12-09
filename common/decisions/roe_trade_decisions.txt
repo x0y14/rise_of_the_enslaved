@@ -1,4 +1,4 @@
-﻿roe_buy_slaves_through_market_decision = {
+roe_buy_slaves_through_market_decision = {
     decision_group_type = roe_slave
     picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
@@ -165,8 +165,8 @@
                 }
             }
             icon = "gfx/interface/icons/faith/imami.dds"
-            localization = roe_buy_slaves_through_market_decision_choose_african_name
-            current_description = roe_buy_slaves_through_market_decision_choose_african_desc
+            localization = choose_african_name
+            current_description = choose_african_desc
             ai_chance = {
                 value = 0
             }
@@ -190,8 +190,8 @@
                 }
             }
             icon = "gfx/interface/icons/faith/imami.dds"
-            localization = roe_buy_slaves_through_market_decision_choose_slavic_name
-            current_description = roe_buy_slaves_through_market_decision_choose_slavic_desc
+            localization = choose_slavic_name
+            current_description = choose_slavic_desc
             ai_chance = {
                 value = 0
             }
@@ -215,8 +215,8 @@
                 }
             }
             icon = "gfx/interface/icons/faith/imami.dds"
-            localization = roe_buy_slaves_through_market_decision_choose_turkic_name
-            current_description = roe_buy_slaves_through_market_decision_choose_turkic_desc
+            localization = choose_turkic_name
+            current_description = choose_turkic_desc
             ai_chance = {
                 value = 0
             }
@@ -240,8 +240,8 @@
                 }
             }
             icon = "gfx/interface/icons/faith/imami.dds"
-            localization = roe_buy_slaves_through_market_decision_choose_various_name
-            current_description = roe_buy_slaves_through_market_decision_choose_various_desc
+            localization = choose_various_name
+            current_description = choose_various_desc
             ai_chance = {
                 value = 0
             }

@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
   roe_test_setup_slave_market_decision: "Setup Slave Market"
   roe_test_setup_slave_market_decision_desc: "DESC"
   roe_test_setup_slave_market_decision_tooltip: "TOOLTIP"
@@ -16,22 +16,22 @@
   roe_buy_slaves_through_market_decision_confirm: "CONFIRM"
   roe_buy_slaves_through_market_decision_second_step_button_confirm: "CHOOCE CULTURE"
   # african
-  roe_buy_slaves_through_market_decision_choose_african_name: "CHOOSE AFRICAN"
+  choose_african_name: "CHOOSE AFRICAN"
   choose_african_tooltip: "choose african tooltip"
-  roe_buy_slaves_through_market_decision_choose_african_desc: "CHOOSE AFRICAN DESC"
+  choose_african_desc: "CHOOSE AFRICAN DESC"
   roe_buy_slaves_through_market_decision_choose_african_effect_tt: "You gain [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_african_slaves|E]"
   # slavic
-  roe_buy_slaves_through_market_decision_choose_slavic_name: "CHOOSE SLAVIC"
+  choose_slavic_name: "CHOOSE SLAVIC"
   choose_slavic_tooltip: "choose slavic tooltip"
-  roe_buy_slaves_through_market_decision_choose_slavic_desc: "CHOOSE SLAVIC DESC"
+  choose_slavic_desc: "CHOOSE SLAVIC DESC"
   roe_buy_slaves_through_market_decision_choose_slavic_effect_tt: "You gain [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_slavic_slaves|E]"
   # turkic
-  roe_buy_slaves_through_market_decision_choose_turkic_name: "CHOOSE TURKIC"
+  choose_turkic_name: "CHOOSE TURKIC"
   choose_turkic_tooltip: "choose turkic tooltip"
-  roe_buy_slaves_through_market_decision_choose_turkic_desc: "CHOOSE TURKIC DESC"
+  choose_turkic_desc: "CHOOSE TURKIC DESC"
   roe_buy_slaves_through_market_decision_choose_turkic_effect_tt: "You gain [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_turkic_slaves|E]"
   # various
-  roe_buy_slaves_through_market_decision_choose_various_name: "CHOOSE VARIOUS"
+  choose_various_name: "CHOOSE VARIOUS"
   choose_various_tooltip: "choose various tooltip"
-  roe_buy_slaves_through_market_decision_choose_various_desc: "CHOOSE VARIOUS DESC"
+  choose_various_desc: "CHOOSE VARIOUS DESC"
   roe_buy_slaves_through_market_decision_choose_various_effect_tt: "You gain [SCOPE.ScriptValue('roe_min_slave_token_unit_value')|0] [roe_various_slaves|E]"
