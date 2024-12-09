@@ -23,6 +23,10 @@
     }
 
     on_end = {
+        story_owner = {
+            save_scope_as = story_owner
+            destroy_laamp_effect = { ADVENTURER = scope:story_owner }
+        }
     }
 
     on_owner_death = {
