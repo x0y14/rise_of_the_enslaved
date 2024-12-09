@@ -24,15 +24,15 @@ roe_county_setup_slave_market_effect = {
         # 各title毎
         if = {
             limit = { this = title:c_bukhara }
-            add_county_modifier = roe_slave_market_bukhara_county_modifier
+            add_county_modifier = roe_county_slave_market_bukhara_modifier
         }
         else_if = {
             limit = { this = title:c_samarra }
-            add_county_modifier = roe_slave_market_samarra_county_modifier
+            add_county_modifier = roe_county_slave_market_samarra_modifier
         }
         else_if = {
             limit = { this = title:c_cairo }
-            add_county_modifier = roe_slave_market_cairo_county_modifier
+            add_county_modifier = roe_county_slave_market_cairo_modifier
         }
     }
 }

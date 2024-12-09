@@ -9,9 +9,9 @@
 
 roe_county_has_slave_market_county_modifier_trigger = {
     OR = {
-        has_county_modifier = roe_slave_market_bukhara_county_modifier
-        has_county_modifier = roe_slave_market_samarra_county_modifier
-        has_county_modifier = roe_slave_market_cairo_county_modifier
+        has_county_modifier = roe_county_slave_market_bukhara_modifier
+        has_county_modifier = roe_county_slave_market_samarra_modifier
+        has_county_modifier = roe_county_slave_market_cairo_modifier
     }
 }
 
