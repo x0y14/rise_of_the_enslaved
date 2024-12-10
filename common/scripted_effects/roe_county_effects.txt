@@ -67,6 +67,11 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_basra }
             add_county_modifier = roe_county_slave_market_basra_modifier
         }
+        # mecca
+        else_if = {
+            limit = { this = title:c_mecca }
+            add_county_modifier = roe_county_slave_market_mecca_modifier
+        }
         # aydhab
         else_if = {
             limit = { this = title:c_aydhab }
@@ -86,11 +91,6 @@ roe_county_setup_slave_market_effect = {
         else_if = {
             limit = { this = title:c_kanem }
             add_county_modifier = roe_county_slave_market_kanem_modifier
-        }
-        # gao
-        else_if = {
-            limit = { this = title:c_gao }
-            add_county_modifier = roe_county_slave_market_gao_modifier
         }
         # tirakka
         else_if = {
@@ -121,6 +121,11 @@ roe_county_setup_slave_market_effect = {
         else_if = {
             limit = { this = title:c_kalos_limen }
             add_county_modifier = roe_county_slave_market_kalos_limen_modifier
+        }
+        # byzantion
+        else_if = {
+            limit = { this = title:c_byzantion }
+            add_county_modifier = roe_county_slave_market_byzantion_modifier
         }
         # bolghar
         else_if = {

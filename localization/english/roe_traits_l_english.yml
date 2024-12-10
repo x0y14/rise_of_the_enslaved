@@ -1,6 +1,6 @@
 ﻿l_english:
-  trait_roe_trader: "Trader"
-  trait_roe_trader_desc: "DESC"
+  trait_roe_merchant: "Merchant"
+  trait_roe_merchant_desc: "DESC"
 
   trait_roe_slave_owner: "Slave Owner"
   trait_roe_slave_owner_desc: "This character owns slaves."

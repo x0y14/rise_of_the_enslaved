@@ -1,10 +1,10 @@
-﻿roe_trader = {
+﻿roe_merchant = {
     category = fame
     icon = "traveler.dds"
     shown_in_ruler_designer = no
 
-    name = trait_roe_trader
-    desc = trait_roe_trader_desc
+    name = trait_roe_merchant
+    desc = trait_roe_merchant_desc
 
     health = 0.5
 

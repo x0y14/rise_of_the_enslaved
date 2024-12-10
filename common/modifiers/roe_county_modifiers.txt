@@ -38,6 +38,10 @@ roe_county_slave_market_basra_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
+roe_county_slave_market_mecca_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
 
 # Africa
 # https://blog.library.si.edu/blog/2013/10/21/david-livingstone-and-the-other-slave-trade-part-ii-the-arab-slave-trade/
@@ -55,10 +59,6 @@ roe_county_slave_market_marrakesh_modifier = {
     development_growth_factor = very_large_development_growth_gain
 }
 roe_county_slave_market_kanem_modifier = {
-    icon = prison_mixed
-    development_growth_factor = very_large_development_growth_gain
-}
-roe_county_slave_market_gao_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
@@ -87,6 +87,10 @@ roe_county_slave_market_kiev_modifier = {
     development_growth_factor = very_large_development_growth_gain
 }
 roe_county_slave_market_kalos_limen_modifier = { # cherson is not county...
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
+roe_county_slave_market_byzantion_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }

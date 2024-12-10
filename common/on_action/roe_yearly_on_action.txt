@@ -1,0 +1,174 @@
+﻿yearly_global_pulse = {
+    on_actions = {
+        roe_yearly_merchant_check_on_action
+    }
+}
+
+roe_yearly_merchant_check_on_action = {
+    trigger = {
+        NAND = { # "全部True"なら発火しない, どれか一つでもfalseがあれば発火する
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_europe } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_asia_minor } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_middle_east } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_india } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_africa } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_steppe } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_tibet } }
+            any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_burma } }
+        }
+    }
+    effect = {
+        # ヨーロッパ拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_europe } } }
+            }
+            random_county_in_region = {
+                region = world_europe
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_europe }
+            }
+        }
+        # 小アジア拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_asia_minor } } }
+            }
+            random_county_in_region = {
+                region = world_asia_minor
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_asia_minor }
+            }
+        }
+        # 中東拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_middle_east } } }
+            }
+            random_county_in_region = {
+                region = world_middle_east
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_middle_east }
+            }
+        }
+        # インド拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_india } } }
+            }
+            random_county_in_region = {
+                region = world_india
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_india }
+            }
+        }
+        # アフリカ拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_africa } } }
+            }
+            random_county_in_region = {
+                region = world_africa
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_africa }
+            }
+        }
+        # ステップ拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_steppe } } }
+            }
+            random_county_in_region = {
+                region = world_steppe
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_steppe }
+            }
+        }
+        # チベット拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_tibet } } }
+            }
+            random_county_in_region = {
+                region = world_tibet
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_tibet }
+            }
+        }
+        # ビルマ...?拠点がいない
+        if = {
+            limit = {
+                NOT = { any_ruler = { roe_character_merchant_is_territory_trigger = { TERRITORY = flag:world_burma } } }
+            }
+            random_county_in_region = {
+                region = world_burma
+                save_scope_as = new_location
+            }
+            create_character = {
+                template = roe_muslim_merchant_character
+                gender_female_chance = 0
+                location = scope:new_location.title_province
+                save_scope_as = muslim_merchant
+            }
+            scope:muslim_merchant = {
+                roe_character_make_territory_merchant_effect = { TERRITORY = flag:world_burma }
+            }
+        }
+    }
+}

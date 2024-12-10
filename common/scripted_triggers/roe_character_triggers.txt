@@ -1,11 +1,51 @@
-﻿# ROOT: Character
-# PARAMS:
-#   GUILD: landed_title(tier_county)
-roe_character_is_trader_with_guild_trigger = {
+﻿roe_character_is_valid_merchant_trigger = {
     is_landless_adventurer = yes
-    has_trait = roe_trader
-    has_variable = roe_guild
-    var:roe_guild = $GUILD$
+    has_trait = roe_merchant
+    has_variable = roe_territory 
+}
+
+# PARAMS:
+#   TERRITORY: flag(world_europe, world_asia_minor, world_middle_east, world_india, world_africa, world_steppe, world_tibet, world_burma)
+roe_character_merchant_is_territory_trigger = {
+    roe_character_is_valid_merchant_trigger = yes
+    var:roe_territory = $TERRITORY$
+}
+
+roe_character_merchant_is_in_territory_trigger = {
+    roe_character_is_valid_merchant_trigger = yes
+    trigger_if = {
+        limit = { var:roe_territory = flag:world_europe }
+        location = { geographical_region = world_europe }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_asia_minor }
+        location = { geographical_region = world_asia_minor }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_middle_east }
+        location = { geographical_region = world_middle_east }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_india }
+        location = { geographical_region = world_india }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_africa }
+        location = { geographical_region = world_africa }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_steppe }
+        location = { geographical_region = world_steppe }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_tibet }
+        location = { geographical_region = world_tibet }
+    }
+    trigger_else_if = {
+        limit = { var:roe_territory = flag:world_burma }
+        location = { geographical_region = world_burma }
+    }
+    trigger_else = { always = no }
 }
 
 roe_character_has_valid_slave_token_variables_trigger = {

@@ -1,5 +1,4 @@
 ﻿# import re
-# count = 0
 # for line in modifiers_txt.split("\n"):
 #     market_mod_reg = re.compile("roe_county_slave_market_(.*)_modifier")
 #     res = market_mod_reg.match(line)

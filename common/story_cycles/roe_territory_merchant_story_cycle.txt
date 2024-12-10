@@ -1,0 +1,277 @@
+﻿roe_territory_merchant_story = {
+    on_setup = {
+    }
+    on_end = {
+        story_owner = { save_scope_as = story_owner }
+        scope:story_owner = {
+            if = {
+                limit = { is_ai = yes }
+                if = { # 冒険者だったらタイトル破壊する
+                    limit = { is_landless_adventurer = yes }
+                    destroy_laamp_effect = { ADVENTURER = scope:story_owner }
+                }
+                if = { # REMOVE CHEAT TRAIT
+                    limit = { has_trait = roe_merchant }
+                    remove_trait = roe_merchant
+                }
+            }
+        }
+    }
+    on_owner_death = {
+        end_story = yes
+    }
+
+    # 契約
+    effect_group = {
+        days = { 10 30 }
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    roe_character_is_valid_merchant_trigger = yes
+                    # 移動中ではなく
+                    is_travelling = no
+                    # 仕事もなく
+                    any_character_active_contract = {
+                        count = 0
+                    }
+                    # テリトリーに居る
+                    roe_character_merchant_is_in_territory_trigger = yes
+                }
+            }
+            effect = {
+                # テリトリー内のマーケットにトークンがある?
+                story_owner = { save_scope_as = story_owner }
+                scope:story_owner = {
+                    roe_character_get_slave_market_counties_effect = yes
+                }
+                every_in_list = {
+                    list = return_slave_market_counties
+                    if = {
+                        limit = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
+                        add_to_list = slave_market_counties_has_token
+                    }
+                }
+                if = { # もしあったら
+                    limit = {
+                        list_size:slave_market_counties_has_token > 0
+                    }
+                    # 出発地点
+                    random_in_list = {
+                        list = slave_market_counties_has_token
+                        save_scope_as = caravan_origin_county
+                    }
+                    # 目的地点
+                    roe_choise_merchant_travel_destination_county_with_county_effect = {
+                        ORIGIN_COUNTY = scope:caravan_origin_county
+                    }
+                    scope:RETURN_DEST_COUNTY = { save_scope_as = caravan_dest_county }
+
+                    # 積載リストを作成する
+                    scope:caravan_origin_county.holder.top_liege = {
+                        # create artifact
+                        roe_create_cargo_manifest_artifact_effect = yes
+                        # 取り出す
+                        scope:caravan_origin_county = {
+                            roe_county_takeout_slave_token_with_limit_effect = {
+                                MAX_AFRICAN_TOKEN = 200
+                                MAX_SLAVIC_TOKEN = 200
+                                MAX_TURKIC_TOKEN = 200
+                                MAX_VARIOUS_TOKEN = 200
+                            }
+                        }
+                        # 積み込む
+                        scope:newly_created_artifact ?= { # ?=でないとtooltip表示のときにエラー出る
+                            roe_artifact_cargo_manifest_load_cargo_and_update_desciption_effect = {
+                                AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                                SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                                TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                                VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+                            }
+                        }
+                    }
+
+                    # 契約作成
+                    scope:story_owner = {
+                        create_task_contract = {
+                            task_contract_type = laamp_transport_artifact # 契約の種類
+                            location = scope:caravan_origin_county.title_province # どこに契約を生成するか
+                            task_contract_employer = scope:caravan_origin_county.holder.top_liege # 雇う人
+                            task_contract_tier = 22500 #Legendary!
+                            save_scope_as = new_contract
+                            target = scope:caravan_dest_county.holder.top_liege # 受取役となるのは誰
+                        }
+                        # 契約の肉付け
+                        scope:new_contract = {
+                            # 運ぶものを設定
+                            set_variable = {
+                                name = escorted_artifact
+                                value = scope:newly_created_artifact
+                            }
+                            # どこに運ぶ
+                            set_variable = {
+                                name = task_contract_destination
+                                value = scope:caravan_dest_county.title_province
+                            }
+                        }
+                        # 契約!
+                        accept_task_contract = scope:new_contract
+                    }
+                }
+                # 後処理
+                if = {
+                    limit = { has_variable_list = return_slave_market_counties }
+                    clear_variable_list = return_slave_market_counties
+                }
+            }
+        }
+    }
+    # テリトリー内に移動
+    effect_group = {
+        days = { 10 30 }
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    roe_character_is_valid_merchant_trigger = yes
+                    # 移動中ではなく
+                    is_travelling = no
+                    # 仕事もなく
+                    any_character_active_contract = {
+                        count = 0
+                    }
+                    # テリトリー内にいない
+                    roe_character_merchant_is_in_territory_trigger = no
+                }
+            }
+            effect = {
+                story_owner = {
+                    # Set New Location
+                    if = {
+                        limit = { var:roe_territory = flag:world_europe }
+                        random_county_in_region = {
+                            region = world_europe
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_asia_minor }
+                        random_county_in_region = {
+                            region = world_asia_minor
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_middle_east }
+                        random_county_in_region = {
+                            region = world_middle_east
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_india }
+                        random_county_in_region = {
+                            region = world_india
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_africa }
+                        random_county_in_region = {
+                            region = world_africa
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_steppe }
+                        random_county_in_region = {
+                            region = world_steppe
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_tibet }
+                        random_county_in_region = {
+                            region = world_tibet
+                            save_scope_as = new_location
+                        }
+                    }
+                    else_if = {
+                        limit = { var:roe_territory = flag:world_burma }
+                        random_county_in_region = {
+                            region = world_burma
+                            save_scope_as = new_location
+                        }
+                    }
+                    # 
+                    if = {
+                        limit = { exists = scope:new_location }
+                        start_travel_plan = {
+                            destination = scope:new_location.title_province
+                            on_arrival_event = travel_completion_event.1000
+                            # on_arrival_destinations = all
+                            return_trip = no # One way
+                            travel_with_domicile = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    # フックの自動削除
+    effect_group = {
+        days = { 30 90 }
+        triggered_effect = {
+            trigger = {
+                story_owner = {
+                    any_hooked_character = {
+                        count > 0
+                    }
+                }
+            }
+            effect = {
+                story_owner = {
+                    save_scope_as = story_owner
+                    every_hooked_character = {
+                        save_scope_as = hooked_character
+                        scope:story_owner = {
+                            remove_hook = { target = scope:hooked_character }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    # Storyチェック
+    effect_group = {
+        days = 1
+        first_valid = {
+            # AIじゃなくなったら終わるよ
+            triggered_effect = {
+                trigger = {
+                    story_owner = { is_ai = no }
+                }
+                effect = {
+                    end_story = yes
+                }
+            }
+            # 土地なし冒険者じゃなければ終わるよ
+            triggered_effect = {
+                trigger = {
+                    story_owner = { is_landless_adventurer = no }
+                }
+                effect = {
+                    end_story = yes
+                }
+            }
+            # merchantに適さなくなったら終わるよ
+            triggered_effect = {
+                trigger = {
+                    story_owner = { roe_character_is_valid_merchant_trigger = no }
+                }
+                effect = {
+                    end_story = yes
+                }
+            }
+        }
+    }
+}
