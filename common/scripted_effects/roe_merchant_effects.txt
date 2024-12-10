@@ -99,6 +99,9 @@ roe_choise_merchant_travel_destination_county_with_county_effect = {
         title:c_mecca = { # メッカ
             title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
         }
+        title:c_cordoba = { # ベリア中央
+            title:c_marrakesh = { save_scope_as = RETURN_DEST_COUNTY }
+        }
         title:c_aydhab = { # エジプトとエチオピアの間、メッカの対岸
             title:c_cairo = { save_scope_as = RETURN_DEST_COUNTY }
         }
