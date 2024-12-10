@@ -13,17 +13,13 @@ roe_artifact_cargo_manifest_changed_owner_on_action = {
         # New Owner has Trade Center
         scope:owner = {
             OR = {
-                AND = {
-                    this = title:c_bukhara.holder.top_liege
-                    title:c_bukhara = { roe_county_has_valid_slave_market_trigger = yes }
+                any_realm_county = {
+                    # Has valid market
+                    roe_county_has_valid_slave_market_trigger = yes
                 }
-                AND = {
-                    this = title:c_samarra.holder.top_liege
-                    title:c_samarra = { roe_county_has_valid_slave_market_trigger = yes }
-                }
-                AND = {
-                    this = title:c_cairo.holder.top_liege
-                    title:c_cairo = { roe_county_has_valid_slave_market_trigger = yes }
+                any_sub_realm_county = {
+                    # Has valid market
+                    roe_county_has_valid_slave_market_trigger = yes
                 }
             }
         }
@@ -31,12 +27,24 @@ roe_artifact_cargo_manifest_changed_owner_on_action = {
     effect = {
         save_scope_as = roe_artifact_cargo_manifest
         # 荷下ろし先
-        title:c_bukhara = { add_to_list = slave_market_counties }
-        title:c_samarra = { add_to_list = slave_market_counties }
-        title:c_cairo = { add_to_list = slave_market_counties }
+        scope:owner = {
+            every_realm_county = {
+                limit = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                    NOT = { is_in_list = slave_market_counties }
+                }
+                add_to_list = slave_market_counties
+            }
+            every_sub_realm_county = {
+                limit = {
+                    roe_county_has_valid_slave_market_trigger = yes
+                    NOT = { is_in_list = slave_market_counties }
+                }
+                add_to_list = slave_market_counties
+            }
+        }
         random_in_list = {
             list = slave_market_counties
-            limit = { scope:owner = this.holder.top_liege }
             save_scope_as = target_county_store_cargo
         }
         # unload cargo from artifact
