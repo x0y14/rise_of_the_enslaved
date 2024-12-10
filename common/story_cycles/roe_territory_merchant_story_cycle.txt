@@ -44,11 +44,14 @@
                 scope:story_owner = {
                     roe_character_get_slave_market_counties_effect = yes
                 }
-                every_in_list = {
-                    list = return_slave_market_counties
-                    if = {
-                        limit = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
-                        add_to_list = slave_market_counties_has_token
+                if = {
+                    limit = { list_size:return_slave_market_counties >= 0 }
+                    every_in_list = {
+                        list = return_slave_market_counties
+                        if = {
+                            limit = { roe_county_has_more_than_or_equal_1_slave_token_trigger = yes }
+                            add_to_list = slave_market_counties_has_token
+                        }
                     }
                 }
                 if = { # もしあったら
@@ -125,7 +128,7 @@
             }
         }
     }
-    # テリトリー内に移動
+    # 市場から離れすぎている
     effect_group = {
         days = { 10 30 }
         triggered_effect = {
@@ -138,8 +141,83 @@
                     any_character_active_contract = {
                         count = 0
                     }
-                    # テリトリー内にいない
-                    roe_character_merchant_is_in_territory_trigger = no
+                    OR = {
+                        # テリトリー内にいない
+                        roe_character_merchant_is_in_territory_trigger = no
+                        # 市場を持つcountyから離れすぎている
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_europe }
+                            any_county_in_region = {
+                                region = world_europe
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_asia_minor }
+                            any_county_in_region = {
+                                region = world_asia_minor
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_middle_east }
+                            any_county_in_region = {
+                                region = world_middle_east
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_india }
+                            any_county_in_region = {
+                                region = world_india
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_africa }
+                            any_county_in_region = {
+                                region = world_africa
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_steppe }
+                            any_county_in_region = {
+                                region = world_steppe
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_tibet }
+                            any_county_in_region = {
+                                region = world_tibet
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                        trigger_if = {
+                            limit = { var:roe_territory = flag:world_burma }
+                            any_county_in_region = {
+                                region = world_burma
+                                roe_county_has_valid_slave_market_trigger = yes
+                                save_temporary_scope_as = temp_market_county
+                            }
+                            "location.squared_distance(scope:temp_market_county.title_province)" >= 22500
+                        }
+                    }
                 }
             }
             effect = {
@@ -149,6 +227,9 @@
                         limit = { var:roe_territory = flag:world_europe }
                         random_county_in_region = {
                             region = world_europe
+                            limit = {
+                                roe_county_has_valid_slave_market_trigger = yes
+                            }
                             save_scope_as = new_location
                         }
                     }
@@ -156,6 +237,7 @@
                         limit = { var:roe_territory = flag:world_asia_minor }
                         random_county_in_region = {
                             region = world_asia_minor
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -163,6 +245,7 @@
                         limit = { var:roe_territory = flag:world_middle_east }
                         random_county_in_region = {
                             region = world_middle_east
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -170,6 +253,7 @@
                         limit = { var:roe_territory = flag:world_india }
                         random_county_in_region = {
                             region = world_india
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -177,6 +261,7 @@
                         limit = { var:roe_territory = flag:world_africa }
                         random_county_in_region = {
                             region = world_africa
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -184,6 +269,7 @@
                         limit = { var:roe_territory = flag:world_steppe }
                         random_county_in_region = {
                             region = world_steppe
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -191,6 +277,7 @@
                         limit = { var:roe_territory = flag:world_tibet }
                         random_county_in_region = {
                             region = world_tibet
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
@@ -198,6 +285,7 @@
                         limit = { var:roe_territory = flag:world_burma }
                         random_county_in_region = {
                             region = world_burma
+                            limit = { roe_county_has_valid_slave_market_trigger = yes }
                             save_scope_as = new_location
                         }
                     }
