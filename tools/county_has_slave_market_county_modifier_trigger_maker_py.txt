@@ -1,0 +1,8 @@
+﻿# import re
+# for line in modifiers_txt.split("\n"):
+#     market_mod_reg = re.compile("roe_county_slave_market_(.*)_modifier")
+#     res = market_mod_reg.match(line)
+#     if res != None:
+#         county_name = res.group(1)
+#         print(f"# {county_name}")
+#         print(f"has_county_modifier = roe_county_slave_market_{county_name}_modifier")
