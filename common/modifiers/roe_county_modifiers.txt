@@ -42,6 +42,10 @@ roe_county_slave_market_mecca_modifier = {
     icon = prison_mixed
     development_growth_factor = very_large_development_growth_gain
 }
+roe_county_slave_market_cordoba_modifier = {
+    icon = prison_mixed
+    development_growth_factor = very_large_development_growth_gain
+}
 
 # Africa
 # https://blog.library.si.edu/blog/2013/10/21/david-livingstone-and-the-other-slave-trade-part-ii-the-arab-slave-trade/

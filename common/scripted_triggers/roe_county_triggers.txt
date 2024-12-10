@@ -29,6 +29,8 @@ roe_county_has_slave_market_county_modifier_trigger = {
         has_county_modifier = roe_county_slave_market_basra_modifier
         # mecca
         has_county_modifier = roe_county_slave_market_mecca_modifier
+        # cordoba
+        has_county_modifier = roe_county_slave_market_cordoba_modifier
         # aydhab
         has_county_modifier = roe_county_slave_market_aydhab_modifier
         # tunis

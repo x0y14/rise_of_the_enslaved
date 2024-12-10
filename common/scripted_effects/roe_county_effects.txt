@@ -72,6 +72,11 @@ roe_county_setup_slave_market_effect = {
             limit = { this = title:c_mecca }
             add_county_modifier = roe_county_slave_market_mecca_modifier
         }
+        # cordoba
+        else_if = {
+            limit = { this = title:c_cordoba }
+            add_county_modifier = roe_county_slave_market_cordoba_modifier
+        }
         # aydhab
         else_if = {
             limit = { this = title:c_aydhab }
