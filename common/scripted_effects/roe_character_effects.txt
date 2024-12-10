@@ -116,6 +116,11 @@ roe_character_takeout_all_slave_token_effect = {
             subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
         }
     }
+    # tokenがなくなったら消す
+    if = {
+        limit = { roe_character_has_total_0_slave_token_with_count_trigger = yes }
+        roe_character_remove_slave_owner_trait_and_variables_effect = yes
+    }
 }
 
 # ROOT: character
@@ -330,6 +335,11 @@ roe_character_takeout_slave_token_with_limit_effect = {
                 value = 0
             }
         }
+        # tokenがなくなったら消す
+        if = {
+            limit = { roe_character_has_total_0_slave_token_with_count_trigger = yes }
+            roe_character_remove_slave_owner_trait_and_variables_effect = yes
+        }
     }
 }
 
@@ -429,5 +439,20 @@ roe_character_get_slave_market_counties_effect = {
             }
             add_to_list = return_slave_market_counties
         }
+    }
+}
+
+#
+roe_character_remove_slave_owner_trait_and_variables_effect = {
+    if = {
+        limit = {
+            roe_character_is_valid_slave_owner_trigger = yes
+            roe_character_has_total_0_slave_token_with_count_trigger = yes
+        }
+        remove_trait = roe_slave_owner
+        remove_variable = roe_african_slave_token
+        remove_variable = roe_slavic_slave_token
+        remove_variable = roe_turkic_slave_token
+        remove_variable = roe_various_slave_token
     }
 }
