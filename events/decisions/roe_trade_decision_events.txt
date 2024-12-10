@@ -1,0 +1,100 @@
+﻿namespace = roe_trade_decision_events
+
+# roe_buy_slaves_throught_merchant_decision
+# 時差でtokenを手に入れる
+roe_trade_decision_events.0001 = {
+    scope = character
+    hidden = yes
+
+    trigger = {
+        OR = {
+            AND = {
+                scope:choose_african = yes
+                exists = scope:RETURN_AFRICAN_SLAVE_TOKEN
+            }
+            AND = {
+                scope:choose_slavic = yes
+                exists = scope:RETURN_SLAVIC_SLAVE_TOKEN
+            }
+            AND = {
+                scope:choose_turkic = yes
+                exists = scope:RETURN_TURKIC_SLAVE_TOKEN
+            }
+            AND = {
+                scope:choose_various = yes
+                exists = scope:RETURN_VARIOUS_SLAVE_TOKEN
+            }
+        }
+    }
+    
+    immediate = {
+        # Setup Slave Owner
+        if = {
+            limit = { roe_character_is_valid_slave_owner_trigger = no }
+            roe_character_setup_slave_owner_effect = yes
+        }
+        
+        # African
+        if = {
+            limit = {
+                scope:choose_african = yes
+                exists = scope:RETURN_AFRICAN_SLAVE_TOKEN
+            }
+            # characterに移譲
+            roe_character_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                SLAVIC_SLAVE_TOKEN = 0
+                TURKIC_SLAVE_TOKEN = 0
+                VARIOUS_SLAVE_TOKEN = 0
+            }
+        }
+        # Slavic
+        else_if = {
+            limit = {
+                scope:choose_slavic = yes
+                exists = scope:RETURN_SLAVIC_SLAVE_TOKEN
+            }
+            # characterに移譲
+            roe_character_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 0
+                SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                TURKIC_SLAVE_TOKEN = 0
+                VARIOUS_SLAVE_TOKEN = 0
+            }
+        }
+        # Turkic
+        else_if = {
+            limit = {
+                scope:choose_turkic = yes
+                exists = scope:RETURN_TURKIC_SLAVE_TOKEN
+            }
+            # characterに移譲
+            roe_character_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 0
+                SLAVIC_SLAVE_TOKEN = 0
+                TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                VARIOUS_SLAVE_TOKEN = 0
+            }
+        }
+        # Various
+        else_if = {
+            limit = {
+                scope:choose_various = yes
+                exists = scope:RETURN_VARIOUS_SLAVE_TOKEN
+            }
+            # characterに移譲
+            roe_character_store_slave_token_effect = {
+                AFRICAN_SLAVE_TOKEN = 0
+                SLAVIC_SLAVE_TOKEN = 0
+                TURKIC_SLAVE_TOKEN = 0
+                VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+            }
+        }
+
+        # Notice
+        send_interface_message = {
+            type = msg_roe_slaves_purchased_from_merchant_arrive
+            left_icon = root
+        }
+    }
+}

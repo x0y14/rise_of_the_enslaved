@@ -1,0 +1,7 @@
+﻿msg_roe_slaves_purchased_from_merchant_arrive = {
+    icon = "generic_good_effect"
+    title = msg_roe_slaves_purchased_from_merchant_arrive_title
+    desc = msg_roe_slaves_purchased_from_merchant_arrive_desc
+	style = good
+	message_filter_type = event_outcome
+}

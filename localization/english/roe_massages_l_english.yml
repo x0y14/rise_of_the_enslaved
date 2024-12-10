@@ -1,3 +1,6 @@
 ﻿l_english:
   msg_roe_slaves_gained_title: "Slaves Gained"
   msg_roe_slaves_gained_desc: "You have gained [roe_slaves|E] from the [raid|E] on [RIGHT_TITLE.GetName] ([RIGHT_TITLE.GetHolder.GetShortUIName])"
+
+  msg_roe_slaves_purchased_from_merchant_arrive_title: "Slaves Arrive"
+  msg_roe_slaves_purchased_from_merchant_arrive_desc: "Slaves purchased from merchant arrive!"
