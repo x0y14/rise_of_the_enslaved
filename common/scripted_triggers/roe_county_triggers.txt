@@ -1,13 +1,66 @@
 ﻿roe_county_is_in_slave_market_county_list_trigger = {
     tier = tier_county
-
-}
-
-roe_county_has_slave_market_county_modifier_trigger = {
     save_temporary_scope_as = _title
     is_target_in_global_variable_list = {
         name = roe_slave_market_counties
         target = scope:_title
+    }
+}
+
+roe_county_has_slave_market_county_modifier_trigger = {
+    OR = {
+        # bukhara
+        has_county_modifier = roe_county_slave_market_bukhara_modifier
+        # samarra
+        has_county_modifier = roe_county_slave_market_samarra_modifier
+        # cairo
+        has_county_modifier = roe_county_slave_market_cairo_modifier
+        # shirvan
+        has_county_modifier = roe_county_slave_market_shirvan_modifier
+        # kashgar
+        has_county_modifier = roe_county_slave_market_kashgar_modifier
+        # kabul
+        has_county_modifier = roe_county_slave_market_kabul_modifier
+        # hormuz
+        has_county_modifier = roe_county_slave_market_hormuz_modifier
+        # mandab
+        has_county_modifier = roe_county_slave_market_mandab_modifier
+        # basra
+        has_county_modifier = roe_county_slave_market_basra_modifier
+        # mecca
+        has_county_modifier = roe_county_slave_market_mecca_modifier
+        # aydhab
+        has_county_modifier = roe_county_slave_market_aydhab_modifier
+        # tunis
+        has_county_modifier = roe_county_slave_market_tunis_modifier
+        # marrakesh
+        has_county_modifier = roe_county_slave_market_marrakesh_modifier
+        # kanem
+        has_county_modifier = roe_county_slave_market_kanem_modifier
+        # tirakka
+        has_county_modifier = roe_county_slave_market_tirakka_modifier
+        # slesvig
+        has_county_modifier = roe_county_slave_market_slesvig_modifier
+        # upland
+        has_county_modifier = roe_county_slave_market_upland_modifier
+        # novgorod
+        has_county_modifier = roe_county_slave_market_novgorod_modifier
+        # kiev
+        has_county_modifier = roe_county_slave_market_kiev_modifier
+        # kalos_limen
+        has_county_modifier = roe_county_slave_market_kalos_limen_modifier
+        # byzantion
+        has_county_modifier = roe_county_slave_market_byzantion_modifier
+        # bolghar
+        has_county_modifier = roe_county_slave_market_bolghar_modifier
+        # itil
+        has_county_modifier = roe_county_slave_market_itil_modifier
+        # guazhou
+        has_county_modifier = roe_county_slave_market_guazhou_modifier
+        # kara_khoja
+        has_county_modifier = roe_county_slave_market_kara_khoja_modifier
+        # delhi
+        has_county_modifier = roe_county_slave_market_delhi_modifier
     }
 }
 
