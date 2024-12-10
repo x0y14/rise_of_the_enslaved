@@ -1,0 +1,254 @@
+﻿# ROOT: None
+# PARAMS:
+#   ORIGIN_COUNTY:
+# RETURN SCOPES:
+#   RETURN_DEST_COUNTY
+roe_choice_trade_destination_county_with_params_effect = {
+    switch = {
+        trigger = $ORIGIN_COUNTY$
+        title:c_bukhara = { # bukhara -> samarra
+            title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_samarra = { # samarra -> bukhara/cairo
+            title:c_bukhara = { add_to_list = dest_county_candidates }
+            title:c_cairo = { add_to_list = dest_county_candidates }
+            random_in_list = {
+                list = dest_county_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_cairo = { # cairo -> samarra
+            title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+    }
+}
+
+
+# ROOT: None
+# PARAMS:
+#   ORIGIN_COUNTY
+# RETURN SCOPES:
+#   RETURN_DEST_COUNTY
+roe_choise_merchant_travel_destination_county_with_county_effect = {
+    # https://openendedsocialstudies.org/wp-content/uploads/2016/06/f04a05c5755631bb1d65377a075a8c1f.jpg
+    switch = {
+        trigger = $ORIGIN_COUNTY$
+        title:c_bukhara = { # サーマーン朝のとこ
+            title:c_kashgar = { add_to_list = bukhara_dest_candidates }
+            title:c_samarra ={ add_to_list = bukhara_dest_candidates }
+            random_in_list = {
+                list = bukhara_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_samarra = { # バグダットの上
+            title:c_basra = { add_to_list = samarra_dest_candidates }
+            title:c_cairo = { add_to_list = samarra_dest_candidates }
+            title:c_byzantion = { add_to_list = samarra_dest_candidates }
+            random_in_list = {
+                list = samarra_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_cairo = { # エジプト
+            title:c_aydhab = { add_to_list = cairo_dest_candidates }
+            title:c_tunis = { add_to_list = cairo_dest_candidates }
+            random_in_list = {
+                list = cairo_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_shirvan = { # バクー
+            title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_kashgar = { # カラキタイのとこ多分
+            title:c_kabul = { add_to_list = kashgar_dest_candidates }
+            title:c_bukhara = { add_to_list = kashgar_dest_candidates}
+            random_in_list = {
+                list = kashgar_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_kabul = { # ペルシアとインドの間
+            title:c_delhi = { add_to_list = kabul_dest_candidates }
+            title:c_kashgar = { add_to_list = kabul_dest_candidates }
+            random_in_list = {
+                list = kabul_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_hormuz = { # ペルシアとアラビアの間
+            title:c_basra = { add_to_list = hormz_dest_candidates }
+            title:c_kabul = { add_to_list = hormz_dest_candidates }
+            random_in_list = {
+                list= hormz_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_mandab = { # アラビア半島、エチオピアの対岸
+            title:c_mecca = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_basra = { # ザンジュのとこ
+            title:c_samarra = { add_to_list = basra_dest_candidates }
+            title:c_hormuz = { add_to_list = basra_dest_candidates }
+            random_in_list = {
+                list = basra_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_mecca = { # メッカ
+            title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_aydhab = { # エジプトとエチオピアの間、メッカの対岸
+            title:c_cairo = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_tunis = { # シチリアの対岸
+            title:c_cairo = { add_to_list = tunis_dest_candidates }
+            title:c_marrakesh = { add_to_list = tunis_dest_candidates }
+            random_in_list = {
+                list = tunis_dest_candidates
+                save_scope_as = RETURN_DEST_COUNTY
+            }
+        }
+        title:c_marrakesh = { # モロッコ
+            title:c_tunis = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_kanem = { # エチオピアよりのアフリカ
+            title:c_aydhab = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_tirakka = { # モロッコよりのアフリカ
+            title:c_marrakesh = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_slesvig = { # デンマーク
+            title:c_upland = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_upland = { # フィンランドの対岸、スカンジナビア
+            title:c_novgorod = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_novgorod = { # フィンランドよりのロシア、ノブゴロド
+            title:c_kiev = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_kiev = { # クリミアよりのロシア、キーウ
+            title:c_kalos_limen = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_kalos_limen = { # クリミア半島
+            title:c_byzantion = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_byzantion = { # イスタンブール!!!
+            title:c_samarra = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_bolghar = { # ブルガール
+            title:c_itil = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_itil = { # ハザールの首都
+            title:c_shirvan = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_guazhou = { # 多分中国の近く
+            title:c_kara_khoja = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_kara_khoja = { # 契丹のとこ多分
+            title:c_kashgar = { save_scope_as = RETURN_DEST_COUNTY }
+        }
+        title:c_delhi = { # インド!
+            title:c_kabul = { save_scope_as = RETURN_DEST_COUNTY}
+        }
+    }
+}
+
+# ROOT: None
+# PARAMS:
+#   TERRITORY: FLAG
+# RETURN:
+#   VARIABLE LIST[LANDED_TITLE]
+roe_get_slave_market_counties_with_territoy_effect = {
+    debug_log_scopes = yes
+    # もしあったらクリアしておく
+    if = {
+        limit = { has_variable_list = return_slave_market_counties }
+        clear_variable_list = return_slave_market_counties
+    }
+    # 
+    every_in_global_list = {
+        variable = roe_slave_market_counties
+        if = {
+            limit = {
+                $TERRITORY$ = flag:world_europe
+                title_province = { geographical_region = world_europe }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_asia_minor
+                title_province = { geographical_region = world_asia_minor }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_middle_east
+                title_province = { geographical_region = world_middle_east }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_india
+                title_province = { geographical_region = world_india }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_africa
+                title_province = { geographical_region = world_africa }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_steppe
+                title_province = { geographical_region = world_steppe }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_tibet
+                title_province = { geographical_region = world_tibet }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+        else_if = {
+            limit = {
+                $TERRITORY$ = flag:world_burma
+                title_province = { geographical_region = world_burma }
+            }
+            add_to_variable_list = {
+                name = return_slave_market_counties
+                target = this
+            }
+        }
+    }
+}
