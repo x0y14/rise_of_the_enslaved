@@ -1,6 +1,6 @@
 ﻿roe_merchant = {
     category = fame
-    icon = "traveler.dds"
+    icon = "merchant.dds"
     shown_in_ruler_designer = no
 
     name = trait_roe_merchant
