@@ -562,46 +562,46 @@ roe_sell_slaves_through_market_decision = {
         }
 
         # # MORE DESC PER CHOOSE
-        # trigger_if = {
-        #     limit = { scope:choose_african = yes }
-        #     custom_tooltip = {
-        #         text = roe_you_must_have_at_least_min_unit_african_slaves_tt
-        #         roe_character_is_valid_slave_owner_trigger = yes
-        #         var:roe_african_slave_token >= roe_min_slave_token_unit_value
-        #     }
-        # }
-        # trigger_if = {
-        #     limit = { scope:choose_slavic = yes }
-        #     custom_tooltip = {
-        #         text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
-        #         roe_character_is_valid_slave_owner_trigger = yes
-        #         var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
-        #     }
-        # }
-        # trigger_if = {
-        #     limit = { scope:choose_turkic = yes }
-        #     custom_tooltip = {
-        #         text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
-        #         roe_character_is_valid_slave_owner_trigger = yes
-        #         var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
-        #     }
-        # }
-        # trigger_if = {
-        #     limit = { scope:choose_various = yes }
-        #     custom_tooltip = {
-        #         text = roe_you_must_have_at_least_min_unit_various_slaves_tt
-        #         roe_character_is_valid_slave_owner_trigger = yes
-        #         var:roe_various_slave_token >= roe_min_slave_token_unit_value
-        #     }
-        # }
-        # trigger_if = {
-        #     limit = { scope:choose_all_slaves = yes }
-        #     custom_tooltip = {
-        #         text = roe_you_must_have_at_least_1_slave_tt
-        #         roe_character_is_valid_slave_owner_trigger = yes
-        #         roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
-        #     }
-        # }
+        trigger_if = {
+            limit = { scope:choose_african = yes }
+            custom_tooltip = {
+                text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+                roe_character_is_valid_slave_owner_trigger = yes
+                var:roe_african_slave_token >= roe_min_slave_token_unit_value
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_slavic = yes }
+            custom_tooltip = {
+                text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+                roe_character_is_valid_slave_owner_trigger = yes
+                var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_turkic = yes }
+            custom_tooltip = {
+                text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+                roe_character_is_valid_slave_owner_trigger = yes
+                var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_various = yes }
+            custom_tooltip = {
+                text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+                roe_character_is_valid_slave_owner_trigger = yes
+                var:roe_various_slave_token >= roe_min_slave_token_unit_value
+            }
+        }
+        trigger_if = {
+            limit = { scope:choose_all_slaves = yes }
+            custom_tooltip = {
+                text = roe_you_must_have_at_least_1_slave_tt
+                roe_character_is_valid_slave_owner_trigger = yes
+                roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+            }
+        }
     }
 
     widget = {
@@ -1286,6 +1286,385 @@ roe_buy_slaves_throught_merchant_decision = {
                     id = roe_trade_decision_events.0001
                     days = { 20 30 }
                 }
+            }
+        }
+    }
+
+    ai_check_interval = 6
+    ai_potential = {
+        faith.religion = religion:islam_religion
+    }
+    ai_will_do = {
+        base = 100
+    }
+}
+
+roe_sell_slaves_throught_merchant_decision = {
+    decision_group_type = roe_slave
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+
+    is_shown = {
+        is_landed = yes
+        highest_held_title_tier >= tier_county
+        # SLAVE OWNER
+        roe_character_is_valid_slave_owner_trigger = yes
+    }
+
+    is_valid = {
+        # actorが1以上の奴隷を持っていること
+        custom_tooltip = {
+            text = roe_you_must_have_at_least_1_slave_tt
+            roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        }
+        # AFRICAN
+        # trigger_if = {
+        #     limit = { scope:choose_african = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_african_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # # SLAVIC
+        # trigger_if = {
+        #     limit = { scope:choose_slavic = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # # TURKIC
+        # trigger_if = {
+        #     limit = { scope:choose_turkic = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # # VARIOUS
+        # trigger_if = {
+        #     limit = { scope:choose_various = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_various_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # # ALL
+        # trigger_if = {
+        #     limit = { scope:choose_all_slaves = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_1_slave_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        #     }
+        # }
+
+        # どこかにマーケットが存在する
+        custom_tooltip = {
+            text = roe_there_is_a_slave_market_somewhere_tt
+             any_in_global_list = {
+                variable = roe_slave_market_counties
+                roe_county_has_valid_slave_market_trigger = yes
+            }
+        }
+    }
+
+    widget = {
+        gui = "decision_view_widget_generic_multichoice_with_effects"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = "roe_sell_slaves_throught_merchant_decision_second_step_button_confirm"
+        show_from_start = yes
+        item = {
+            value = choose_african
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_african_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_african_name
+            current_description = choose_african_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # SLAVIC
+        item = {
+            value = choose_slavic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_slavic_name
+            current_description = choose_slavic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # TURKIC
+        item = {
+            value = choose_turkic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_turkic_name
+            current_description = choose_turkic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # VARIOUS
+        item = {
+            value = choose_various
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_various_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_various_name
+            current_description = choose_various_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # ALL
+        item = {
+            value = choose_all_slaves
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_1_slave_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_all_slaves_name
+            current_description = choose_all_slaves_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+    }
+
+    cost = {
+    }
+
+    effect = {
+        save_scope_as = slave_owner
+
+        # TOOLTIP_ONLY
+        if = {
+            limit = { scope:choose_african = yes }
+            custom_tooltip = roe_sell_slaves_throught_merchant_decision_choose_african_effect_tt
+            show_as_tooltip = {
+                add_gold = {
+                    value = roe_min_slave_token_unit_value
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:choose_slavic = yes }
+            custom_tooltip = roe_sell_slaves_throught_merchant_decision_choose_slavic_effect_tt
+            show_as_tooltip = {
+                add_gold = {
+                    value = roe_min_slave_token_unit_value
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:choose_turkic = yes }
+            custom_tooltip = roe_sell_slaves_throught_merchant_decision_choose_turkic_effect_tt
+            show_as_tooltip = {
+                add_gold = {
+                    value = roe_min_slave_token_unit_value
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:choose_various = yes }
+            custom_tooltip = roe_sell_slaves_throught_merchant_decision_choose_various_effect_tt
+            show_as_tooltip = {
+                add_gold = {
+                    value = roe_min_slave_token_unit_value
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:choose_all_slaves = yes }
+            custom_tooltip = roe_sell_slaves_throught_merchant_decision_choose_all_effect_tt
+            show_as_tooltip = {
+                add_gold = {
+                    value = {
+                        value = 0
+                        add = var:roe_african_slave_token
+                        add = var:roe_slavic_slave_token
+                        add = var:roe_turkic_slave_token
+                        add = var:roe_various_slave_token
+                    }
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+
+        # どこに売るか
+        random_in_global_list = {
+            variable = roe_slave_market_counties
+            weight = {
+                base = 1000000000
+                modifier = {
+                    add = {
+                        save_temporary_scope_as = temp_market_county
+                        value = "scope:slave_owner.location.squared_distance(scope:temp_market_county.title_province)"
+                        multiply = -1
+                    }
+                    exists = scope:slave_owner.location
+                }
+            }
+            save_scope_as = market_county
+        }
+
+        # 最終的に何unit売るのかの記録
+        set_local_variable = {
+            name = sell_token_unit_count
+            value = 0
+        }
+        # 何unit売るのか
+        if = { # 全部
+            limit = { scope:choose_all_slaves = yes }
+            change_local_variable = {
+                name = sell_token_unit_count
+                add = {
+                    value = 0
+                    add = var:roe_african_slave_token
+                    add = var:roe_slavic_slave_token
+                    add = var:roe_turkic_slave_token
+                    add = var:roe_various_slave_token
+                }
+            }
+        }
+        else = { # 全部でないなら最小unit
+            change_local_variable = {
+                name = sell_token_unit_count
+                add = roe_min_slave_token_unit_value
+            }
+        }
+
+        # キャラクターからunitの取り出し
+        # 全部
+        if = {
+            limit = { scope:choose_all_slaves = yes }
+            roe_character_takeout_all_slave_token_effect = yes
+        }
+        # AFRICAN
+        else_if = {
+            limit = {
+                scope:choose_african = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = local_var:sell_token_unit_count
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # SLAVIC
+        else_if = {
+            limit = {
+                scope:choose_slavic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = local_var:sell_token_unit_count
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # TURKIC
+        else_if = {
+            limit = {
+                scope:choose_turkic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = local_var:sell_token_unit_count
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # VARIOUS
+        else_if = {
+            limit = {
+                scope:choose_various = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = local_var:sell_token_unit_count
+            }
+        }
+
+        # marketに移譲
+        if = {
+            limit = {
+                exists = scope:market_county
+                exists = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                exists = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                exists = scope:RETURN_TURKIC_SLAVE_TOKEN
+                exists = scope:RETURN_VARIOUS_SLAVE_TOKEN
+            }
+            scope:market_county = {
+                roe_county_store_slave_token_effect = {
+                    AFRICAN_SLAVE_TOKEN = scope:RETURN_AFRICAN_SLAVE_TOKEN
+                    SLAVIC_SLAVE_TOKEN = scope:RETURN_SLAVIC_SLAVE_TOKEN
+                    TURKIC_SLAVE_TOKEN = scope:RETURN_TURKIC_SLAVE_TOKEN
+                    VARIOUS_SLAVE_TOKEN = scope:RETURN_VARIOUS_SLAVE_TOKEN
+                }
+            }
+        }
+
+        # 収入
+        if = {
+            limit = { exists = local_var:sell_token_unit_count }
+            save_scope_value_as = {
+                name = gain_gold
+                value = {
+                    value = local_var:sell_token_unit_count
+                    multiply = roe_slave_price_per_unit_value
+                }
+            }
+        }
+        if = {
+            limit = { exists = scope:gain_gold }
+            add_gold = {
+                value = scope:gain_gold
             }
         }
     }
