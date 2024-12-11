@@ -75,70 +75,70 @@
             }
         }
         # MORE DESC PER CHOOSE
-        trigger_if = {
-            limit = { scope:choose_african = yes }
-            custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_african_slaves_tt
-                OR = {
-                    any_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_african_slave_token >= roe_min_slave_token_unit_value
-                    }
-                    any_sub_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_african_slave_token >= roe_min_slave_token_unit_value
-                    }
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_slavic = yes }
-            custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_tt
-                OR = {
-                    any_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
-                    }
-                    any_sub_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
-                    }
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_turkic = yes }
-            custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_tt
-                OR = {
-                    any_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
-                    }
-                    any_sub_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
-                    }
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_various = yes }
-            custom_tooltip = {
-                text = roe_your_market_must_have_at_least_min_unit_various_slaves_tt
-                OR = {
-                    any_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_various_slave_token >= roe_min_slave_token_unit_value
-                    }
-                    any_sub_realm_county = {
-                        roe_county_has_valid_slave_market_trigger = yes
-                        var:roe_various_slave_token >= roe_min_slave_token_unit_value
-                    }
-                }
-            }
-        }
+        # trigger_if = {
+        #     limit = { scope:choose_african = yes }
+        #     custom_tooltip = {
+        #         text = roe_your_market_must_have_at_least_min_unit_african_slaves_tt
+        #         OR = {
+        #             any_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_african_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #             any_sub_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_african_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_slavic = yes }
+        #     custom_tooltip = {
+        #         text = roe_your_market_must_have_at_least_min_unit_slavic_slaves_tt
+        #         OR = {
+        #             any_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #             any_sub_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_turkic = yes }
+        #     custom_tooltip = {
+        #         text = roe_your_market_must_have_at_least_min_unit_turkic_slaves_tt
+        #         OR = {
+        #             any_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #             any_sub_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_various = yes }
+        #     custom_tooltip = {
+        #         text = roe_your_market_must_have_at_least_min_unit_various_slaves_tt
+        #         OR = {
+        #             any_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_various_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #             any_sub_realm_county = {
+        #                 roe_county_has_valid_slave_market_trigger = yes
+        #                 var:roe_various_slave_token >= roe_min_slave_token_unit_value
+        #             }
+        #         }
+        #     }
+        # }
     }
 
     widget = {
@@ -562,46 +562,46 @@ roe_sell_slaves_through_market_decision = {
         }
 
         # # MORE DESC PER CHOOSE
-        trigger_if = {
-            limit = { scope:choose_african = yes }
-            custom_tooltip = {
-                text = roe_you_must_have_at_least_min_unit_african_slaves_tt
-                roe_character_is_valid_slave_owner_trigger = yes
-                var:roe_african_slave_token >= roe_min_slave_token_unit_value
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_slavic = yes }
-            custom_tooltip = {
-                text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
-                roe_character_is_valid_slave_owner_trigger = yes
-                var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_turkic = yes }
-            custom_tooltip = {
-                text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
-                roe_character_is_valid_slave_owner_trigger = yes
-                var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_various = yes }
-            custom_tooltip = {
-                text = roe_you_must_have_at_least_min_unit_various_slaves_tt
-                roe_character_is_valid_slave_owner_trigger = yes
-                var:roe_various_slave_token >= roe_min_slave_token_unit_value
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_all_slaves = yes }
-            custom_tooltip = {
-                text = roe_you_must_have_at_least_1_slave_tt
-                roe_character_is_valid_slave_owner_trigger = yes
-                roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
-            }
-        }
+        # trigger_if = {
+        #     limit = { scope:choose_african = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_african_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_slavic = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_turkic = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_various = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         var:roe_various_slave_token >= roe_min_slave_token_unit_value
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_all_slaves = yes }
+        #     custom_tooltip = {
+        #         text = roe_you_must_have_at_least_1_slave_tt
+        #         roe_character_is_valid_slave_owner_trigger = yes
+        #         roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        #     }
+        # }
     }
 
     widget = {
@@ -931,51 +931,51 @@ roe_buy_slaves_throught_merchant_decision = {
     }
 
     is_valid = {
-        # TOOLTIP
-        trigger_if = {
-            limit = { scope:choose_african = yes }
-            custom_tooltip = {
-                text = roe_any_slave_market_has_at_least_min_unit_african_slaves_tt
-                any_in_global_list = {
-                    variable = roe_slave_market_counties
-                    roe_county_has_valid_slave_market_trigger = yes
-                    var:roe_african_slave_token >= roe_min_slave_token_unit_value
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_slavic = yes }
-            custom_tooltip = {
-                text = roe_any_slave_market_has_at_least_min_unit_slavic_slaves_tt
-                any_in_global_list = {
-                    variable = roe_slave_market_counties
-                    roe_county_has_valid_slave_market_trigger = yes
-                    var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_turkic = yes }
-            custom_tooltip = {
-                text = roe_any_slave_market_has_at_least_min_unit_turkic_slaves_tt
-                any_in_global_list = {
-                    variable = roe_slave_market_counties
-                    roe_county_has_valid_slave_market_trigger = yes
-                    var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
-                }
-            }
-        }
-        trigger_if = {
-            limit = { scope:choose_various = yes }
-            custom_tooltip = {
-                text = roe_any_slave_market_has_at_least_min_unit_various_slaves_tt
-                any_in_global_list = {
-                    variable = roe_slave_market_counties
-                    roe_county_has_valid_slave_market_trigger = yes
-                    var:roe_various_slave_token >= roe_min_slave_token_unit_value
-                }
-            }
-        }
+        # # TOOLTIP
+        # trigger_if = {
+        #     limit = { scope:choose_african = yes }
+        #     custom_tooltip = {
+        #         text = roe_any_slave_market_has_at_least_min_unit_african_slaves_tt
+        #         any_in_global_list = {
+        #             variable = roe_slave_market_counties
+        #             roe_county_has_valid_slave_market_trigger = yes
+        #             var:roe_african_slave_token >= roe_min_slave_token_unit_value
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_slavic = yes }
+        #     custom_tooltip = {
+        #         text = roe_any_slave_market_has_at_least_min_unit_slavic_slaves_tt
+        #         any_in_global_list = {
+        #             variable = roe_slave_market_counties
+        #             roe_county_has_valid_slave_market_trigger = yes
+        #             var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_turkic = yes }
+        #     custom_tooltip = {
+        #         text = roe_any_slave_market_has_at_least_min_unit_turkic_slaves_tt
+        #         any_in_global_list = {
+        #             variable = roe_slave_market_counties
+        #             roe_county_has_valid_slave_market_trigger = yes
+        #             var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+        #         }
+        #     }
+        # }
+        # trigger_if = {
+        #     limit = { scope:choose_various = yes }
+        #     custom_tooltip = {
+        #         text = roe_any_slave_market_has_at_least_min_unit_various_slaves_tt
+        #         any_in_global_list = {
+        #             variable = roe_slave_market_counties
+        #             roe_county_has_valid_slave_market_trigger = yes
+        #             var:roe_various_slave_token >= roe_min_slave_token_unit_value
+        #         }
+        #     }
+        # }
     }
     is_valid_showing_failures_only = {
     }
