@@ -9,3 +9,8 @@
   roe_test_create_trade_task_contract_interaction_no_slave_market_tt: "bukhara, samarra and cairo has not slave market"
   roe_test_create_trade_task_contract_interaction_total_slave_token_in_market_is_zero_tt: "bukhara, samarra and cairo has more than or equal 1 slave token"
   # roe_artifact_create_cargo_manifest_and_load_cargo_tt: "Create Cargo manifest & load cargos"
+
+
+  # < Slave Soldier >
+  roe_abduct_slave_owner_interaction: "Abduct Slave Owner"
+  roe_abduct_slave_owner_interaction_desc: "DESC"

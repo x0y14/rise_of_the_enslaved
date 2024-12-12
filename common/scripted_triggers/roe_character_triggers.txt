@@ -131,3 +131,13 @@ roe_character_has_total_0_slave_token_with_count_trigger = {
         add = var:roe_various_slave_token
     }
 }
+
+# < Slave >
+roe_character_is_slave_trigger = {
+    has_trait = roe_slave
+}
+
+roe_character_is_slave_soldier_trigger = {
+    roe_character_is_slave_trigger = yes
+    has_trait = roe_slave_soldier
+}

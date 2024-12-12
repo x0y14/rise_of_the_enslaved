@@ -77,6 +77,8 @@ roe_master_of_slave_soldiers = {
 		}
 	}
 
+    ai_boldness = 100
+
     tracks  ={
         regular_army = {
             0 = {
@@ -84,24 +86,28 @@ roe_master_of_slave_soldiers = {
                 army_maintenance_mult = 0.1
                 scheme_discovery_chance_mult = -0.1
                 enemy_hostile_scheme_success_chance_add = 5
+                ai_boldness = 100
             }
             25 = {
                 levy_size = -0.2
                 army_maintenance_mult = 0.3
                 scheme_discovery_chance_mult = -0.3
                 enemy_hostile_scheme_success_chance_add = 10
+                ai_boldness = 1000
             }
             50 = {
                 levy_size = -0.3
                 army_maintenance_mult = 0.5
                 scheme_discovery_chance_mult = -0.5
                 enemy_hostile_scheme_success_chance_add = 15
+                ai_boldness = 10000
             }
             75 = {
                 levy_size = -10.0
                 army_maintenance_mult = 10.0
                 scheme_discovery_chance_mult = -10.0
                 enemy_hostile_scheme_success_chance_add = 100
+                ai_boldness = 100000
             }
         }
     }
@@ -151,6 +157,8 @@ roe_slave_soldier = {
 			desc = trait_roe_slave_soldier_character_desc
 		}
 	}
+
+    flag = roe_can_abduct_interaction
 
     tracks = {
         clout = {

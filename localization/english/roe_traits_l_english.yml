@@ -32,3 +32,4 @@
   trait_roe_slave_soldier_character_desc: "$trait_roe_slave_soldier_desc$"
   trait_track_clout: "clout"
   trait_track_clout_desc: "The clout grows every time liege hire slave soldiers."
+  TRAIT_FLAG_DESC_roe_can_abduct_interaction: "Unlocks the #V $roe_abduct_slave_owner_interaction$#! [interaction|E]"
