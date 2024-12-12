@@ -1,63 +1,63 @@
-﻿roe_abduct_slave_owner_interaction = {
-    icon = icon_scheme_abduct
-    category = interaction_category_hostile
+﻿# roe_abduct_slave_owner_interaction = {
+#     icon = icon_scheme_abduct
+#     category = interaction_category_hostile
 
-    use_diplomatic_range = yes
-    ignores_pending_interaction_block = yes
+#     use_diplomatic_range = yes
+#     ignores_pending_interaction_block = yes
 
-    cooldown_against_recipient = { years = 1 }
+#     cooldown_against_recipient = { years = 1 }
 
-    is_shown = {
-        scope:actor = {
-            is_landed = yes
-            highest_held_title_tier >= tier_county
-            roe_character_is_slave_soldier_trigger = yes
-        }
-        scope:recipient = {
-            any_vassal = {
-                this = scope:actor
-            }
-            roe_character_is_valid_slave_owner_trigger = yes
-        }
-    }
+#     is_shown = {
+#         scope:actor = {
+#             is_landed = yes
+#             highest_held_title_tier >= tier_county
+#             roe_character_is_slave_soldier_trigger = yes
+#         }
+#         scope:recipient = {
+#             any_vassal = {
+#                 this = scope:actor
+#             }
+#             roe_character_is_valid_slave_owner_trigger = yes
+#         }
+#     }
 
-    is_valid = {
-        scope:actor = {
-            has_trait_with_flag = roe_can_abduct_interaction
-            has_trait_xp = {
-				trait = roe_slave_soldier
-				track = clout
-				value >= 75
-			}
-        }
-    }
+#     is_valid = {
+#         scope:actor = {
+#             has_trait_with_flag = roe_can_abduct_interaction
+#             has_trait_xp = {
+# 				trait = roe_slave_soldier
+# 				track = clout
+# 				value >= 75
+# 			}
+#         }
+#     }
 
-    cost = {
-    }
+#     cost = {
+#     }
 
-    auto_accept = yes
-    on_accept = {
-        scope:actor = {
-            begin_scheme_with_agents_effect = {
-                SCHEME_TYPE = abduct
-                TARGET_TYPE = target_character
-                TARGET_SCOPE = scope:recipient
-                # Speed.
-                AGENT_1 = agent_footpad
-                AGENT_2 = agent_footpad
-                AGENT_3 = agent_infiltrator
-                # Success.
-                AGENT_4 = agent_thug
-                # Secrecy.
-                AGENT_5 = agent_lookout
-            }
-        }
-    }
+#     auto_accept = yes
+#     on_accept = {
+#         scope:actor = {
+#             begin_scheme_with_agents_effect = {
+#                 SCHEME_TYPE = abduct
+#                 TARGET_TYPE = target_character
+#                 TARGET_SCOPE = scope:recipient
+#                 # Speed.
+#                 AGENT_1 = agent_footpad
+#                 AGENT_2 = agent_footpad
+#                 AGENT_3 = agent_infiltrator
+#                 # Success.
+#                 AGENT_4 = agent_thug
+#                 # Secrecy.
+#                 AGENT_5 = agent_lookout
+#             }
+#         }
+#     }
 
-	ai_targets = { ai_recipients = liege }
-    ai_potential = { always = yes }
-    ai_will_do = {
-        base = 100
-    }
-    ai_frequency = 12
-}
+# 	ai_targets = { ai_recipients = liege }
+#     ai_potential = { always = yes }
+#     ai_will_do = {
+#         base = 100
+#     }
+#     ai_frequency = 12
+# }
