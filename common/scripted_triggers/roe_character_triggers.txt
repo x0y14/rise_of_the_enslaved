@@ -70,6 +70,11 @@ roe_character_is_valid_slave_owner_trigger = {
     }
 }
 
+roe_character_is_master_of_slave_soldiers_trigger = {
+    roe_character_is_valid_slave_owner_trigger = yes
+    has_trait = roe_master_of_slave_soldiers
+}
+
 roe_character_has_more_than_or_equal_1_slave_token_trigger = {
     roe_character_is_valid_slave_owner_trigger = yes
     1 <= {

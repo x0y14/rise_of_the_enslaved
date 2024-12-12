@@ -34,20 +34,48 @@
     ai_sociability = 100
 }
 
-roe_slave_owner = {
+roe_slave_owner_only_own = {
     category = fame
-    icon = campeador.dds
+    icon = "slave_owner_neutral.dds"
+    group = roe_slave_owner
 
-	name =  trait_roe_slave_owner
+    shown_in_ruler_designer = no
+
+	name =  trait_roe_slave_owner_only_own
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					NOT = { exists = this }
 				}
-				desc = trait_roe_slave_owner_desc
+				desc = trait_roe_slave_owner_only_own_desc
 			}
-			desc = trait_roe_slave_owner_character_desc
+			desc = trait_roe_slave_owner_only_own_character_desc
 		}
 	}
+
+    level = 1
+}
+
+roe_master_of_slave_soldiers = {
+    category = fame
+    icon = "slave_owner_bad.dds"
+    group = roe_slave_owner
+
+    shown_in_ruler_designer = no
+
+	name =  trait_roe_master_of_slave_soldiers
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_roe_master_of_slave_soldiers_desc
+			}
+			desc = trait_roe_master_of_slave_soldiers_character_desc
+		}
+	}
+    
+    level = 2
 }

@@ -32,7 +32,7 @@
     }
     if = {
         limit = { NOT = { has_trait = roe_slave_owner } }
-        add_trait = roe_slave_owner
+        add_trait = roe_slave_owner_only_own
     }
 }
 
@@ -116,9 +116,12 @@ roe_character_takeout_all_slave_token_effect = {
             subtract = scope:RETURN_VARIOUS_SLAVE_TOKEN
         }
     }
-    # tokenがなくなったら消す
+    # tokenがなくなったら消す, ただの所有者の場合のみ!
     if = {
-        limit = { roe_character_has_total_0_slave_token_with_count_trigger = yes }
+        limit = {
+            roe_character_has_total_0_slave_token_with_count_trigger = yes
+            roe_character_is_master_of_slave_soldiers_trigger = no
+        }
         roe_character_remove_slave_owner_trait_and_variables_effect = yes
     }
 }
@@ -335,9 +338,12 @@ roe_character_takeout_slave_token_with_limit_effect = {
                 value = 0
             }
         }
-        # tokenがなくなったら消す
+        # tokenがなくなったら消す, ただの所有者である場合のみ!
         if = {
-            limit = { roe_character_has_total_0_slave_token_with_count_trigger = yes }
+            limit = {
+                roe_character_has_total_0_slave_token_with_count_trigger = yes
+                roe_character_is_master_of_slave_soldiers_trigger = no
+            }
             roe_character_remove_slave_owner_trait_and_variables_effect = yes
         }
     }
@@ -449,7 +455,15 @@ roe_character_remove_slave_owner_trait_and_variables_effect = {
             roe_character_is_valid_slave_owner_trigger = yes
             roe_character_has_total_0_slave_token_with_count_trigger = yes
         }
-        remove_trait = roe_slave_owner
+        # check roe_slave_owner
+        if = {
+            limit = { has_trait = roe_slave_owner_only_own }
+            remove_trait = roe_slave_owner_only_own
+        }
+        else_if = {
+            limit = { has_trait = roe_master_of_slave_soldiers }
+            remove_trait = roe_master_of_slave_soldiers
+        }
         remove_variable = roe_african_slave_token
         remove_variable = roe_slavic_slave_token
         remove_variable = roe_turkic_slave_token
