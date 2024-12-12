@@ -488,7 +488,7 @@ roe_character_army_declining_morale_effect = {
     if = {
         limit = {
             roe_character_is_valid_slave_owner_trigger = yes
-            roe_character_has_total_0_slave_token_with_count_trigger = yes
+            # roe_character_has_total_0_slave_token_with_count_trigger = yes
             roe_character_is_master_of_slave_soldiers_trigger = yes
         }
         add_trait_xp = {
