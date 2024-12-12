@@ -470,3 +470,58 @@ roe_character_remove_slave_owner_trait_and_variables_effect = {
         remove_variable = roe_various_slave_token
     }
 }
+
+roe_character_change_slave_owner_to_master_effect = {
+    if = {
+        limit = { roe_character_is_valid_slave_owner_trigger = yes }
+        set_trait_rank = {
+            trait = roe_slave_owner
+            rank = 2
+        }
+    }
+}
+
+# ROOT: character
+# PARAMS:
+#   VALUE: int
+roe_character_army_declining_morale_effect = {
+    if = {
+        limit = {
+            roe_character_is_valid_slave_owner_trigger = yes
+            roe_character_has_total_0_slave_token_with_count_trigger = yes
+            roe_character_is_master_of_slave_soldiers_trigger = yes
+        }
+        add_trait_xp = {
+            trait = roe_master_of_slave_soldiers
+            track = regular_army
+            value = $VALUE$
+        }
+    }
+}
+
+# ROOT: character
+# PARAMS:
+#   VALUE: int
+roe_character_vassal_slaves_increase_clout_effect = {
+    if = {
+        limit = {
+            any_vassal = {
+                is_landed = yes
+                highest_held_title_tier >= tier_county
+                has_trait = roe_slave_soldier
+            }
+        }
+        every_vassal = {
+            limit = {
+                is_landed = yes
+                highest_held_title_tier >= tier_county
+                has_trait = roe_slave_soldier
+            }
+            add_trait_xp = {
+                trait = roe_slave_soldier
+                track = clout
+                value = $VALUE$
+            }
+        }
+    }
+}

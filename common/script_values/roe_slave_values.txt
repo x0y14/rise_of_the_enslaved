@@ -30,3 +30,11 @@ roe_convert_slaves_to_ghulam_train_cost_per_unit_value = {
 roe_convert_slaves_to_mamluks_train_cost_per_unit_value = {
     value = 2
 }
+
+roe_master_of_slave_soldiers_declining_morale_value = {
+    value = 5
+}
+
+roe_increase_clout_value = {
+    value = 5
+}
