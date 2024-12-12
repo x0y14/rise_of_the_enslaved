@@ -1,0 +1,505 @@
+﻿roe_convert_slaves_to_ghulam_decision = { # convert slave tokens to levies
+    decision_group_type = roe_slave
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+
+    is_shown = {
+        is_landed = yes
+        highest_held_title_tier >= tier_county
+        roe_character_is_valid_slave_owner_trigger = yes
+    }
+    
+    is_valid = {
+        # actorが1以上の奴隷を持っていること
+        custom_tooltip = {
+            text = roe_you_must_have_at_least_1_slave_tt
+            roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        }
+    }
+    is_valid_showing_failures_only = {
+        exists = capital_province
+    }
+
+    widget = {
+        gui = "decision_view_widget_generic_multichoice_with_effects"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = "roe_convert_slaves_to_ghulam_decision_second_step_button_confirm"
+        show_from_start = yes
+        # AFRICAN
+        item = {
+            value = choose_african
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_african_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_african_name
+            current_description = choose_african_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # SLAVIC
+        item = {
+            value = choose_slavic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_slavic_name
+            current_description = choose_slavic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # TURKIC
+        item = {
+            value = choose_turkic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_turkic_name
+            current_description = choose_turkic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # VARIOUS
+        item = {
+            value = choose_various
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_various_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_various_name
+            current_description = choose_various_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+    }
+
+    cost = {}
+
+    effect = {
+        # TOOLTIP_ONLY
+        show_as_tooltip = {
+            if = {
+                limit = {
+                    OR = {
+                        scope:choose_african = yes
+                        scope:choose_slavic = yes
+                        scope:choose_turkic = yes
+                        scope:choose_various = yes
+                    }
+                }
+                # Lost Token
+                if = {
+                    limit = { scope:choose_african = yes }
+                    custom_tooltip = roe_convert_slaves_to_ghulam_decision_choose_african_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_slavic = yes }
+                    custom_tooltip = roe_convert_slaves_to_ghulam_decision_choose_slavic_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_turkic = yes }
+                    custom_tooltip = roe_convert_slaves_to_ghulam_decision_choose_turkic_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_various = yes }
+                    custom_tooltip = roe_convert_slaves_to_ghulam_decision_choose_various_lost_effect_tt
+                }
+                # # Gain Levies
+                # spawn_army = {
+                #     levies = roe_min_slave_token_unit_value
+                #     location = capital_province
+                #     uses_supply = yes
+                #     inheritable = yes
+                #     name = roe_troop_name_default_ghulam
+                # }
+                # # Lost Gold as train cost
+                # remove_gold = {
+                #     value = roe_min_slave_token_unit_value
+                #     multiply = roe_convert_slaves_to_ghulam_train_cost_per_unit_value
+                # }
+            }
+        }
+    
+        # 最終的に何unit失うのか
+        set_local_variable = {
+            name = sell_token_unit_count
+            value = roe_min_slave_token_unit_value
+        }
+        # TOKENの取り出し(取り出したまま何もしないので虚無に消える)
+        # AFRICAN
+        if = {
+            limit = {
+                scope:choose_african = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = local_var:sell_token_unit_count
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # SLAVIC
+        else_if = {
+            limit = {
+                scope:choose_slavic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = local_var:sell_token_unit_count
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # TURKIC
+        else_if = {
+            limit = {
+                scope:choose_turkic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = local_var:sell_token_unit_count
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # VARIOUS
+        else_if = {
+            limit = {
+                scope:choose_various = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = local_var:sell_token_unit_count
+            }
+        }
+
+        # Gain Levies
+        spawn_army = {
+            levies = roe_min_slave_token_unit_value
+            location = capital_province
+            uses_supply = yes
+            inheritable = yes
+            name = roe_troop_name_default_ghulam
+        }
+        # Lost Gold as train cost
+        remove_short_term_gold = {
+            value = roe_min_slave_token_unit_value
+            multiply = roe_convert_slaves_to_ghulam_train_cost_per_unit_value
+            round = yes
+        }
+    }
+
+    ai_check_interval = 6
+    ai_potential = {
+        faith.religion = religion:islam_religion
+    }
+    ai_will_do = {
+        base = 100
+    }
+}
+
+roe_convert_slaves_to_mamluks_decision = { # convert slav tokens to MAAs
+    decision_group_type = roe_slave
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	}
+
+    is_shown = {
+        is_landed = yes
+        highest_held_title_tier >= tier_county
+        roe_character_is_valid_slave_owner_trigger = yes
+    }
+    
+    is_valid = {
+        # actorが1以上の奴隷を持っていること
+        custom_tooltip = {
+            text = roe_you_must_have_at_least_1_slave_tt
+            roe_character_has_more_than_or_equal_1_slave_token_trigger = yes
+        }
+    }
+    is_valid_showing_failures_only = {
+        exists = capital_province
+    }
+
+    widget = {
+        gui = "decision_view_widget_generic_multichoice_with_effects"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = "roe_convert_slaves_to_mamluks_decision_second_step_button_confirm"
+        show_from_start = yes
+        # AFRICAN
+        item = {
+            value = choose_african
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_african_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_african_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_african_name
+            current_description = choose_african_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # SLAVIC
+        item = {
+            value = choose_slavic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_slavic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_slavic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_slavic_name
+            current_description = choose_slavic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # TURKIC
+        item = {
+            value = choose_turkic
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_turkic_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_turkic_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_turkic_name
+            current_description = choose_turkic_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+        # VARIOUS
+        item = {
+            value = choose_various
+            is_valid = {
+                custom_tooltip = {
+                    text = roe_you_must_have_at_least_min_unit_various_slaves_tt
+                    roe_character_is_valid_slave_owner_trigger = yes
+                    var:roe_various_slave_token >= roe_min_slave_token_unit_value
+                }
+            }
+            icon = "gfx/interface/icons/faith/imami.dds"
+            localization = choose_various_name
+            current_description = choose_various_desc
+            ai_chance = {
+                value = 0
+            }
+        }
+    }
+
+    cost = {}
+
+    effect = {
+        # TOOLTIP_ONLY
+        show_as_tooltip = {
+            if = {
+                limit = {
+                    OR = {
+                        scope:choose_african = yes
+                        scope:choose_slavic = yes
+                        scope:choose_turkic = yes
+                        scope:choose_various = yes
+                    }
+                }
+                # Lost Token
+                if = {
+                    limit = { scope:choose_african = yes }
+                    custom_tooltip = roe_convert_slaves_to_mamluks_decision_choose_african_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_slavic = yes }
+                    custom_tooltip = roe_convert_slaves_to_mamluks_decision_choose_slavic_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_turkic = yes }
+                    custom_tooltip = roe_convert_slaves_to_mamluks_decision_choose_turkic_lost_effect_tt
+                }
+                else_if = {
+                    limit = { scope:choose_various = yes }
+                    custom_tooltip = roe_convert_slaves_to_mamluks_decision_choose_various_lost_effect_tt
+                }
+            }
+        }
+
+       # 最終的に何unit失うのか
+        set_local_variable = {
+            name = sell_token_unit_count
+            value = roe_min_slave_token_unit_value
+        }
+        # TOKENの取り出し(取り出したまま何もしないので虚無に消える)
+        # AFRICAN
+        if = {
+            limit = {
+                scope:choose_african = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = local_var:sell_token_unit_count
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # SLAVIC
+        else_if = {
+            limit = {
+                scope:choose_slavic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = local_var:sell_token_unit_count
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # TURKIC
+        else_if = {
+            limit = {
+                scope:choose_turkic = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = local_var:sell_token_unit_count
+                MAX_VARIOUS_TOKEN = 0
+            }
+        }
+        # VARIOUS
+        else_if = {
+            limit = {
+                scope:choose_various = yes
+                exists = local_var:sell_token_unit_count
+            }
+            roe_character_takeout_slave_token_with_limit_effect = {
+                MAX_AFRICAN_TOKEN = 0
+                MAX_SLAVIC_TOKEN = 0
+                MAX_TURKIC_TOKEN = 0
+                MAX_VARIOUS_TOKEN = local_var:sell_token_unit_count
+            }
+        }
+
+        # Spawn Army
+        if = {
+            limit = { scope:choose_african = yes }
+            # Bush Hunting
+            spawn_army = {
+                men_at_arms = {
+                    type = bush_hunter
+                    stacks = {
+                        value = roe_min_slave_token_unit_value
+                        divide = 100
+                    }
+                }
+                location = capital_province
+                uses_supply = yes
+                inheritable = yes
+                name = roe_troop_name_default_mamluks
+            }
+        }
+        else_if = {
+            limit = { scope:choose_slavic = yes }
+            # Konni Raids
+            spawn_army = {
+                men_at_arms = {
+                    type = hussar
+                    stacks = {
+                        value = roe_min_slave_token_unit_value
+                        divide = 100
+                    }
+                }
+                location = capital_province
+                uses_supply = yes
+                inheritable = yes
+                name = roe_troop_name_default_mamluks
+            }
+        }
+        else_if = {
+            limit = { scope:choose_turkic = yes }
+            # Horse Archers
+            spawn_army = {
+                men_at_arms = {
+                    type = horse_archers
+                    stacks = {
+                        value = roe_min_slave_token_unit_value
+                        divide = 100
+                    }
+                }
+                location = capital_province
+                uses_supply = yes
+                inheritable = yes
+                name = roe_troop_name_default_mamluks
+            }
+        }
+        else_if = {
+            limit = { scope:choose_various = yes }
+            # Light Footmen
+            spawn_army = {
+                men_at_arms = {
+                    type = light_footmen
+                    stacks = {
+                        value = roe_min_slave_token_unit_value
+                        divide = 100
+                    }
+                }
+                location = capital_province
+                uses_supply = yes
+                inheritable = yes
+                name = roe_troop_name_default_mamluks
+            }
+        }
+        # Lost Gold as train cost
+        remove_short_term_gold = {
+            value = roe_min_slave_token_unit_value
+            multiply = roe_convert_slaves_to_mamluks_train_cost_per_unit_value
+            round = yes
+        }
+    }
+
+    ai_check_interval = 6
+    ai_potential = {
+        faith.religion = religion:islam_religion
+    }
+    ai_will_do = {
+        base = 100
+    }
+}

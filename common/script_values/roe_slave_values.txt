@@ -23,3 +23,10 @@ roe_county_init_slave_token_value = {
     }
     round = yes
 }
+
+roe_convert_slaves_to_ghulam_train_cost_per_unit_value = {
+    value = 0.5
+}
+roe_convert_slaves_to_mamluks_train_cost_per_unit_value = {
+    value = 2
+}

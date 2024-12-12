@@ -1,4 +1,5 @@
 ﻿l_english:
+  # < TEST >
   roe_test_setup_slave_market_decision: "Setup Slave Market"
   roe_test_setup_slave_market_decision_desc: "DESC"
   roe_test_setup_slave_market_decision_tooltip: "TOOLTIP"
@@ -10,6 +11,7 @@
   roe_test_create_trade_task_contract_decision_tooltip: "TOOLTIP"
   roe_test_create_trade_task_contract_decision_confirm: "confirm"
 
+  # < Trade >
   roe_buy_slaves_through_market_decision: "Buy Slaves Through Market"
   roe_buy_slaves_through_market_decision_desc: "DESC"
   roe_buy_slaves_through_market_decision_tooltip: "TOOLTIP"
@@ -72,3 +74,26 @@
   roe_sell_slaves_throught_merchant_decision_choose_turkic_effect_tt: "$roe_sell_slaves_through_market_decision_choose_turkic_effect_tt$"
   roe_sell_slaves_throught_merchant_decision_choose_various_effect_tt: "$roe_sell_slaves_through_market_decision_choose_various_effect_tt$"
   roe_sell_slaves_throught_merchant_decision_choose_all_effect_tt: "$roe_sell_slaves_through_market_decision_choose_all_effect_tt$"
+
+  # < Army >
+  roe_convert_slaves_to_ghulam_decision: "Convert Slaves to Ghulam"
+  roe_convert_slaves_to_ghulam_decision_desc: "DESC"
+  roe_convert_slaves_to_ghulam_decision_tooltip: "TOOLTIP"
+  roe_convert_slaves_to_ghulam_decision_confirm: "CONFIRM"
+  roe_convert_slaves_to_ghulam_decision_second_step_button_confirm: "2nd CONFIRM"
+  roe_convert_slaves_to_ghulam_decision_choose_african_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_african_effect_tt$"
+  roe_convert_slaves_to_ghulam_decision_choose_slavic_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_slavic_effect_tt$"
+  roe_convert_slaves_to_ghulam_decision_choose_turkic_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_turkic_effect_tt$"
+  roe_convert_slaves_to_ghulam_decision_choose_various_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_various_effect_tt$"
+  # roe_convert_slaves_to_ghulam_decision_choose_all_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_all_effect_tt$"
+  # roe_convert_slaves_to_ghulam_decision_lost_gold_effect_tt: "You gain [gold_i][cost_gold.GetValue|+0]"
+
+  roe_convert_slaves_to_mamluks_decision: "Convert Slaves to Mamluks"
+  roe_convert_slaves_to_mamluks_decision_desc: "DESC"
+  roe_convert_slaves_to_mamluks_decision_tooltip: "TOOLTIP"
+  roe_convert_slaves_to_mamluks_decision_confirm: "CONFIRM"
+  roe_convert_slaves_to_mamluks_decision_second_step_button_confirm: "2nd CONFIRM"
+  roe_convert_slaves_to_mamluks_decision_choose_african_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_african_effect_tt$"
+  roe_convert_slaves_to_mamluks_decision_choose_slavic_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_slavic_effect_tt$"
+  roe_convert_slaves_to_mamluks_decision_choose_turkic_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_turkic_effect_tt$"
+  roe_convert_slaves_to_mamluks_decision_choose_various_lost_effect_tt: "$roe_sell_slaves_through_market_decision_choose_various_effect_tt$"
