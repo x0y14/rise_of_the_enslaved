@@ -79,3 +79,49 @@ roe_master_of_slave_soldiers = {
     
     level = 2
 }
+
+roe_slave_general = {
+    category = fame
+    icon = "roe_slave.dds"
+    group = roe_slave
+
+    shown_in_ruler_designer = no
+
+    name = trait_roe_slave_general
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_roe_slave_general_desc
+			}
+			desc = trait_roe_slave_general_character_desc
+		}
+	}
+
+    level = 1
+}
+
+roe_slave_soldier = {
+    category = fame
+    icon = "roe_slave_soldier.dds"
+    group = roe_slave
+
+    shown_in_ruler_designer = no
+
+    name = trait_roe_slave_soldier
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_roe_slave_soldier_desc
+			}
+			desc = trait_roe_slave_soldier_character_desc
+		}
+	}
+
+    level = 2
+}

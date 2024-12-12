@@ -14,3 +14,16 @@
   trait_roe_master_of_slave_soldiers: "$trait_roe_slave_owner$"
   trait_roe_master_of_slave_soldiers_desc: "This character owns slaves and slave soldiers."
   trait_roe_master_of_slave_soldiers_character_desc: "$trait_roe_slave_owner_character_desc$"
+
+  # Slave Group
+  trait_roe_slave: "Slave"
+  trait_roe_slave_desc: "This character is a slave."
+  trait_roe_slave_character_desc: "$trait_roe_slave_desc$"
+
+  trait_roe_slave_general: "$trait_roe_slave$"
+  trait_roe_slave_general_desc: "$trait_roe_slave_desc$"
+  trait_roe_slave_general_character_desc: "$trait_roe_slave_character_desc$"
+
+  trait_roe_slave_soldier: "Slave Soldier"
+  trait_roe_slave_soldier_desc: "This character is a slave soldier."
+  trait_roe_slave_soldier_character_desc: "$trait_roe_slave_soldier_desc$"
