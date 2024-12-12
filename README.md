@@ -77,4 +77,3 @@ CK3用。
 - [ ] 奴隷->君主のinteraction
 - [ ] 奴隷のイベント群
 - [ ] 貿易の妨害  
-貿易はLaampのTransport TaskContractで再現されています。LaampのlocationとLooterのlocationが重なった場合にイベントを発生させるようにすることでキャラバンの襲撃を再現できる可能性があります。
