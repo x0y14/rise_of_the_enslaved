@@ -17,6 +17,7 @@ roe_installed_on_action = {
 on_game_start_after_lobby = {
     on_actions = {
         roe_setup_slave_market_on_action
+        roe_setup_characters_867_on_action
     }
 }
 
@@ -240,6 +241,46 @@ roe_setup_slave_market_on_action = {
                 TURKIC_SLAVE_TOKEN = local_var:init_turkic_slave_token
                 VARIOUS_SLAVE_TOKEN = local_var:init_various_slave_token
             }
+        }
+    }
+}
+
+roe_setup_characters_867_on_action = {
+    trigger = {
+        game_start_date = 867.1.1
+    }
+    effect = {
+        character:34014 = {
+            if = {
+                limit = { is_alive = yes }
+                roe_character_setup_slave_owner_effect = yes
+                roe_character_change_slave_owner_to_master_effect = yes
+                roe_character_store_slave_token_effect = {
+                      AFRICAN_SLAVE_TOKEN = 300
+                      SLAVIC_SLAVE_TOKEN = 300
+                      TURKIC_SLAVE_TOKEN = 2000
+                      VARIOUS_SLAVE_TOKEN = 300
+                }
+            }
+        }
+        # https://en.wikipedia.org/wiki/Salih_ibn_Wasif ?
+        # 不明
+        character:turkish000007 = { # Wasif
+        }
+        # https://en.wikipedia.org/wiki/Musa_ibn_Bugha_al-Kabir ?
+        # Ghulam
+        character:163132 = { # Musa Turki 
+            if = {
+                limit = { is_alive = yes }
+                add_trait = roe_slave_soldier
+            }
+        }
+        # ?
+        character:extra_turks_0003 = {
+        }
+        # Slave
+        character:extra_turks_0001 = {
+
         }
     }
 }
