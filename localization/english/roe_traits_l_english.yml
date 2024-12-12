@@ -14,6 +14,9 @@
   trait_roe_master_of_slave_soldiers: "$trait_roe_slave_owner$"
   trait_roe_master_of_slave_soldiers_desc: "This character owns slaves and slave soldiers."
   trait_roe_master_of_slave_soldiers_character_desc: "$trait_roe_slave_owner_character_desc$"
+  trait_track_regular_army: "Declining morale of Regular Army"
+  trait_track_regular_army_desc: "Preferential treatment of slave army reduces the discipline of regular army."
+
 
   # Slave Group
   trait_roe_slave: "Slave"
@@ -27,3 +30,5 @@
   trait_roe_slave_soldier: "Slave Soldier"
   trait_roe_slave_soldier_desc: "This character is a slave soldier."
   trait_roe_slave_soldier_character_desc: "$trait_roe_slave_soldier_desc$"
+  trait_track_clout: "clout"
+  trait_track_clout_desc: "The clout grows every time liege hire slave soldiers."
