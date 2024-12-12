@@ -172,7 +172,7 @@ roe_get_slave_market_counties_with_territoy_effect = {
     }
     # 
     every_in_global_list = {
-        variable = roe_slave_market_counties
+        variable = roe_global_slave_market_counties
         if = {
             limit = {
                 $TERRITORY$ = flag:world_europe

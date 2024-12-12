@@ -2,7 +2,7 @@
     tier = tier_county
     save_temporary_scope_as = _title
     is_target_in_global_variable_list = {
-        name = roe_slave_market_counties
+        name = roe_global_slave_market_counties
         target = scope:_title
     }
 }
