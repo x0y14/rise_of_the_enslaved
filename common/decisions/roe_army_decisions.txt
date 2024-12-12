@@ -142,6 +142,11 @@
                 # }
             }
         }
+        # owner -> master
+        if = {
+            limit = { roe_character_is_master_of_slave_soldiers_trigger = no }
+            roe_character_change_slave_owner_to_master_effect = yes
+        }
     
         # 最終的に何unit失うのか
         set_local_variable = {
@@ -215,12 +220,6 @@
             value = roe_min_slave_token_unit_value
             multiply = roe_convert_slaves_to_ghulam_train_cost_per_unit_value
             round = yes
-        }
-
-        # owner -> master
-        if = {
-            limit = { roe_character_is_master_of_slave_soldiers_trigger = no }
-            roe_character_change_slave_owner_to_master_effect = yes
         }
         # モラルの低下
         roe_character_army_declining_morale_effect = {
@@ -373,6 +372,13 @@ roe_convert_slaves_to_mamluks_decision = { # convert slav tokens to MAAs
             }
         }
 
+        # 最初にやらないと取り出し時に消える
+        # owner -> master
+        if = {
+            limit = { roe_character_is_master_of_slave_soldiers_trigger = no }
+            roe_character_change_slave_owner_to_master_effect = yes
+        }
+
         # 最終的に何unit失うのか
         set_local_variable = {
             name = sell_token_unit_count
@@ -506,12 +512,6 @@ roe_convert_slaves_to_mamluks_decision = { # convert slav tokens to MAAs
             value = roe_min_slave_token_unit_value
             multiply = roe_convert_slaves_to_mamluks_train_cost_per_unit_value
             round = yes
-        }
-
-        # owner -> master
-        if = {
-            limit = { roe_character_is_master_of_slave_soldiers_trigger = no }
-            roe_character_change_slave_owner_to_master_effect = yes
         }
         # モラルの低下
         roe_character_army_declining_morale_effect = {
