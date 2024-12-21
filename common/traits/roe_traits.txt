@@ -158,7 +158,7 @@ roe_slave_soldier = {
 		}
 	}
 
-    flag = roe_can_abduct_interaction
+    # flag = roe_can_abduct_interaction
 
     tracks = {
         clout = {
